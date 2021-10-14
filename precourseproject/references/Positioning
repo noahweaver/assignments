@@ -1,0 +1,10 @@
+Different types of CSS positioning
+
+display: inline;
+    display in a line
+display: block;
+    display as a block
+display: inline - block
+    display two blocks as a line
+display: none;
+    this item will disappear

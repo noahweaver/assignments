@@ -1,0 +1,22 @@
+Margin - space between block and other blocks
+    Border - box surrounding padding and content
+        Padding - space between content and border
+            Content
+
+Margin
+    margin size in px
+
+        Border
+            size, style, color;
+            example: 3px, solid, black
+
+            Padding
+                Padding size in px
+
+                    Content
+                        height;
+                        width;
+
+
+
+All of these can also be applied only to top, bottom, left, right, etc by specificying (example: border-bottom: 10px;)

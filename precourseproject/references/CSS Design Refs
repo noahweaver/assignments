@@ -1,0 +1,28 @@
+Color Scheme
+    color.adobe.com 
+Ways to display color:
+    Numbers 0-9 and A-F #RRGGBB
+        Shortened as #RGB (All values are doubled to be #RRGGBB)
+    rgb(r,g,b) 
+         number values are 0-255 or 0%-100%
+    rgba(r,g,b,a)
+        a is for opacity and is between 0-1
+
+Examples of displaying the same color:
+#f03
+ #F03
+ #ff0033
+ #FF0033
+ rgb(255,0,51)
+ rgb(255, 0, 51)
+ rgb(255, 0, 51.2) /* ERROR! Don't use decimals, use integers only */ 
+ rgb(100%,0%,20%)
+ rgb(100%, 0%, 20%)
+ rgb(100%, 0, 20%) /* ERROR! Don't mix up integer and percentage notation */`
+
+
+
+
+Fonts  
+    https://fonts.google.com/
+    https://www.designbold.com/academy/en/choosing-the-right-fonts-for-website/ 

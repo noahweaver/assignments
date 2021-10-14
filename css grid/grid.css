@@ -1,0 +1,119 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 40px;
+}
+
+/* Phone Screen */
+#grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+#box1{
+    background-color: red;
+    height: 75px;
+    border-radius: 3%;
+}
+#box2{
+    background-color: blue;
+    height: 75px;
+    border-radius: 3%;
+}
+#box3{
+    background-color: green;
+    height: auto;
+    border-radius: 3%;
+}
+#box4{
+    background-color: purple;
+    height: 75px;
+    border-radius: 3%;
+}
+#box5{
+    background-color: yellow;
+    height: 75px;
+    border-radius: 3%;
+}
+
+/* Tablet Screen */
+@media only screen and (min-width: 481px) and (max-width: 1200px){
+#grid-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+}
+#box1{
+    background-color: red;
+    height: 75px;
+    border-radius: 3%;
+    grid-column: 1/5;
+}
+#box2{
+    background-color: blue;
+    height: auto;
+    border-radius: 3%;
+}
+#box3{
+    background-color: green;
+    height: auto;
+    border-radius: 3%;
+    grid-column: 2/5;
+}
+#box4{
+    background-color: purple;
+    height: 75px;
+    border-radius: 3%;
+    grid-column: 1/5;
+}
+#box5{
+    background-color: purple;
+    height: 75px;
+    border-radius: 3%;
+    grid-column: 1/5;
+}
+}
+
+
+/* Laptop Screen */
+@media only screen and (min-width: 1201px) and (max-width: 1400px){
+#grid-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+}
+#box1{
+    background-color: red;
+    height: 75px;
+    border-radius: 3%;
+    grid-column: 1/5;
+}
+#box2{
+    background-color: blue;
+    height: auto;
+    border-radius: 3%;
+    height: auto;
+    grid: 1/2;
+}
+#box3{
+    background-color: green;
+    height: auto;
+    border-radius: 3%;
+    grid-column: 2/4;
+
+}
+#box4{
+    background-color: purple;
+    height: auto;
+    border-radius: 3%;
+    grid-column: 4/5;
+}
+#box5{
+    background-color: purple;
+    height: 75px;
+    border-radius: 3%;
+    grid-column: 1/5;
+}
+}

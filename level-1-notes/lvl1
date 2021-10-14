@@ -1,0 +1,138 @@
+#flex-direction: row (default):
+    - justify-content: left to right
+    - align-items: top to bottom
+    
+#flex-direction: column
+    - justify-content: top to bottom
+    - align-items: left to right
+
+
+var powerRangers = [
+    "Jason Lee Scott", 
+    "Kimberly Hart", 
+    "Zack Taylor", 
+    "Trini Kwan", 
+    "Billy Cranston"
+]
+
+var rangersList = document.getElementById("rangers")
+
+for (var i = 0; i < rangersList.length; i++) {
+    var newName = document.createElement("li")
+    newName.textContent = powerRangers [i]
+    rangersList.append(newName)
+}
+
+
+# Selecting element(s)
+
+`document.getElementById(<id string>)` - Returns a single element by its ID. If you (erroneously) have two elements with the same id, it will pick the first one it finds
+
+`document.querySelector(<CSS selector string>)` - Returns a single element based on the CSS selector provided as a string. If multiple items match the CSS selector, this will only return the first one that matches.
+
+`document.getElementsByClassName(<class name string>)` - Returns an array-like HTML collection of all elements that have the provided class name. If 0 elements match, returns an empty HTML collection (like an empty array). If 1 element matches, returns an HTML collection with a single item in it (like an array with only 1 item).
+
+`document.getElementsByTagName(<tag name string>)` - Returns a collection of elements (array-like) with the provided tag name (e.g. "h1", "div", "li", etc.)
+
+`document.querySelectorAll(<CSS selector string>)` - Returns a collection of elements (array-like) that match the CSS selector.
+
+-------------------
+
+# Modifying elements
+
+(For descriptions below, imagine we've selected and saved an element to a variable called `element`)
+
+`element.textContent` - the plain text inside the element. Can be set equal to something new with the assignment operator (`=`)
+
+`element.innerHTML` - the string version of the HTML elements that are children of the selected element. If you add new HTML tags to the `innerHTML` of an element, they'll be turned into new elements on the page.
+
+`element.style` - an object whose properties match all available CSS properties of the element, but camelCased instead of separated with dashes. (E.g. `backgroundColor` instead of `background-color`)
+
+-------------------
+
+*Pro tip:* many attributes in the HTML of an element are accessible with JavaScript. E.g., an image element with a `src` attribute (<img id="logo" src="someImage.jpg" />) can be accessed or modified from the selected element in JS:
+
+```
+var myImage = document.getElementById("logo")
+myImage.src = "newImage.jpg"
+```
+
+Same goes for `href`, `id`, etc.
+
+# forms
+
+     <form name="myForm">
+            Male:   <input type="radio" name="gender" value="Male"/>
+            Female: <input type="radio" name="gender" value="Female"/>
+            
+            Which are your favorite? Select all that apply:
+            Movies: <input type="checkbox" value="Movies" name="entertainment"/>
+            Games: <input type="checkbox" value="Games" name="entertainment"/>
+            
+            <select name="city">
+                <option value="Paris">Paris</option>
+                <option value="New York">New York</option>
+                <option value="Chicago">Chicago</option>
+            </select>
+            
+            
+            <button>Submit</button>
+const form = document["my-form"]
+
+// Submit event
+
+form.addEventListener("submit", function(event){
+    event.preventDefault()
+    
+    const firstName = form.firstName.value
+    const lastName = form.lastName.value
+    form.firstName.value = ""
+    form.lastName.value = ""
+    
+    // 1 . <h1></h1>
+    const h1 = document.createElement('h1')
+    // 2. <h1>Harry Potter</h1>
+    h1.textContent = firstName + " " + lastName
+    // 3. Append
+    document.getElementsByTagName("body")[0].append(h1)
+})
+const form = document.myForm
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault()
+    
+    // Radio Inputs
+    // console.log(form.gender.value)
+    
+    
+    // Checkbox Inputs
+    // console.log(form.entertainment)
+    
+    // const checkedInputs = []
+    
+    // for(let i = 0; i < form.entertainment.length; i++){
+    //     if(form.entertainment[i].checked){
+    //         checkedInputs.push(form.entertainment[i].value)
+    //     }
+    // }
+    
+    // console.log(checkedInputs)
+    
+    
+    // Select Option inputs
+    
+    console.log(form.city.value)
+    
+    
+})
+
+# get all values in array from checkboxes
+document.animals.addEventListener("submit", function(e){
+    e.preventDefault()
+    var checkedAnimals = [];
+    var checkedBoxes = document.querySelectorAll("input[name=likes]:checked");
+    for (var i = 0; i < checkedBoxes.length; i++) {
+        checkedAnimals.push(checkedBoxes[i].value);
+    }
+    console.log(checkedAnimals)
+});

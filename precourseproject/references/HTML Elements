@@ -1,0 +1,15 @@
+Elements
+    - Used to define the specific visual parts of our website
+    
+Types of Elements (there are many more) 
+    - h1 - h6
+    - p
+    - span
+    - img
+    - div
+    - input
+    - form
+    - script
+    - link
+    - button
+    - a

@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    font-size: 0px;
+    border: 1px solid white;
+}
+/* Small screens up to 768px */
+#light-pink-box{
+    background-color: #F5C6D6;
+    height: 50px;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: italic;
+    text-decoration: underline;
+    font-weight: bold;
+    padding: 10px;
+    font-family: cursive;
+    color:green;
+}
+#pink-box1{
+    background-color: #EE2E84;
+    height: 50px;
+}
+#pink-box2{
+    background-color: #EE2E84;
+    height: 50px;
+}
+#pink-box3{
+    background-color: #EE2E84;
+    height: 50px;
+}
+#pink-box4{
+    background-color: #EE2E84;
+    height: 50px;
+}
+#blue-box1{
+    background-color: #85CFD8;
+    height: 50px;
+}
+#blue-box2{
+    background-color: #85CFD8;
+    height: 50px;
+}
+#green-box{
+    background-color: #8DC63F;
+    height: 50px;
+}
+#orange-box{
+    background-color: #E76E34;
+    height: 50px;
+}
+
+/* Screens larger than 768px */
+@media only screen and (min-width: 768px){
+    #light-pink-box{
+        background-color: #F5C6D6;
+        height: 200px;
+        border: 10px solid white;
+        font-size: 50px;
+        text-align: center;
+        text-decoration: italic;
+        text-decoration: underline;
+        padding: 10px;
+        font-family: cursive;
+    }
+    #pink-box1{
+        background-color: #EE2E84;
+        height: 200px;
+        width: 25%;
+        display: inline-block;
+        border: 10px solid white;
+    }
+    #pink-box2{
+        background-color: #EE2E84;
+        height: 200px;
+        width: 25%;
+        display: inline-block;
+        border: 10px solid white;
+    }
+    #pink-box3{
+        background-color: #EE2E84;
+        height: 200px;
+        width: 25%;
+        display: inline-block;
+        border: 10px solid white;
+    }
+    #pink-box4{
+        background-color: #EE2E84;
+        height: 200px;
+        width: 25%;
+        display: inline-block;
+        border: 10px solid white;
+    }
+    #blue-box1{
+        background-color: #85CFD8;
+        height: 200px;
+        width: 50%;
+        display:inline-block;
+        border: 10px solid white;
+    }
+    #blue-box2{
+        background-color: #85CFD8;
+        height: 200px;
+        width: 50%;
+        display: inline-block;
+        border: 10px solid white;
+    }
+    #green-box{
+        background-color: #8DC63F;
+        height: 200px;
+        width: 75%;
+        display: inline-block;
+        border: 10px solid white;
+    }
+    #orange-box{
+        background-color: #E76E34;
+        height: 200px;
+        width: 25%;
+        display: inline-block;
+        border: 10px solid white;
+    }
+}
