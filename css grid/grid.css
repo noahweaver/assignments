@@ -5,8 +5,11 @@ html, body{
     text-align: center;
     font-size: 40px;
 }
-
 /* Phone Screen */
+.box{
+    border-radius: 3%;
+    height: 75px;
+}
 #grid-container{
     display: grid;
     grid-template-columns: 1fr;
@@ -14,28 +17,19 @@ html, body{
 }
 #box1{
     background-color: red;
-    height: 75px;
-    border-radius: 3%;
 }
 #box2{
     background-color: blue;
-    height: 75px;
-    border-radius: 3%;
 }
 #box3{
     background-color: green;
     height: auto;
-    border-radius: 3%;
 }
 #box4{
     background-color: purple;
-    height: 75px;
-    border-radius: 3%;
 }
 #box5{
     background-color: yellow;
-    height: 75px;
-    border-radius: 3%;
 }
 
 /* Tablet Screen */
@@ -75,8 +69,6 @@ html, body{
     grid-column: 1/5;
 }
 }
-
-
 /* Laptop Screen */
 @media only screen and (min-width: 1201px) and (max-width: 1400px){
 #grid-container{
@@ -102,7 +94,6 @@ html, body{
     height: auto;
     border-radius: 3%;
     grid-column: 2/4;
-
 }
 #box4{
     background-color: purple;
