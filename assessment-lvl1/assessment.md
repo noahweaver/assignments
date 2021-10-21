@@ -15,4 +15,6 @@
 - If the enemy kills the player the console prints a cool death message and the game ends
 5. Inventory
 - When the player kills enemies, they are awarded with items
+//need an items array, ways  to add items. (maybe remove?)
 - If the user enters 'Print' or 'p' in the console, the console will print the players name, HP, and each item in their inventory
+//player needs to be an object. push player name to object
