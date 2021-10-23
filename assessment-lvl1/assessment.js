@@ -1,16 +1,20 @@
-const readline = require("readline-sync");
-const droppedItems = ["2011 Toyota Corolla", "cut-off jeans", "white crispy bois", "nacho cheese", "dementor", "Monster energy drink"];
-const enemies = [
-    {   name: "Prison Mike", 
-        health: 25, 
-        weakness: "dementor"},
-    {   name:"Kyle", 
-        health: 10, 
-        weakness: "Monster energy drink"}, 
-    {   name: "Wife", 
-        health: 50, 
-        weakness: "white crispy bois"}];
-
+const readline = require("readline-sync")
+const droppedItems = ["2011 Toyota Corolla”, “nacho cheese”, “cut-off jeans”, “jury duty”, “a teddy bear missing an eye”, “white crispy bois"]
+const enemies = ["prison mike”, “kyle”, “karen"]
+// const enemies = [
+//     {   name: “Prison Mike”,
+//         health: 25
+//     },
+//     {   name:“Kyle”,
+//         health: 10
+//     },
+//     {   name: “Karen”,
+//         health: 30
+//     }]
+function Enemy (name, health= 50){
+    this.name = name,
+    this.health = health
+}
 class Player {
     constructor(name, health = 100, inventory = []) {
         this.name = name,
@@ -18,94 +22,97 @@ class Player {
         this.inventory = inventory
     }
 }
-class Enemy {
-    constructor(name, health, weakness){
-        this.name = name,
-        this.health = health,
-        this.weakness = weakness
+// //gameplay
+const name = readline.question("Hello! Welcome to Colossal RPG! We are happy to see you! What is your name? ")
+const user = new Player(name);
+console.log( "Hi" + user.name + "!")
+console.log(user)
+while (user.health > 0){
+    const walking = readline.question("Enter ‘w’ to walk or ‘p’ to see player status: ")
+    if (walking === "w"){
+        walk(user);
+    } else if (walking === "p"){
+        console.log(user)
+    } else {
+        console.log("invalid entry")
+    }
+    if (user.health <= 0){
+        rip()
+    }
+    if (enemies.length === 0){
+        console.log ("You are the CHAMPION!")
+        return
     }
 }
-// const name = readline.question("Hello! Welcome to Colossal RPG! We are happy to see you! What is your name? ");
-// var user = new Player(name);
-// console.log("Hi " + user.name + "!");
-// while (user.health > 0){
-//     const walking = readline.question("enter 'w' to walk forward or 'p' to see current player status: ");
-//     if (walking === "w"){
-//         walk(user);
-//         return;
-//     } else if (walking === "p"){
-//         console.log(Player)
-//     }
-//     if (user.health <= 0){
-//         console.log("you dead. rip")
-//         gameOVer = true;
-//     }
-//     if (foundWcb === true) {
-//         console.log("You're the champion")
-//         gameOver = true;
-//     }
-// }
+//functions
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-// function walk() {
-//     const number = randomNumber(1,4);
-//     console.log("you rolled " +number+ "!")
-//     if (number === 4) {    
-//         fight ()
-//     } else {
-//         return;
-//     }
+function walk() {
+    const number = randomNumber(1,3);
+    // console.log(“you rolled ” +number+ “!”)
+    if (number === 3) {
+        fight ()
+    } else {
+        return
+    }
+}
 function fight (){
-    const [opponent] = enemies.splice(Math.floor(Math.random() * enemies.length),1)
-    let target = new Enemy(opponent);
+    const [opponent] = enemies.values(Math.floor(Math.random() * enemies.length))
+    const target = new Enemy(opponent)
+    let userHealth = user.health
+    let targetHealth = target.health
     console.log(target)
-    const running = randomNumber(0,2);
-    if (running === 2){
-        return;
-}}
-fight()
-// function rip() {
-//         //game over if you encounter a certain enemy
-//         //game over if you reach 0 health
-//         console.log("rip")
-//     }
-// function enemyAttack() {
-//         //random enemy from array
-//         //does damage if lesser health than user = to half the enemy health
-//         //kills user if higher health
-//         if () {
-//             //subtract health
-//             //tell user they won the battle and report new health and inventory
-//         } else if () {
-//             //enemy has higher health than user
-//             rip()
-//         }
-//     }
-// function attackEnemy() {
-//         //if health is greater than the enemy? maybe some other parameter
-//         if () {
-//             defeatEnemy()
-//         } else {
-//             rip()
-//         }
-//     }
-//      function defeatEnemy() {
-//         //randomly select dropped items
-//         //add dropped item to inventory
-//         //subtract some health
-//         //report inventory and health
-//         //ask player to press w to walk
-//         //remove enemy from array
-//         //remove item from inventory
-//     }
+    // console.log(enemies)
+    if (user.inventory.includes("white crispy bois")){
+    console.log("You are protected by ‘white crispy bois’ "
+    +target.name+ "cannot hurt you")
+    enemies.splice(opponent,1)
+    console.log(enemies)
+    itemDrop()
+    }else {
+            const fightOptions = readline.question("You have have found ” +target.name+ ” Press ‘r’ for a 50% chance to escape. Press ‘f’ to attack ” +target.name+ “. NOTE: If your escape fails, ” +target.name+ ” will attack first. ")
+            if (fightOptions === "r"){
+                const running = randomNumber(0,1);
+                if (running === 1){
+                console.log("You escaped successfully, press ‘w’ to walk or ‘p’ to see your player profile. ")
+                    //return
+                enemies.splice(opponent,1)
+                console.log(enemies)
+                } else if (running === 0){
+//enemy attacks user
+                user.health = userHealth - targetHealth
+                    if (user.health > 0){
+                        console.log("escape failed ” +target.name+ ” attacked you. You defeated ” +target.name+ ” . " +target.health+ " was subtracted from your total health. Your health is now " +user.health+ ".")
+                        itemDrop()
+                        enemies.splice(opponent,1)
+                        console.log(enemies)
+                    } else {
+                        console.log(target.name+ "defeated you.")
+            }
+        }
+    } else if (fightOptions === "f"){
+//user attacks enemy
+        user.health = userHealth - (targetHealth / 2)
+        if (user.health > 0){
+            console.log("Congratulations ” +user.name+ “, you defeated ” +target.name+ “. You live to fight another day.")
+            itemDrop()
+            enemies.splice(opponent,1)
+            console.log(enemies)
+            }
+        }
+    }
+}
+function rip() {
+    console.log("you dead, RIP")
+    return
+}
 function itemDrop() {
     const [randomItemDrop] = droppedItems.splice(Math.floor(Math.random() * droppedItems.length), 1)
     user.inventory.push(randomItemDrop)
+    console.log(randomItemDrop, "was dropped and added to your inventory.")
+    console.log(user)
+    if (randomItemDrop === "white crispy bois"){
+        console.log(" ' “+randomItemDrop+ ” ' is a specail item. You will no longer take damage.")
+    }
 }
-//if enemies [] has 0 enemies, game over, user wins
-//gameplay
-// gameOver = false;
-// foundWcb = false;
-// haveDementor = false;
-
