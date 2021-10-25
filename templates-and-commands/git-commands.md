@@ -1,4 +1,4 @@
-gid add -A
+git add -A
 git commit -m "a relevant, useful message"
 git push
 
