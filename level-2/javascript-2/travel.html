@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Form</title>
+    <link rel="stylesheet" href="travel.css">
+</head>
+<body>
+    <h1>Welcome to Airlines!</h1>
+    <p>Please fill out the folowing form.</p>
+    <div>
+    <form name="airlineForm">
+        <h3>Personal Info:</h3>
+        First Name: <input type="text" name="firstName" placeholder="First Name">
+        <br>
+        Last Name: <input type="text" name="lastName" placeholder="Last Name">
+        <br>
+        Age: <input type="number" name="age" placeholder="Age" min="18" max="105">
+        <h3>Gender:</h3>
+        Male:<input type="radio" name="gender" value="male" id="male">
+        <br>
+        Female: <input type="radio" name="gender" value="female" id="female">
+        <br>
+        <h3>Destination</h3>
+        <select name="destination">
+            <option value="Florida">Florida</option>
+            <option value="Texas">Texas</option>
+            <option value="Alabama">Alabama</option>
+        </select>
+        <h3>Diet</h3>
+        Carnivore: <input class="diet" type="checkbox" name="diet" id="carnivore" value="carnivore">
+        <br>
+        Extra Gluten: <input class="diet" type="checkbox" name="diet" id="gluten" value="Extra gluten">
+        <br>
+        Paleo: <input class="diet" type="checkbox" name="diet" id="paleo" value="paleo">
+        <br>
+        <button>Submit</button>
+    </form>
+    <img id="airplane" src="http://images.clipartpanda.com/airplane-with-banner-clipart-aviation-clipart-girl_pilot_plane.png" />
+    <script src="travel.js"></script>
+    </div>
+</body>
+</html>

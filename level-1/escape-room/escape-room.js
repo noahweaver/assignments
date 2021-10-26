@@ -10,8 +10,7 @@ if (readline.keyInYNStrict("Hello, " +name+ ", do you want to play a game?")){
 gameOver = false;
 foundKey = false;
 
-
-options = ["Put your hand in a hole", "Find the key", "Open the door"];
+const options = ["Put your hand in a hole", "Find the key", "Open the door"];
 while (gameOver===false) {
     let index = readline.keyInSelect(options, 'Make your choice wisely!');
     if (index===1){
