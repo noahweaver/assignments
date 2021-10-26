@@ -11,6 +11,7 @@ add.addEventListener("submit", function(event){
     const addResult = parseInt(num1) + parseInt(num2)
     console.log(addResult)
     const h1 = document.createElement("h1")
+    h1.setAttribute("class", "add")
     h1.textContent = num1+ " + " +num2+ " = " +addResult
     document.getElementsByTagName("body")[0].append(h1)
     add.addition1.value = ""
@@ -26,6 +27,7 @@ sub.addEventListener("submit", function(event){
     console.log(subResult)
     const h1 = document.createElement("h1")
     h1.textContent = num1+ " - " +num2+ " = " +subResult
+    h1.setAttribute("class", "sub")
     document.getElementsByTagName("body")[0].append(h1)
     sub.subtraction1.value = ""
     sub.subtraction2.value = ""
@@ -39,6 +41,7 @@ mult.addEventListener("submit", function(event){
     const multResult = parseInt(num1) * parseInt(num2)
     console.log(multResult)
     const h1 = document.createElement("h1")
+    h1.setAttribute("class", "mult")
     h1.textContent = num1+ " x " +num2+ " = " +multResult
     document.getElementsByTagName("body")[0].append(h1)
     mult.multiplication1.value = ""

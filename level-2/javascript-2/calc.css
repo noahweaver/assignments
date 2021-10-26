@@ -34,3 +34,12 @@ button{
 #mult-button{
     background-color: rgb(152, 57, 152);
 }
+.add{
+    color: rgb(52, 171, 62)
+}
+.sub{
+    color: red;
+}
+.mult{
+    color: rgb(152, 57, 152);
+}
