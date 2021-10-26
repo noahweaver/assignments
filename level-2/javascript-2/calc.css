@@ -1,0 +1,36 @@
+html{
+    background-color: burlywood;
+}
+body{
+    display: grid;
+    justify-content: center;
+}
+h1{
+margin: auto;
+}
+.divs{
+padding: 5px;
+}
+#container{
+    border: black solid 5px;
+    background-color: cornflowerblue;
+    padding: 25px;
+    padding-top: 25px;
+}
+input{
+    background-color: darkgray;
+    width: 75px;
+}
+button{
+    width: 90px;
+    font-weight: bold;
+}
+#add-button{
+    background-color: rgb(52, 171, 62);
+}
+#sub-button{
+    background-color: red;
+}
+#mult-button{
+    background-color: rgb(152, 57, 152);
+}
