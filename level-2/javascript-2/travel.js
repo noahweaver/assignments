@@ -1,4 +1,4 @@
-const form = document.airlineForm;
+const form = document.airlineForm
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
