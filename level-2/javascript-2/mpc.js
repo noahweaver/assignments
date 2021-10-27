@@ -1,11 +1,6 @@
 // Mario Pest Control
 const form = document.billing
 
-// const bobombCost = bobombCount * 7
-// const cheepcheepsCost = cheepcheepsCount * 11
-// const goombaCost = goombaCount * 5
-
-
 form.addEventListener("submit", function(event){
     const goombaCount = form.goombas.value * 5
     console.log(goombaCount)
@@ -19,10 +14,3 @@ form.addEventListener("submit", function(event){
     const total = document.getElementById("total")
     total.textContent = "Total: " +totalCount+ " Coins"
 })
-
-
-
-
-
-//onchange function?
-//input or input event function
