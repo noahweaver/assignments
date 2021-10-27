@@ -1,17 +1,25 @@
 // Mario Pest Control
 const form = document.billing
 
-const goombaCount = form.goombas.value
-const bobombCount = form.bobombs.value
-const cheepcheepsCount = form.cheepcheeps.value
-const bobombCost = bobombCount * 7
-const cheepcheepsCost = cheepcheepsCount * 11
-const goombaCost = goombaCount * 5
+// const bobombCost = bobombCount * 7
+// const cheepcheepsCost = cheepcheepsCount * 11
+// const goombaCost = goombaCount * 5
 
-// const totalCount = goombaCount + bobombCount + cheepcheepsCount
 
-const total = document.getElementById("total")
-total.textContent = "Total: " +(goombaCost + bobombCost + cheepcheepsCost)+ " Coins"
+form.addEventListener("submit", function(event){
+    const goombaCount = form.goombas.value * 5
+    console.log(goombaCount)
+    const bobombCount = form.bobombs.value * 7
+    console.log(bobombCount)
+    const cheepcheepsCount = form.cheepcheeps.value * 11
+    console.log(cheepcheepsCount)
+    const totalCount = (parseInt(goombaCount) + parseInt(bobombCount) + parseInt(cheepcheepsCount))
+    console.log(totalCount)
+    event.preventDefault()
+    const total = document.getElementById("total")
+    total.textContent = "Total: " +totalCount+ " Coins"
+})
+
 
 
 

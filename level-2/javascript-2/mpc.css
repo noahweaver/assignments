@@ -11,6 +11,8 @@ html, body{
     justify-content: center;
     margin-top: 12.5px;
     margin-bottom: 50px;
+    font-family: sans-serif;
+    color: cadetblue;
 }
 #mario{
     width: 100px;
@@ -27,6 +29,10 @@ html, body{
     height: 200px;
     margin-bottom: 10px;
 }
+#submit-button{
+    display: block;
+    margin: auto;
+}
 h3{
     text-align: center;
     font-size: 25px;
@@ -39,8 +45,6 @@ h3{
     bottom: 0;
     height: 75px;
     width: 100%;
-    background: lightblue;
-    
-
+    background: cadetblue;
 
 }
