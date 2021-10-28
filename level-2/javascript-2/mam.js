@@ -8,24 +8,7 @@
 // 2. sorted alphabetically by last name, and where
 // 3. each name and age is embedded in a string that looks like an HTML `<li>` element.
 //example
-// function sortedOfAge(arr){
-//     // Your code here
-//  }
- 
-//  console.log(sortedOfAge(peopleArray));
- 
-//  /*
-//  Output:
-//  [
-//      "<li>Kyle Mooney is 27</li>",
-//      "<li>Sarah Palin is 47</li>",
-//      "<li>Rick Sanchez is 78</li>",
-//      "<li>Morty Smith is 29</li>",
-//      "<li>Lev Tolstoy is 82</li>"
-//  ]
-//  */
-
-var peopleArray = [
+const peopleArray = [
     {
         firstName: "Sarah",
         lastName: "Palin",
@@ -62,6 +45,24 @@ var peopleArray = [
         age: 82
     }
 ]
+function sortedOfAge(arr){
+    return arr.sort((a, b) => a.lastName.localeCompare(b.lastName)).filter(person => person.age >= 18).map(person => person.innerHTML = "<li>" +person.firstName+ " " +person.lastName+ " is " +person.age+ "</li>")
+    
+}
+
+ console.log(sortedOfAge(peopleArray));
+ 
+//  /*
+//  Output:
+//  [
+//      "<li>Kyle Mooney is 27</li>",
+//      "<li>Sarah Palin is 47</li>",
+//      "<li>Rick Sanchez is 78</li>",
+//      "<li>Morty Smith is 29</li>",
+//      "<li>Lev Tolstoy is 82</li>"
+//  ]
+//  */
+
 
 
 
