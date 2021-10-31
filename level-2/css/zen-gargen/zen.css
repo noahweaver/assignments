@@ -51,6 +51,10 @@ h3{
     font-family: 'Julius Sans One', sans-serif;
     font-size: 1.8em;
     font-weight: normal;
+    margin-bottom: 0;
+}
+p{
+    margin-top:0;
 }
     /* make new img to extend entire top row on top of two columns */
 #div1{
@@ -240,7 +244,7 @@ h3{
     background-image: url(contours@2x.png), url(gridlines.png), url(noise.png), url(koi.jpg);
 }
 
-@media (max-width: 900px){
+@media (max-width: 1130px){
     /* use this media query to help these two cells drop to the bottom when screens are smaller */
     .authors {
          
@@ -250,7 +254,81 @@ h3{
     }
     /* container could use some help so that it's children are full screen width */
     .container {
-        
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    #div1{
+        grid-row: 1/2;
+        padding: 87px;
+        padding-top: 11px;
+        font-size: 0.7em;
+    }
+    #div2{
+        grid-row: 1/2;
+        grid-column: 1/2;
+        position: absolute;
+        width: 100%;
+        margin-top: 13%;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    #div2 > button:first-child{
+        width: 90%;
+        height: 60px;
+        margin-left: 5%;
+    }
+    #div2 > button:nth-child(2){
+        width: 5%;
+        height: 60px;
+        background-color: transparent;
+    }
+    #div3{
+        grid-row: 3/4;
+        font-size: 0.8em;
+        padding: 2.5% 2.5% 2.5% 10%;
+    }
+    #div4{
+        /* articles need to have 2 columns */
+        /* smaller padding and/or margins */
+        grid-row: 8/9;
+        grid-column: 1/2;
+    }
+    #div5{
+        grid-row: 4/5;
+        font-size: 0.8em;
+        padding: 2.5% 2.5% 2.5% 10%;
+    }
+    #div6{
+        /* links need to have 2 columns */
+        /* smaller padding and/or margins */
+        grid-row: 9/10;
+        grid-column: 1/2;
+    }
+    #div7{
+       grid-row: 5/6;
+       font-size: 0.8em;
+       padding: 2.5% 2.5% 2.5% 10%;
+    }
+    #div8{
+        display: none;
+    }
+    #div9{
+        grid-row: 6/7;
+        font-size: 1em;
+        padding: 45px;
+    }
+    #div10{
+        grid-row: 7/8;
+    }
+    /* this class isn't changing in the media query */
+    div.icons{
+        display: flex;
+        padding: 30px 10%;
+        width: 50%;
+    }
+    div.icons > div{
+        width: 30px;
+        height: 30px;
+        font-size: 1.75em;
     }
 }
 
