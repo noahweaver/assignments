@@ -12,7 +12,10 @@
 
 //2) Turn an array of numbers into a long string of all those numbers.
 // function stringConcat(arr) {
-//     return arr.join("")
+//     return arr.reduce(function(final, numstr){
+//         final += numstr
+//         return final
+//     }, "")
 // }
 // console.log(stringConcat([1,2,3])); // "123" 
 
@@ -42,7 +45,7 @@
 // ];
 // console.log(totalVotes(voters)); // 7
 
-//4) Given an array of all your wishlist items, figure out how much it would cost to just buy everything at once
+// //4) Given an array of all your wishlist items, figure out how much it would cost to just buy everything at once
 // function shoppingSpree(arr) {
 //     return arr.reduce(function(final, item){
 //         final += item.price
@@ -60,7 +63,7 @@
 
 // console.log(shoppingSpree(wishlist)); // 227005
 
-//5) Given an array of arrays, flatten them into a single array  NOTE: Take a look at Array.concat() to help with this one
+// //5) Given an array of arrays, flatten them into a single array  NOTE: Take a look at Array.concat() to help with this one
 // function flatten(arr) {
 //     return arr.reduce(function (final, arrs){
 //         return final.concat(arrs)
@@ -75,8 +78,8 @@
 
 // console.log(flatten(arrays)); // ["1", "2", "3", true, 4, 5, 6];
 
-//6) Given an array of potential voters, return an object representing the results of the vote**
-// Include how many of the potential voters were in the ages 18-25, how many from 26-35, how many from 36-55, and how many of each of those age ranges actually voted. The resulting object containing this data should have 6 properties. See the example output at the bottom.
+// //6) Given an array of potential voters, return an object representing the results of the vote**
+// // Include how many of the potential voters were in the ages 18-25, how many from 26-35, how many from 36-55, and how many of each of those age ranges actually voted. The resulting object containing this data should have 6 properties. See the example output at the bottom.
 
 // var voters = [
 // {name:'Bob' , age: 30, voted: true},
