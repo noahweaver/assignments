@@ -1,0 +1,67 @@
+
+{
+    "Menu": [
+        {
+            "Appetizers": [
+                {
+                    "Name": "Cheese Stix",
+                    "Ingredients": ["Cheese", "Marinara Sauce", "Breading"],
+                    "Description": "Dip it in the saucey"
+                },
+                {
+                    "Name": "Queso and Chips",
+                    "Ingredients": ["Queso", "Chips", "Pico"],
+                    "Description": "Dip The Chips in the queso"
+                }
+            ],
+            "Cold Sandwiches": [
+                {
+                    "Name": "Ham & Cheese",
+                    "Ingredients": ["Ham", "Cheese", "Bread"],
+                    "Description": "Eat da sammich"
+                },
+                {
+                    "Name": "BLT",
+                    "Ingredients": ["B", "L", "T"],
+                    "Description": "BLT is Bacon, Lemons, Tangerines"
+                }
+            ],
+            "Hot Sanwiches": [
+                {
+                    "Name": "Grilled Cheese",
+                    "Ingredients": ["Grill", "Cheese", "Butter"],
+                    "Description": "No bread on this grilled cheese"
+                },
+                {
+                    "Name": "Prime Rib",
+                    "Ingredients": ["BabyBack", "Soy Sauce", "Mustard"],
+                    "Description": "Don't order this item"
+                }
+            ],
+            "Desserts": [
+                {
+                    "Name": "Cake",
+                    "Ingredients": ["Frosting", "Cake", "Toys"],
+                    "Description": "Yum"
+                },
+                {
+                    "Name": "Ice Cream",
+                    "Ingredients": ["Ice", "Cream", "Smiles"],
+                    "Description": "For a kid's birthday"
+                }
+            ],
+            "Drinks": [
+                {
+                    "Name": "Water",
+                    "Ingredients": ["water", "flouride", "minerald"],
+                    "Description": "stay hydrated"
+                },
+                {
+                    "Name": "Coke",
+                    "Ingredients": ["acid", "poison", "death"],
+                    "Description": "I still can't stop drinking it"
+                }
+            ]
+        }
+    ]
+}
