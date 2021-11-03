@@ -4,9 +4,7 @@
 //1
 //Use the REST OPERATOR to return an array of animals, no matter how many are passed
 // function collectAnimals(...inputs) {
-//     let animals = []
-//     animals.push(...inputs)
-//     return animals
+//     return [...inputs]
 // }
 
 // console.log(collectAnimals("dog", "cat", "mouse", "jackolope", "platypus"))
@@ -47,7 +45,7 @@
 //     return firstItem
 // }
 
-//OR 
+// OR 
 
 // const returnFirst = (items) => firstItem = items[0]
 // console.log(returnFirst(["charger", "shoes", "ID", "suitcase"]))
@@ -57,7 +55,7 @@
 // const favoriteActivities = ["magnets", "snowboarding", "philanthropy", "janitor work", "eating"];
 
 // function returnFavorites(arr){
-//     const [firstFav, secondFav, thirdFav, ...items] = arr
+//     const [firstFav, secondFav, thirdFav] = arr
 //     return `My top three favorite activities are, ${firstFav}, ${secondFav}, and ${thirdFav}`
 // }
 
@@ -78,7 +76,7 @@
 
 // console.log(combineAnimals(realAnimals, magicalAnimals, mysteriousAnimals));
 
-// // ["dog", "cat", "mouse", "jackolope", "platypus"]
+// ["dog", "cat", "mouse", "jackolope", "platypus"]
 
 //BLACK DIAMOND
 //1
@@ -88,11 +86,11 @@
 // }
 
 // console.log(product([2, 2, 3, 4, 5]))
-//2
-//Make the following function more ES6xy. Use at least both the rest and spread operators:
+// 2
+// Make the following function more ES6xy. Use at least both the rest and spread operators:
 
-// function unshift(a, b, c, d, e, [...array], ...nums) {
-//     return [a, b, c, d, e].concat(...array, ...nums);
+// function unshift(a, b, c, d, e, array, ...nums) {
+//     return [a, b, c, d, e, ...array, ...nums]
 //   }
 // console.log(unshift(1, 2, 3, 4, 5, [1, 2, 3], 934, 43))
 
@@ -107,8 +105,7 @@
 //         name = name.split(" ");
 //         const [firstName, lastName] = name
 //         return {
-//             firstName: firstName,
-//             lastName: lastName
+//             firstName, lastName
 //         }
 //     })
 // }
