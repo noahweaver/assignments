@@ -4,12 +4,14 @@
 // Re-write this `.map()` using an arrow function:
 // Be aware that if JavaScript sees a `{` directly after the `=>` it will think it's starting a function, and not starting an object, so the `:` will be an unexpected symbol.
 
-// const carrots = ["bright orange", "ripe", "rotten"]
 
-// function mapVegetables(arr) {
-//     return arr.map(carrot => ({ type: "carrot", name: carrot }))
-//     }
-// console.log(mapVegetables(carrots))
+
+const carrots = ["bright orange", "ripe", "rotten"]
+
+const mapVegetables = arr => {
+    return arr.map(carrot => ({ type: "carrot", name: carrot }))
+    }
+console.log(mapVegetables(carrots))
 
 //### **Task 2**
 // Re-write this `.filter()` using an arrow function:
