@@ -1,6 +1,24 @@
 /* Level-2 Capstone: Axios Todo Project */
+/* colors */
+/* fonts */
 
+@import url(https://fonts.google.com/specimen/Shadows+Into+Light?category=Handwriting#standard-styles);
+
+html,body{
+    margin: 0;
+    padding: 0;
+}
+#list{
+    font-family: "shadows into light", sans-serif;
+}
 img{
     height: 250px;
     width: 250px;
 }
+/*  document.getElementById("list").appendChild(newDiv)
+            newDiv.appendChild(h1).appendChild(checkbox)
+            newDiv.appendChild(p)
+            newDiv.appendChild(img)
+            //price no longer showing up
+            newDiv.appendChild(price)
+            newDiv.appendChild(xButton) */

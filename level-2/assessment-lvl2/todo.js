@@ -23,23 +23,30 @@ function listTodo (data){
     clearList()
 
         for (let i = 0; i < data.length; i++){
+            const newDiv = document.createElement('div')
             const h1 = document.createElement('h1')
             const checkbox = document.createElement('input')
             const p = document.createElement('p')
             const img = document.createElement('img')
             const price = document.createElement('p')
-            const id = data[i]._id
+            const xButton = document.createElement('button')
+            newDiv.setAttribute("class", "new-divs")
             h1.textContent = data[i].title
             checkbox.type = "checkbox"
             checkbox.value = "completed"
             checkbox.setAttribute("class", "checkbox")
+            xButton.textContent = "Delete"
             p.textContent = data[i].description
             img.src = data[i].imgUrl
+            //price not showing up
             price.textContent = data[i].price
-            document.getElementById("list").appendChild(h1).appendChild(checkbox)
-            document.getElementById("list").appendChild(p)
-            document.getElementById("list").appendChild(img)
-            document.getElementById("list").appendChild(price)
+            document.getElementById("list").appendChild(newDiv)
+            newDiv.appendChild(h1).appendChild(checkbox)
+            newDiv.appendChild(p)
+            newDiv.appendChild(img)
+            //price not showing up
+            newDiv.appendChild(price)
+            newDiv.appendChild(xButton)
             
             if(data[i].completed === true){
                 h1.style.setProperty("text-decoration", "line-through")
@@ -55,14 +62,21 @@ function listTodo (data){
                     completed: false
                 }
                 if (checkbox.checked){
-                    axios.put(`https://api.vschool.io/noahweaver/todo/${id}`, complete)
+                    axios.put(`https://api.vschool.io/noahweaver/todo/${data[i]._id}`, complete)
                     .then(res => getData())
                     .catch(err => console.log(err))
                 } else {
-                    axios.put(`https://api.vschool.io/noahweaver/todo${id}`, notComplete)
+                    axios.put(`https://api.vschool.io/noahweaver/todo/${data[i]._id}`, notComplete)
                     .then(res => getData())
                     .catch(err => console.log(err))
                 }
+            })
+            xButton.addEventListener("click", function(event){
+                event.preventDefault()
+
+                axios.delete(`https://api.vschool.io/noahweaver/todo/${data[i]._id}`)
+                    .then(res => getData())
+                    .catch(err => console.log(err))
             })
             }
         }
