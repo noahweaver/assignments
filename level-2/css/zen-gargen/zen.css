@@ -283,40 +283,49 @@ h1::before{
     margin: auto;
     padding: 50px 10%;
 }
-/* can't get imported font-family to work....tried putting in .icons and .icons > div ....The font does change, but not to the expected font*/
 .icons > div {
     color: rgba(255, 255, 255, 0.5);
     font-size: 75px;
+    cursor: pointer;
     transition: content 0.25s ease-out;
 }
-/* border radius 50% doesn't line up correctly so it looks weird */
 .icons > div:hover{
-    
+    color: rgba(255, 255, 255, 0.2);
 }
 #footer1::before{
     font-family: 'icomoon';
     content: "5";
-    transition: content 0.25s ease-out;
 }
-#footer1:hover{
-    font-family: 'icomoon';
+#footer1:hover::before{
     content: "%";
 }
 #footer2::before{
     font-family: 'icomoon';
     content: "3";
 }
+#footer2:hover::before{
+    content: "#";
+}
 #footer3::before{
     font-family: 'icomoon';
     content: "c";
+}
+#footer3:hover::before{
+    content: "C";
 }
 #footer4::before{
     font-family: 'icomoon';
     content: "a";
 }
+#footer4:hover::before{
+    content: "A";
+}
 #footer5::before{
     font-family: 'icomoon';
     content: "g";
+}
+#footer5:hover::before{
+    content: "G";
 }
 @media (max-width: 1130px){
     /* use this media query to help these two cells drop to the bottom when screens are smaller */
