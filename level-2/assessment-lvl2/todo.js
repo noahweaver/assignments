@@ -31,6 +31,7 @@ function listTodo (data){
             const price = document.createElement('p')
             const xButton = document.createElement('button')
             newDiv.setAttribute("class", "new-divs")
+            h1.setAttribute("class", "todo-title")
             h1.textContent = data[i].title
             checkbox.type = "checkbox"
             checkbox.value = "completed"
@@ -39,7 +40,7 @@ function listTodo (data){
             p.textContent = data[i].description
             img.src = data[i].imgUrl
             //price not showing up
-            price.textContent = data[i].price
+            price.textContent = `${parseInt(data[i].price)} hour(s)`
             document.getElementById("list").appendChild(newDiv)
             newDiv.appendChild(h1).appendChild(checkbox)
             newDiv.appendChild(p)

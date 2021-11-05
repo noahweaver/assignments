@@ -8,17 +8,30 @@ html,body{
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: azure;
+}
+#main-header{
+    text-align: center;
+    background-color: #ff000061;
+    margin: 0;
+    padding: 20px;
+    font-family: cursive;
+}
+form{
+    text-align: center;
+    padding: 30px;
+    background-color: #ff000061;
+}
+.todo-title{
+    margin-bottom: -20px;
+}
 #list{
     font-family: "shadows into light", sans-serif;
+    text-align: center;
+    margin-bottom: 50px;
 }
 img{
-    height: 250px;
-    width: 250px;
+    height: 100px;
+    width: 100px;
 }
-/*  document.getElementById("list").appendChild(newDiv)
-            newDiv.appendChild(h1).appendChild(checkbox)
-            newDiv.appendChild(p)
-            newDiv.appendChild(img)
-            //price no longer showing up
-            newDiv.appendChild(price)
-            newDiv.appendChild(xButton) */
