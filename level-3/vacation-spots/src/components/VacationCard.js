@@ -1,7 +1,7 @@
 import React from "react"
 
 
-function Vacation (props){
+function VacationCard (props){
     const divStyles = {
         textAlign: "center",
         margin: 0,
@@ -23,4 +23,4 @@ function Vacation (props){
         </div>
     )
 }
-export default Vacation
+export default VacationCard
