@@ -11,8 +11,7 @@ function Vacation (props){
         fontSize: 50,
         color: "#234532",
         fontFamily: "cursive",
-        marginBottom: 0,
-        paddingBottom: 0,
+        margin: 0
     }
     const pStyles = {
         paddingBottom: 50
