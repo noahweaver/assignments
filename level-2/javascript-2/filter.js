@@ -23,7 +23,7 @@ console.log(fiveCharactersOrFewerOnly(["dog", "wolf", "by", "family", "eaten", "
 
 //4) Given an array of people objects, return a new array that has filtered out all those who don't belong to the club.
 function peopleWhoBelongToTheIlluminati(arr){
-    return arr.filter(person => person.member === true)
+    return arr.filter(person => person.member)
 }
 // test
 console.log(peopleWhoBelongToTheIlluminati([
