@@ -6,11 +6,9 @@ import OlderPosts from "./OlderPosts"
 function Main(){
     return(
         <div>
-            <div>
+            <div className="blogContainer">
             <BlogList />
-            </div>
-            <div>
-                <OlderPosts />
+            <OlderPosts />
             </div>
         </div>
 

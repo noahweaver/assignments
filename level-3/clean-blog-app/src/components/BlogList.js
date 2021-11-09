@@ -6,6 +6,7 @@ function BlogList(){
 
     const blogs = BlogsArray.map(blog => <BlogPost key={blog.title} blog={blog} />)
 
+
     return(
         <div>
             {blogs}
