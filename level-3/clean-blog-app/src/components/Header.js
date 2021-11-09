@@ -3,8 +3,9 @@ import Nav from "./Nav"
 import HeaderContent from "./HeaderContent"
 
 function Header(){
+
     return(
-        <div>
+        <div className="header">
             <Nav />
             <HeaderContent />
         </div>
