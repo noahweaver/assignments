@@ -29,5 +29,11 @@ h1{
     border-bottom: 1px solid #dee2e6;
     padding-bottom: 20px;
     padding-top: 10px;
-
+}
+.footer{
+    border-top: 1px solid #dee2e6;
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    line-height: 3em;
 }

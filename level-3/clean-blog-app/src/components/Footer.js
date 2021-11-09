@@ -3,11 +3,12 @@ import FooterIcons from "./FooterIcons"
 import FooterContent from "./FooterContent"
 
 function Footer(){
+    
     return(
-        <div>
+        <footer className="footer">
             <FooterIcons />
             <FooterContent />
-        </div>
+        </footer>
     )
 }
 
