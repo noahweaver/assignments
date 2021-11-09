@@ -5,15 +5,13 @@ import "./styles.css"
 
 class App extends React.Component {
     render(){
-        return
+        return(
             <body>
                 <Header />
                 <Main />
             </body>
-            
+        )  
     }
-
-
 }
 
 export default App
