@@ -23,11 +23,10 @@ class Buttons extends React.Component{
                 <button style={buttonStyle}>1</button>
                 <button style={buttonStyle}>1</button>
                 <button style={buttonStyle}>1</button>
+                {/* <button style={buttonStyle}>1</button>
                 <button style={buttonStyle}>1</button>
                 <button style={buttonStyle}>1</button>
-                <button style={buttonStyle}>1</button>
-                <button style={buttonStyle}>1</button>
-                <button style={buttonStyle}>1</button>
+                <button style={buttonStyle}>1</button> */}
             </div>
         )
     }
