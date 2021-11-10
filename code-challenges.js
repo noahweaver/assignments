@@ -38,12 +38,24 @@
   // console.log(findLongestWord("The quick brown fox jumped over the last dog"))
 
   //11/10/21
+  //Today’s Coding Challenge: “Title Case a Sentence”… return the provided string with the first letter of each word capitalized. Also capitalize connecting words like “the” and “of”.
+  // function titleCase(str) {
+  //     return str.split(" ").map(word => word.charAt(0).toUpperCase() + word.substr(1)).join(" ")
+  // }
+  // console.log(titleCase("I’m a little tea pot"))
 
+  //or
 
-  function titleCase(str) {
-      const strArr = str.split(" ")
-      return strArr.map(name => name.charAt(0).toUpperCase() + name.substr(1)).join(" ")
-  }
-  console.log(titleCase("I’m a little tea pot"))
+//   function titleCase(str) {
+//     return str.split(" ").map(word => word[0].toUpperCase() + word.slice(1)).join(" ")
+// }
+// console.log(titleCase("I’m a little tea pot"))
+//or
+
+//   function titleCase(str) {
+//     return str.split(" ").map(word => word.slice(0,1).toUpperCase() + word.substr(1)).join(" ")
+// }
+// console.log(titleCase("I’m a little tea pot"))
+
   
   
