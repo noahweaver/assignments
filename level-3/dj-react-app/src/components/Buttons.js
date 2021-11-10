@@ -26,19 +26,3 @@ function Buttons(props) {
 }
 
 export default Buttons
-
-//    {/* top two squares purple */}
-//    <button style={buttonStyle}>Party DJ</button>
-
-// //                {/* change color of bottom left to blue */}
-// <button style={buttonStyle}>Left Blue</button>
-// {/* change color of bottom right to blue */}
-// <button style={buttonStyle}>Right Blue</button>
-// {/* Top Right */}
-// <button style={buttonStyle}>Top Right</button>
-// {/* Top left */}
-// <button style={buttonStyle}>Top Left</button>
-// {/* bottom right */}
-// <button style={buttonStyle}>Bottom Right</button>
-// {/* bottom left */}
-// <button style={buttonStyle}>Bottom Left</button>
