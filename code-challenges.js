@@ -1,4 +1,4 @@
-11/3/2021
+// 11/3/2021
 // function findLongestWord(str) {
 //     const split =  str.split(" ")
 //     const longestFirst = split.sort((a,b) => b.length - a.length)
@@ -36,3 +36,14 @@
   //   return longestWord.length
   // }
   // console.log(findLongestWord("The quick brown fox jumped over the last dog"))
+
+  //11/10/21
+
+
+  function titleCase(str) {
+      const strArr = str.split(" ")
+      return strArr.map(name => name.charAt(0).toUpperCase() + name.substr(1)).join(" ")
+  }
+  console.log(titleCase("I’m a little tea pot"))
+  
+  
