@@ -1,15 +1,15 @@
 import React from "react"
 import Header from "./components/Header"
-import Main from "./components/Main"
+import Grid from "./components/Grid"
 import "./styles.css"
 
 class App extends React.Component {
     render(){
         return(
-            <body>
+            <div>
                 <Header />
-                <Main />
-            </body>
+                <Grid />
+            </div>
         )  
     }
 }
