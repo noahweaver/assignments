@@ -16,8 +16,8 @@ function Badge (props) {
             <h1>{firstName} {lastName}</h1>
             <p>
                 Phone Number: {phone} <br/>
-                E-mail: {email}
-                Favorite Food: {favFood}
+                E-mail: {email} <br/>
+                Favorite Food: {favFood} <br/>
                 Birthplace: {placeOfBirth}
             </p>
             <p>

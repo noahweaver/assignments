@@ -3,7 +3,6 @@ import Badge from "./components/Badge"
 
 class App extends Component{
     state = {
-        badgesArr: [],
         badge: {
             firstName: " ",
             lastName: " ",
@@ -12,7 +11,8 @@ class App extends Component{
             email: " ",
             phone: " ",
             addComment: " "
-        }
+        },
+        badgesArr: []
     }
         //this.submitBadge =submitBadge.bind(this)
         //this.handleChange =handleChange.bind(this)
@@ -23,7 +23,7 @@ class App extends Component{
         // event.preventDefault()
         const {name, value} = event.target
         this.setState( prevState => ({
-            badge: {...prevState.bagde, [name]: value}
+            badge: {...prevState.badge, [name]: value}
         }))
         console.log(this.state)
     }
@@ -105,7 +105,7 @@ class App extends Component{
                 
             }
             
-            const badges = this.state.badgesArr.map((badge, index) => <Badge key={index} {...this.badge} />)
+            const badges = this.state.badgesArr.map((badge, index) => <Badge key={index} {...badge} />)
 
             return(
                 <div>
