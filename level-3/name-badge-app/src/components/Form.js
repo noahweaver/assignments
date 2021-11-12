@@ -31,6 +31,7 @@ class Form extends React.Component{
     //     this.setState({value: event.target.value});
     //   }
     submitBadge(event){
+        console.log("submitBadge")
         event.preventDefault()
         const list = document.getElementById("badge-list")
         while(list.firstChild){
@@ -38,10 +39,11 @@ class Form extends React.Component{
         }
             // rewatch fetching data video. figure out how to fetch the data and pass to Badge.js to then render on the screen.  to do this I will need to create the badge = {} in state and this will disable my handleChange. 
         this.setState((prevState) => {
-            console.log("submitBadge")
+            console.log("submitBadge, setState")
             prevState.badgesArr.push(this.state)
             console.log(this.state.badgesArr)
             prevState.badgesArr.map( badge => {
+                console.log("submitBadge, setState, prevState.badgesArr.map")
                 console.log(badge)
                 document.createElement("li", <Badge key={badge.name} badge={badge}/>)
                 return badge
@@ -67,7 +69,7 @@ class Form extends React.Component{
         document.getElementById("commentArea").value = ""
     }
     render(){
-        
+        console.log("render")
         const formStyles = {
             border: "2px solid black",
             borderRadius: "2%",
