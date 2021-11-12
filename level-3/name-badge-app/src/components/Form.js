@@ -1,10 +1,11 @@
 import React from 'react'
+import Badge from "./Badge"
 
 class Form extends React.Component{
     
     
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             firstName: "",
             lastName: "",
@@ -35,19 +36,28 @@ class Form extends React.Component{
         while(list.firstChild){
             list.removeChild(list.firstChild)
         }
-
-        this.setState(prevState => {
+            // rewatch fetching data video. figure out how to fetch the data and pass to Badge.js to then render on the screen.  to do this I will need to create the badge = {} in state and this will disable my handleChange. 
+        this.setState((prevState) => {
             console.log("submitBadge")
             prevState.badgesArr.push(this.state)
             console.log(this.state.badgesArr)
             prevState.badgesArr.map( badge => {
-                const listItem = document.createElement("li")
-                document.getElementById("badge-list").appendChild(listItem).textContent = Object.values(badge)
                 console.log(badge)
-                return
-                    
+                document.createElement("li", <Badge key={badge.name} badge={badge}/>)
+                return badge
             })
-        })
+            
+        })   
+            //     {
+
+            //     const listItem = document.createElement("li")
+            //     document.getElementById("badge-list").appendChild(listItem).textContent = <Badge key={badge.name} badge={badge} />
+            
+            //     // document.getElementById("badge-list").appendChild(listItem).textContent = Object.values(badge)
+            //     console.log(badge)
+            //     // return      
+            // })
+        
         document.getElementById("firstName").value = ""
         document.getElementById("lastName").value = ""
         document.getElementById("email").value = ""
@@ -153,7 +163,7 @@ class Form extends React.Component{
                     <button style={buttonStyle} onClick={this.submitBadge}>Submit</button>
                 </div>
                 <ul id="badge-list">
-
+                    {/* {this.state.badgesArr > 0 && <li>{this.state.badgesArr}</li>} */}
                 </ul>
             </div>
         )
