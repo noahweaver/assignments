@@ -13,8 +13,8 @@ class App extends Component {
         fetch("https://raw.githubusercontent.com/VSchool/vschool-api/master/static/hitlist.json")
             .then(response => response.json())
             .then(data => {this.setState({
-                hitList: data}
-                )
+                hitList: data
+                })
                 console.log(this.state.hitList)
             })
             

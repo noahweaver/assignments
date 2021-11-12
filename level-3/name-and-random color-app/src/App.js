@@ -1,11 +1,13 @@
 import React from 'react'
+import "./Styles.css"
 
 class App extends React.Component {
     constructor(){
         super()
         this.state = {
             name: "",
-            namesArr: []
+            namesArr: [],
+            backgroundColor: ""
         }
         this.handleChange = this.handleChange.bind(this)
         this.addName = this.addName.bind(this)
@@ -37,7 +39,21 @@ class App extends React.Component {
             [name]: value
         })
     }
+    componentDidMount(){
+        console.log("DidMount")
+        fetch("https://www.colr.org/json/color/random?timestamp=${new Date().getTime()}")
+        .then(response => response.json())
+        .then(data => {this.setState({
+            backgroundColor: data.new_color 
+        })
+            console.log(data)
+            console.log(data.new_color)
+    })
+    }
     render(){
+        const newBackground = `#${this.state.backgroundColor}`
+        console.log(newBackground)
+        document.body.style = `background-color: ${newBackground}`
         return(
             <div>
                 <input
