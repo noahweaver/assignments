@@ -58,4 +58,18 @@
 // console.log(titleCase("I’m a little tea pot"))
 
   
-  
+//  11/17/2021
+
+function isPrime(n) {
+  for (let i = 2; i < n; i++){
+    if (n % i === 0) {
+      return false
+    }
+  }
+  return n > 1 //what's happening here?
+}
+console.log(2, " is prime? ", isPrime(2));
+console.log(3, " is prime? ", isPrime(3));
+console.log(4, " is prime? ", isPrime(4));
+console.log(5, " is prime? ", isPrime(5));
+console.log(9, " is prime? ", isPrime(9));

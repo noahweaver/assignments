@@ -1,26 +1,16 @@
-import React from "react"
+import React, {useState} from "react"
 import Square from "./Square"
 import Buttons from "./Buttons"
-// import ColorsArray from "./ColorsArray"
 
-//Colors Array
-//["black", "white", "white", "white"]
 
-// const colors = ColorsArray.map(color => <Square backgroundColor={color} />)
-//ColorsArray.map(color => <Square color={color} />)
-
-class Grid extends React.Component {
+function Grid () {
     
-    constructor(props){
-        super(props)
-        this.state = {
-            colors: ["white", "white", "white", "white"]
-        }   
-    }  
-    smallTime = () => {
+    const [colors, changeColor] = useState(["white", "white", "white", "white"])
+     
+    function smallTime() {
         console.log("smallTime")
-        this.setState(prevState => {
-            const colors = prevState.colors.map(color => {
+        changeColor( () => {
+            const newColors = colors.map(color => {
                 if (color === "white"){
                     return "black"
                 } else if (color === "black"){
@@ -28,58 +18,64 @@ class Grid extends React.Component {
                 } else {
                     return "white"
                 }
-
             })
-            console.log({colors: colors})
-            return {colors: colors}
+            return newColors
         })
     }
-    partyDJ = () => {
+    //works but only populates after I navigate back to text editor and start making changes
+    function partyDJ(event) {
+        event.preventDefault()
         console.log("Party DJ")
-        this.setState(prevState => {
-            prevState.colors[0] = "purple"
-            prevState.colors[1] = "purple"
-            return this.state.colors
+        changeColor( () => {
+            colors[0] = "purple"
+            colors[1] = "purple"
+            return colors
         })
     }
-    changeLeftBlue = () => {
+    function changeLeftBlue() {
         console.log("changeLeftBlue")
-        this.setState(prevState => {
-            return prevState.colors[2] = "blue"
+        changeColor( () => {
+            colors[2] = "blue"
+            return colors
         })
     }
-    changeRightBlue = () => {
+    function changeRightBlue() {
         console.log("changeRightBlue")
-        this.setState(prevState => {
-            return prevState.colors[3] = "blue"
+        changeColor( () => {
+            colors[3] = "blue"
+            return colors
         })
     }
-    changeYellow = () => {
+    function changeYellow() {
         console.log("changeYellow")
-        this.setState(prevState => {
-            return prevState.colors[0] = "yellow"
+        changeColor( () => { 
+            colors[0] = "yellow" 
+            return colors
         })
     }
-    changeBlack = () => {
+
+    function changeBlack() {
         console.log("changeBlack")
-        this.setState(prevState => {
-            return prevState.colors[1] = "black"
+        changeColor( ()  => {
+            colors[1] = "black"
+            return colors
         })
     }
-    changeOrange = () => {
+    function changeOrange() {
         console.log("changeOrange")
-        this.setState(prevState => {
-            return prevState.colors[2] = "orange"
+        changeColor( () => {
+            colors[2] = "orange"
+            return colors
         })
     }
-    changeGreen = () => {
+    function changeGreen() {
         console.log("changeGreen")
-        this.setState(prevState => {
-            return prevState.colors[3] = "green"
+        changeColor( () => {
+            colors[3] = "green"
+            return colors
         })
     }
-    render(){
-        
+
         const gridContainer = {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -89,26 +85,25 @@ class Grid extends React.Component {
             width: "50%"
         }
 
-        
         return(
 
             <div style={gridContainer}>
-                <Square color={this.state.colors[0]}/>
-                <Square color={this.state.colors[1]}/>
-                <Square color={this.state.colors[2]}/>
-                <Square color={this.state.colors[3]}/>
-                <Buttons text="Small Time" func={this.smallTime} />
-                <Buttons text="Party DJ" func={this.partyDJ} />
-                <Buttons text="Left Blue" func={this.changeLeftBlue} />
-                <Buttons text="Right Blue" func={this.changeRightBlue} />
-                <Buttons text="Big Time 1" func={this.changeYellow} />
-                <Buttons text="Big Time 2" func={this.changeBlack} />
-                <Buttons text="Big Time 3" func={this.changeOrange} />
-                <Buttons text="Big Time 4" func={this.changeGreen} />
+                <Square color={colors[0]}/>
+                <Square color={colors[1]}/>
+                <Square color={colors[2]}/>
+                <Square color={colors[3]}/>
+                <Buttons text="Small Time" onClick={smallTime} />
+                <Buttons text="Party DJ" onClick={partyDJ} />
+                <Buttons text="Left Blue" onClick={changeLeftBlue} />
+                <Buttons text="Right Blue" onClick={changeRightBlue} />
+                <Buttons text="Big Time 1 Yellow" onClick={changeYellow} />
+                <Buttons text="Big Time 2 Black" onClick={changeBlack} />
+                <Buttons text="Big Time 3 Orange" onClick={changeOrange} />
+                <Buttons text="Big Time 4 Green" onClick={changeGreen} />
             </div>
 
         )
-    }
+    
 }
 
 export default Grid

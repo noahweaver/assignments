@@ -16,7 +16,7 @@ function Buttons(props) {
     }
 
     return(
-            <button onClick={props.func} style={buttonStyle}>
+            <button onClick={props.onClick} style={buttonStyle}>
                 {props.text}
             </button> 
             
