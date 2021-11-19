@@ -6,7 +6,7 @@ import Buttons from "./Buttons"
 function Grid () {
     
     const [colors, changeColor] = useState(["white", "white", "white", "white"])
-     
+     console.log((colors))
     function smallTime() {
         console.log("smallTime")
         changeColor( () => {
@@ -22,58 +22,43 @@ function Grid () {
             return newColors
         })
     }
-    //works but only populates after I navigate back to text editor and start making changes
-    function partyDJ(event) {
-        event.preventDefault()
+
+    function partyDJ() {
         console.log("Party DJ")
-        changeColor( () => {
-            colors[0] = "purple"
-            colors[1] = "purple"
-            return colors
-        })
+        changeColor(prevColor => ["purple", "purple", prevColor, prevColor]
+        )
     }
+           
     function changeLeftBlue() {
         console.log("changeLeftBlue")
-        changeColor( () => {
-            colors[2] = "blue"
-            return colors
-        })
+        changeColor(prevColor => [prevColor, prevColor, "blue", prevColor]
+        )
     }
     function changeRightBlue() {
         console.log("changeRightBlue")
-        changeColor( () => {
-            colors[3] = "blue"
-            return colors
-        })
+        changeColor(prevColor => [prevColor, prevColor, prevColor, "blue"]
+        )
     }
     function changeYellow() {
         console.log("changeYellow")
-        changeColor( () => { 
-            colors[0] = "yellow" 
-            return colors
-        })
+        changeColor(prevColor => ["yellow", prevColor, prevColor, prevColor]
+        )
     }
 
     function changeBlack() {
         console.log("changeBlack")
-        changeColor( ()  => {
-            colors[1] = "black"
-            return colors
-        })
+        changeColor(prevColor => [prevColor, "black", prevColor, prevColor]
+        )
     }
     function changeOrange() {
         console.log("changeOrange")
-        changeColor( () => {
-            colors[2] = "orange"
-            return colors
-        })
+        changeColor(prevColor => [prevColor, prevColor, "orange", prevColor]
+        )
     }
     function changeGreen() {
         console.log("changeGreen")
-        changeColor( () => {
-            colors[3] = "green"
-            return colors
-        })
+        changeColor(prevColor => [prevColor, prevColor, prevColor, "green"]
+        )
     }
 
         const gridContainer = {
