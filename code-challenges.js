@@ -60,16 +60,47 @@
   
 //  11/17/2021
 
-function isPrime(n) {
-  for (let i = 2; i < n; i++){
-    if (n % i === 0) {
-      return false
-    }
+// function isPrime(n) {
+//   for (let i = 2; i < n; i++){
+//     if (n % i === 0) {
+//       return false
+//     }
+//   }
+//   return n > 1 //what's happening here?
+// }
+// console.log(2, " is prime? ", isPrime(2));
+// console.log(3, " is prime? ", isPrime(3));
+// console.log(4, " is prime? ", isPrime(4));
+// console.log(5, " is prime? ", isPrime(5));
+// console.log(9, " is prime? ", isPrime(9));
+
+
+
+//  11/22/2021
+// Given: an array containing hashes of names
+
+// Return: a string formatted as a list of names separated by commas except for the last two names, which should be separated by an ampersand.
+
+
+function list(arr){
+  const namesOnlyArray = arr.map(person => person.name)
+  if (namesOnlyArray.length >= 2) {
+    return namesOnlyArray.slice(0, -1).join(", ") + " & " + namesOnlyArray.slice(-1)
+  } else if (namesOnlyArray.length === 1){
+    return namesOnlyArray.join("")
+  } else if (namesOnlyArray.length === 0){
+    return ""
   }
-  return n > 1 //what's happening here?
 }
-console.log(2, " is prime? ", isPrime(2));
-console.log(3, " is prime? ", isPrime(3));
-console.log(4, " is prime? ", isPrime(4));
-console.log(5, " is prime? ", isPrime(5));
-console.log(9, " is prime? ", isPrime(9));
+
+// console.log(list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ]))
+// returns 'Bart, Lisa & Maggie'
+
+// console.log(list([ {name: 'Bart'}, {name: 'Lisa'} ]))
+// // returns 'Bart & Lisa'
+
+// console.log(list([ {name: 'Bart'} ]))
+// // returns 'Bart'
+
+// console.log(list([]))
+// // returns ''
