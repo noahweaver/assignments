@@ -4,7 +4,7 @@ import axios from 'axios'
 
 function UglyThing(props) {
 
-    const {getData} = useContext(ThingsContext)
+    const context = useContext(ThingsContext)
     const [isEditing, setIsEditing] = useState(false)
     const [updatedThing, setUpdatedThing] = useState({
         title: "",
@@ -23,14 +23,14 @@ function UglyThing(props) {
     function submitEdit(id){
         console.log("handleEdit", id)
             axios.put(`https://api.vschool.io/noahweaver/thing/${props.id}`, updatedThing)
-                .then(() => getData)
+                .then(() => context.getData)
                 .catch(err => console.log(err))
             setIsEditing(false)
     }
     function handleDelete(id){
         console.log("handleDelete", id)
         axios.delete(`https://api.vschool.io/noahweaver/thing/${props.id}`)
-            .then(() => getData)
+            .then(() => context.getData)
             .catch(err => console.log(err))
 
     }

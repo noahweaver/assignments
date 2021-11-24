@@ -30,11 +30,13 @@ function ThingsContextProvider(props) {
             .then(() => getData())
             .catch(err => console.log(err))
         //clear the form
+            //update state?
     }
-    function getData(){
+    function getData(id){
         fetch("https://api.vschool.io/noahweaver/thing/")
             .then(response => response.json())
             .then(data => setThingsList(() => [...data]))
+            .then(setThingsList(prev => prev.map(thing => id !== thing.id )))
     }
     return (
         <ThingsContext.Provider value={{thingsList, newThing, handleSubmit, handleChange}}>
