@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 const ThingsContext = React.createContext()
 
 function ThingsContextProvider(props) {
@@ -8,45 +9,35 @@ function ThingsContextProvider(props) {
         imgUrl: "",
         description: ""
     })
-    const [isEditing, setIsEditing] = useState(false)
     const [thingsList, setThingsList] = useState([])
     
 
-    //do I need a handle changer if I don't care to see validation text on screen?
-
-    function handleSubmit(event) {
-        console.log("handleSubmit")
-        //submit form value
-        //post request
-    }
-
-   function handleEdit(id){
-    console.log("handleEdit")
-        //edit toggle
-        //if isEditing is true, show forms
-        //put request
-    }
-    function handleDelete(id){
-        console.log("handleDelete")
-        //delete item
-        //delete request 
-    }
-
-    //function to save edited thing
-        //put request
-    
-    function getData(){
-        fetch("https://api.vschool.io/noahweaver/thing")
-            .then(response => response.json())
-            .then(data => setThingsList(data))
-    }
-
     useEffect(() => {
         getData()
-        }, [])
+    }, [])
 
+    //handlechange puts form data into newThing
+    function handleChange(event){
+        console.log("handleChange")
+        event.preventDefault()
+        const {name, value} = event.target
+        setNewThing(input => ({...input, [name]: value}))
+    }
+    function handleSubmit(event) {
+        console.log("handleSubmit")
+        event.preventDefault()
+        axios.post("https://api.vschool.io/noahweaver/thing/", newThing)
+            .then(() => getData())
+            .catch(err => console.log(err))
+        //clear the form
+    }
+    function getData(){
+        fetch("https://api.vschool.io/noahweaver/thing/")
+            .then(response => response.json())
+            .then(data => setThingsList(() => [...data]))
+    }
     return (
-        <ThingsContext.Provider value={{thingsList, newThing, isEditing, handleDelete, handleEdit, handleSubmit}}>
+        <ThingsContext.Provider value={{thingsList, newThing, handleSubmit, handleChange}}>
             {props.children}
         </ThingsContext.Provider>
     )

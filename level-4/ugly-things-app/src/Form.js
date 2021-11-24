@@ -1,32 +1,32 @@
 import React, {useContext} from 'react'
-// import ThingsContext from './ThingsContext'
+import {ThingsContext} from './ThingsContext'
 
 function Form(props) {
 
-    // const {ThingsContext} = useContext(ThingsContext)
+    const {handleSubmit, handleChange} = useContext(ThingsContext)
     //destructure specific properties/values out of ThingsContext? 
 
     return (
         <form>
             <input 
-            name="title"
-            placeholder="title"
-            // value
+                name="title"
+                placeholder="title"
+                onChange={handleChange}
+                // value
             />
             <input 
-            name="imgUrl"
-            placeholder="imgUrl"
-            // value
+                name="imgUrl"
+                placeholder="imgUrl"
+                onChange={handleChange}
+                // value
             />
             <input 
-            name="description"
-            placeholder="description"
-            // value
+                name="description"
+                placeholder="description"
+                onChange={handleChange}
+                // value
             />
-            <button onClick={props.handleSubmit}>Add to list
-            {/* onsubmit added to button*/}
-            {/* onSubmit={ThingsContext.handleSubmit} */}
-            </button>
+            <button onClick={handleSubmit}>Add to list</button>
         </form>
     )
 }
