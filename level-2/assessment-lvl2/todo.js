@@ -39,13 +39,11 @@ function listTodo (data){
             xButton.textContent = "Delete"
             p.textContent = data[i].description
             img.src = data[i].imgUrl
-            //price not showing up
             price.textContent = `${parseInt(data[i].price)} hour(s)`
             document.getElementById("list").appendChild(newDiv)
             newDiv.appendChild(h1).appendChild(checkbox)
             newDiv.appendChild(p)
             newDiv.appendChild(img)
-            //price not showing up
             newDiv.appendChild(price)
             newDiv.appendChild(xButton)
             
