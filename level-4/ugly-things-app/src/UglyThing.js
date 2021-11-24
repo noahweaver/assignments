@@ -18,7 +18,6 @@ function UglyThing(props) {
     }
     function handleEdit(id){
         console.log("edit toggle", id)
-        //target specific item
         setIsEditing(true)
     }
     function submitEdit(id){
