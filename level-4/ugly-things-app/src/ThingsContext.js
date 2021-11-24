@@ -15,41 +15,38 @@ function ThingsContextProvider(props) {
     //do I need a handle changer if I don't care to see validation text on screen?
 
     function handleSubmit(event) {
+        console.log("handleSubmit")
         //submit form value
         //post request
     }
 
    function handleEdit(id){
+    console.log("handleEdit")
         //edit toggle
         //if isEditing is true, show forms
         //put request
     }
-    function deleteThing(id){
+    function handleDelete(id){
+        console.log("handleDelete")
         //delete item
         //delete request 
     }
 
     //function to save edited thing
         //put request
-
     
+    function getData(){
+        fetch("https://api.vschool.io/noahweaver/thing")
+            .then(response => response.json())
+            .then(data => setThingsList(data))
+    }
 
-    //fetch API data from https://api.vschool.io/<yourname>/thing
-    //push to state
-
-    // useEffect(() => {
-    //     fetch("https://api.vschool.io/noahweaver/thing")
-    //         .then(response => response.json())
-    //         .then(data => (setThingsList(
-    //                 data
-    //             ))
-                
-    //     )
-    // })
+    useEffect(() => {
+        getData()
+        }, [])
 
     return (
-        <ThingsContext.Provider onSubmit={handleSubmit} onClick={handleEdit, deleteThing} value={{thingsList, newThing, isEditing}}>
-            {/* value needs to be things, methods */}
+        <ThingsContext.Provider value={{thingsList, newThing, isEditing, handleDelete, handleEdit, handleSubmit}}>
             {props.children}
         </ThingsContext.Provider>
     )

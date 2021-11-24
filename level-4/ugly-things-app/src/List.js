@@ -1,16 +1,17 @@
 import React, {useContext} from 'react'
 import { ThingsContext } from './ThingsContext'
+import UglyThing from './UglyThing'
 
 
 function List(props) {
 
-    const {things} = useContext(ThingsContext)
-    //map through the array and render each item...should this be here, App, or in ThemeContext?
-
+    const {thingsList} = useContext(ThingsContext)
+    const thingsListMap = thingsList.map(thing => <UglyThing key={thing._id} id={thing._id} title={thing.title} img={thing.imgUrl} description={thing.description} />)
+    
     return (
-        <div>
-            {things}
-        </div>
+        <ul>
+            {thingsListMap}
+        </ul>
     )
 }
 
