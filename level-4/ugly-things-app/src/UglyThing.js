@@ -1,18 +1,16 @@
 import React, {useContext, useState} from 'react'
 import { ThingsContext } from './ThingsContext'
-import axios from 'axios'
 
 function UglyThing(props) {
 
-    const {thingsList, setThingsList}= useContext(ThingsContext)
+    const {handleDelete, submitEdit} = useContext(ThingsContext)
     const [isEditing, setIsEditing] = useState(false)
     const [updatedThing, setUpdatedThing] = useState({
-        title: "",
-        imgUrl: "",
-        description: ""
+        title: props.title,
+        imgUrl: props.imgUrl,
+        description: props.description
     })
 
-    console.log('things list', thingsList)
     const imgStyle ={
         width: 200,
         height: 200
@@ -21,28 +19,6 @@ function UglyThing(props) {
         console.log("edit toggle", id)
         setIsEditing(true)
     }
-    
-    function submitEdit(id){
-        console.log("handleEdit", id)
-            axios.put(`https://api.vschool.io/noahweaver/thing/${props.id}`, updatedThing)
-                .then(() => setThingsList(prevThing => {
-                  return [...prevThing]
-                }))
-                .catch(err => console.log(err))
-            setIsEditing(false)
-    }
-
-    function handleDelete(id){
-        // console.log("handleDelete", id)
-        axios.delete(`https://api.vschool.io/noahweaver/thing/${props.id}`)
-        .then(() => setThingsList(prevThing => {
-            return prevThing.filter(thing => id !== thing._id)
-        }))
-            .catch(err => console.log(err))
-
-    }
-
-//   setThingsList(prev => prev.map(thing => id !== thing.id))
     function handleChangeEdit(event){
         console.log("handleChangeEdit")
         event.preventDefault()
@@ -61,28 +37,28 @@ function UglyThing(props) {
                 <img style={imgStyle} src={props.img} alt=""/>
                 <p>{props.description}</p>
                 {isEditing === false ? <button id={props.id} onClick={handleEdit}>EDIT</button> : null}
-                <button id={props.id} onClick={handleDelete}>DELETE</button>
+                <button onClick={() => handleDelete(props.id)}>DELETE</button>
                 {isEditing === true ? 
                     <form>
                         <input 
                         name="title"
-                        value={props.title}
+                        value={updatedThing.title}
                         onChange={handleChangeEdit}
-                        // value
                         />
                         <input 
                         name="imgUrl"
-                        value={props.img}
+                        value={updatedThing.imgUrl}
                         onChange={handleChangeEdit}
-                        // value
                         />
                         <input 
                         name="description"
-                        value={props.description}
+                        value={updatedThing.description}
                         onChange={handleChangeEdit}
-                        // value
                         />
-                        <button id={props.id} onClick={submitEdit}>Submit</button>
+                        <button onClick={() => {
+                            submitEdit(props.id, updatedThing)
+                            setIsEditing(false)
+                        }}>Submit</button>
                         <button onClick={cancelEdit}>Cancel</button>
                     </form> : null}
             </li>

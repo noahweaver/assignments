@@ -37,9 +37,29 @@ function ThingsContextProvider(props) {
             .then(response => response.json())
             .then(data => setThingsList(() => [...data]))
     }
+    function handleDelete(id){
+        // console.log("handleDelete", id)
+        axios.delete(`https://api.vschool.io/noahweaver/thing/${id}`)
+        .then(() => setThingsList(prevThing => {
+            return prevThing.filter(thing => thing._id !== id)
+        }))
+            .catch(err => console.log(err))
+
+    }
+
+
+    function submitEdit(id, updatedThing){
+        console.log("handleEdit", id, updatedThing)
+            axios.put(`https://api.vschool.io/noahweaver/thing/${id}`, updatedThing)
+                .then((response) => {
+                    setThingsList(data => data.map(thing => thing._id === id ? response.data : thing))
+                    })
+                .catch(err => console.log(err))
+    
+ }
 
     return (
-        <ThingsContext.Provider value={{thingsList, newThing, handleSubmit, handleChange, setThingsList}}>
+        <ThingsContext.Provider value={{thingsList, newThing, handleSubmit, handleChange, setThingsList, handleDelete, submitEdit}}>
             {props.children}
         </ThingsContext.Provider>
     )
