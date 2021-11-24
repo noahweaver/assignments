@@ -36,10 +36,10 @@ function ThingsContextProvider(props) {
         fetch("https://api.vschool.io/noahweaver/thing/")
             .then(response => response.json())
             .then(data => setThingsList(() => [...data]))
-            .then(setThingsList(prev => prev.map(thing => id !== thing.id )))
     }
+
     return (
-        <ThingsContext.Provider value={{thingsList, newThing, handleSubmit, handleChange}}>
+        <ThingsContext.Provider value={{thingsList, newThing, handleSubmit, handleChange, setThingsList}}>
             {props.children}
         </ThingsContext.Provider>
     )

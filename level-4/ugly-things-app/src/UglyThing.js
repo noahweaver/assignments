@@ -4,7 +4,7 @@ import axios from 'axios'
 
 function UglyThing(props) {
 
-    const context = useContext(ThingsContext)
+    const {thingsList, setThingsList}= useContext(ThingsContext)
     const [isEditing, setIsEditing] = useState(false)
     const [updatedThing, setUpdatedThing] = useState({
         title: "",
@@ -12,6 +12,7 @@ function UglyThing(props) {
         description: ""
     })
 
+    console.log('things list', thingsList)
     const imgStyle ={
         width: 200,
         height: 200
@@ -20,27 +21,33 @@ function UglyThing(props) {
         console.log("edit toggle", id)
         setIsEditing(true)
     }
+    
     function submitEdit(id){
         console.log("handleEdit", id)
             axios.put(`https://api.vschool.io/noahweaver/thing/${props.id}`, updatedThing)
-                .then(() => context.getData)
+                .then(() => setThingsList(prevThing => {
+                  return [...prevThing]
+                }))
                 .catch(err => console.log(err))
             setIsEditing(false)
     }
+
     function handleDelete(id){
-        console.log("handleDelete", id)
+        // console.log("handleDelete", id)
         axios.delete(`https://api.vschool.io/noahweaver/thing/${props.id}`)
-            .then(() => context.getData)
+        .then(() => setThingsList(prevThing => {
+            return prevThing.filter(thing => id !== thing._id)
+        }))
             .catch(err => console.log(err))
 
     }
+
 //   setThingsList(prev => prev.map(thing => id !== thing.id))
     function handleChangeEdit(event){
         console.log("handleChangeEdit")
         event.preventDefault()
         const {name, value} = event.target
         setUpdatedThing(input => ({...input, [name]: value}))
-
     }
     function cancelEdit(id){
         console.log("cancelEdit")
