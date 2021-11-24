@@ -26,20 +26,25 @@ function UglyThing(props) {
                 .then(() => getData)
                 .catch(err => console.log(err))
             setIsEditing(false)
-        }
+    }
     function handleDelete(id){
         console.log("handleDelete", id)
         axios.delete(`https://api.vschool.io/noahweaver/thing/${props.id}`)
             .then(() => getData)
             .catch(err => console.log(err))
+
     }
-  
+//   setThingsList(prev => prev.map(thing => id !== thing.id))
     function handleChangeEdit(event){
         console.log("handleChangeEdit")
         event.preventDefault()
         const {name, value} = event.target
         setUpdatedThing(input => ({...input, [name]: value}))
 
+    }
+    function cancelEdit(id){
+        console.log("cancelEdit")
+        setIsEditing(false)
     }
 
     return (
@@ -54,26 +59,24 @@ function UglyThing(props) {
                     <form>
                         <input 
                         name="title"
-                        placeholder="title"
+                        value={props.title}
                         onChange={handleChangeEdit}
                         // value
                         />
                         <input 
                         name="imgUrl"
-                        placeholder="imgUrl"
+                        value={props.img}
                         onChange={handleChangeEdit}
                         // value
                         />
                         <input 
                         name="description"
-                        placeholder="description"
+                        value={props.description}
                         onChange={handleChangeEdit}
                         // value
                         />
-                        <button id={props.id} onClick={submitEdit}>Submit
-                        {/* onsubmit added to button*/}
-                        {/* onSubmit={ThingsContext.handleSubmit} */}
-                        </button>
+                        <button id={props.id} onClick={submitEdit}>Submit</button>
+                        <button onClick={cancelEdit}>Cancel</button>
                     </form> : null}
             </li>
             
