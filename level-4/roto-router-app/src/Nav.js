@@ -12,7 +12,7 @@ function Nav() {
     return (
         <div>
             <ul style={navStyle}>
-                <Link to="/">Home</Link>
+                <Link to="/home">Home</Link>
                 <Link to="/services">Services</Link>
                 <Link to="/about">About</Link>
             </ul>
