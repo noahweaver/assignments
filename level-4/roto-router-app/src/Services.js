@@ -1,21 +1,64 @@
 import React from 'react'
-import Nav from './Nav'
-import Footer from './Footer'
+import {NavLink, Outlet} from 'react-router-dom'
 
 function Services() {
+
+    const servicesList = [
+        {
+            name: "cleaning",
+            price: "$45"
+        },
+        {
+            name: "plumbing",
+            price: "$75"
+        },
+        {
+            name: "pestcontrol",
+            price: "$115"
+        },
+        {
+            name: "lawn",
+            price: "$80"
+        },
+    ]
+
     return (
         <>
-            <Nav />
             <div>
                 <h1>Services</h1>
                 <h3>All services are listed Here</h3>
                 <ul>
-                    <li>Service 1</li>
-                    <li>Service 2</li>
-                    <li>Service 3</li>
+                    <NavLink className="btn btn-light" 
+                    style={({isActive}) => {
+                    return {
+                        backgroundColor: isActive ? "green" : "red"
+                    }
+                }}
+                    to={`/home/services/${servicesList[0].name}`}>{servicesList[0].name}</NavLink>
+                    <NavLink className="btn btn-light" 
+                    style={({isActive}) => {
+                    return {
+                        backgroundColor: isActive ? "green" : "red"
+                    }
+                }}
+                    to={`/home/services/${servicesList[1].name}`}>{servicesList[1].name}</NavLink>
+                    <NavLink className="btn btn-light" 
+                    style={({isActive}) => {
+                    return {
+                        backgroundColor: isActive ? "green" : "red"
+                    }
+                }}
+                    to={`/home/services/${servicesList[2].name}`}>{servicesList[2].name}</NavLink>
+                    <NavLink className="btn btn-light" 
+                    style={({isActive}) => {
+                    return {
+                        backgroundColor: isActive ? "green" : "red"
+                    }
+                }}
+                    to={`/home/services/${servicesList[3].name}`}>{servicesList[3].name}</NavLink>
                 </ul>
+                <Outlet />
             </div>
-            <Footer />
         </>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 function Nav() {
 
@@ -8,13 +8,27 @@ function Nav() {
         "flex-direction": "row",
         "justify-content": "space-around"
     }
+    
 
     return (
         <div>
             <ul style={navStyle}>
-                <Link to="/home">Home</Link>
-                <Link to="/services">Services</Link>
-                <Link to="/about">About</Link>
+                <NavLink className="btn btn" style={({isActive}) => {
+                    return {
+                        backgroundColor: isActive ? "green" : "red"
+                    }
+                }}
+                    to="/home">Home</NavLink>
+                <NavLink className="btn btn" style={({isActive}) => {
+                    return {
+                        backgroundColor: isActive ? "green" : "red"
+                    }
+                }}to="services">Services</NavLink>
+                <NavLink className="btn btn" style={({isActive}) => {
+                    return {
+                        backgroundColor: isActive ? "green" : "red"
+                    }
+                }}to="about">About</NavLink>
             </ul>
         </div>
     )
