@@ -82,16 +82,16 @@
 // Return: a string formatted as a list of names separated by commas except for the last two names, which should be separated by an ampersand.
 
 
-function list(arr){
-  const namesOnlyArray = arr.map(person => person.name)
-  if (namesOnlyArray.length >= 2) {
-    return namesOnlyArray.slice(0, -1).join(", ") + " & " + namesOnlyArray.slice(-1)
-  } else if (namesOnlyArray.length === 1){
-    return namesOnlyArray.join("")
-  } else if (namesOnlyArray.length === 0){
-    return ""
-  }
-}
+// function list(arr){
+//   const namesOnlyArray = arr.map(person => person.name)
+//   if (namesOnlyArray.length >= 2) {
+//     return namesOnlyArray.slice(0, -1).join(", ") + " & " + namesOnlyArray.slice(-1)
+//   } else if (namesOnlyArray.length === 1){
+//     return namesOnlyArray.join("")
+//   } else if (namesOnlyArray.length === 0){
+//     return ""
+//   }
+// }
 
 // console.log(list([ {name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'} ]))
 // returns 'Bart, Lisa & Maggie'
@@ -104,3 +104,20 @@ function list(arr){
 
 // console.log(list([]))
 // // returns ''
+
+// 11/29/2021
+// Round any given number to the closest 0.5 step
+//Round up if number is as close to previous and next 0.5 steps.
+function solution (num){
+  
+}
+console.log(solution(4.2))
+// = 4
+// console.log(solution(4.3))
+//  = 4.5
+// console.log(solution(4.6))
+//  = 4.5
+// console.log(solution(4.8))
+//  = 5
+//console.log(solution(4.75)) 
+// == 5
