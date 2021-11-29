@@ -108,16 +108,25 @@
 // 11/29/2021
 // Round any given number to the closest 0.5 step
 //Round up if number is as close to previous and next 0.5 steps.
-function solution (num){
-  
-}
+
+function solution(n){
+  // .round to the nearest whole number,
+  //doubled>rounded>halfed  
+    let rounded= Math.round( n * 2 ) / 2;
+    console.log(n)
+    
+    return rounded
+    }
 console.log(solution(4.2))
 // = 4
-// console.log(solution(4.3))
+console.log(solution(4.3))
 //  = 4.5
-// console.log(solution(4.6))
+console.log(solution(4.6))
 //  = 4.5
-// console.log(solution(4.8))
+console.log(solution(4.8))
 //  = 5
-//console.log(solution(4.75)) 
+console.log(solution(4.75)) 
 // == 5
+
+
+const arr = (2.3 + "").split(".")
