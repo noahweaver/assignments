@@ -4,42 +4,22 @@ const Context = React.createContext()
 
 function ContextProvider(props) {
 
-   const [currentJoke, setJoke] = useState({
-       setup: "Placeholder setup",
-       punchline: "Placeholder punchline",
-       type: "Placeholder type"
+   const [currentJoke, setJoke] = useState({})
 
-   })
-
+   //DidMount joke
    useEffect(() => {
         newJoke()
    }, [])
 
-
-   //getData
-
-   function newJoke(){
+   //fetch random joke
+   function newJoke() {
        console.log("newJoke was called")
-        // fetch("https://dad-jokes.p.rapidapi.com/random/joke", {
-        //     "method": "GET",
-        //     "headers": {
-        //         "x-rapidapi-host": "dad-jokes.p.rapidapi.com",
-        //         "x-rapidapi-key": "8f54ecd662msh6f4107241659e95p1e9455jsn278bae242e66"
-        //     }
-        // })
-        //     .then(response => {
-        //         response.json()
-        //     console.log(response);
-        // })
-        // .catch(err => {
-        //     console.error(err);
-        // });
+       fetch("https://v2.jokeapi.dev/joke/Any")
+            .then(response => response.json())
+            .then((response) => {setJoke(response)})
+            .catch(err => console.log(err))
    }
-
-//  .then(() => {
-//             setJoke(body => ({...body}))
-//         })
-
+   
     return (
        <Context.Provider 
             value={{

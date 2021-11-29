@@ -11,8 +11,9 @@ function Jokecard(props) {
         //if home page is active render single card, else render list format
         <div>
             <h3>{currentJoke.setup}</h3>
-            <h6>{currentJoke.punchline}</h6>
-            <p>{currentJoke.type}</p>
+            <h3>{currentJoke.joke}</h3>
+            <h6>{currentJoke.delivery}</h6>
+            {/* <p>{currentJoke.type}</p> */}
         </div>
     )
 }

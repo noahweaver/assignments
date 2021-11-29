@@ -6,9 +6,11 @@ import Jokecard from './Jokecard'
 import {Outlet} from 'react-router-dom'
 
 
-function Home() {
+function Home(props) {
 
-    // const {newJoke} = useContext(Context)
+    const {newJoke} = useContext(Context)
+
+    //styling
 
     return (
         <>
@@ -16,7 +18,7 @@ function Home() {
             <h1>Home Page</h1>
             <Outlet />
             <Jokecard/>
-            <button>Let's try a different one</button>
+            <button className="" onClick={newJoke}>Let's try a different one</button>
             <Footer />
         </>
     )
