@@ -1,5 +1,6 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
+import { ContextProvider } from './Context'
 import Home from './Home'
 import Library from "./Library"
 import Types from "./Types"
@@ -7,12 +8,14 @@ import Types from "./Types"
 function App() {
     return (
         <div>
-            <Routes>
-                <Route path="/home" element={<Home />}>
-                    <Route path="jokelibrary" element={<Library />} />
-                </Route>
-                <Route path="/joketypes" element={<Types />} />
-            </Routes>
+            <ContextProvider>
+                <Routes>
+                    <Route path="/home" element={<Home />}>
+                        <Route path="jokelibrary" element={<Library />} />
+                    </Route>
+                    <Route path="/joketypes" element={<Types />} />
+                </Routes>
+            </ContextProvider>
         </div>
     )
 }
