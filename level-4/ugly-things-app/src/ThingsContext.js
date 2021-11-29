@@ -59,7 +59,16 @@ function ThingsContextProvider(props) {
  }
 
     return (
-        <ThingsContext.Provider value={{thingsList, newThing, handleSubmit, handleChange, setThingsList, handleDelete, submitEdit}}>
+        <ThingsContext.Provider 
+            value={{
+                thingsList, 
+                newThing, 
+                handleSubmit, 
+                handleChange, 
+                setThingsList, 
+                handleDelete, 
+                submitEdit
+        }}>
             {props.children}
         </ThingsContext.Provider>
     )
