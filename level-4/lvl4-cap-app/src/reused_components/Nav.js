@@ -7,7 +7,7 @@ function Nav() {
 
     return (
         
-        <nav className="navbar navbar-expand-sm navbar-dark bg-danger">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-danger py-4">
             {/* navbar-expand-sm: navbar turns vertical at 575px */}
             <div className="container-fluid">
                 <span className="navbar-brand">JokesApp</span>
