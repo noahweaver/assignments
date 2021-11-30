@@ -6,13 +6,14 @@ const Context = React.createContext()
 function ContextProvider(props) {
 
    const [currentJoke, setJoke] = useState({})
-   const [jokesArr, setJokesArr] = useState([])
+   const [jokesArr, setJokesArr] = useState()
 
-   //DidMount joke
+   //DidMount joke for home page
    useEffect(() => {
         newJoke()
    }, [])
 
+   //DidMount jokes for jokelibrary page
    useEffect(() => {
         tenJokes()
    }, [])
@@ -25,33 +26,26 @@ function ContextProvider(props) {
             .then((response) => {setJoke(response)})
             .catch(err => console.log(err))
    }
-
-   //fetch jokes array and add to state
-
+  
    //fetch 10 jokes
    function tenJokes(){
        console.log("tenJokes was called")
        fetch("https://v2.jokeapi.dev/joke/Any?amount=10")
             .then(response => response.json())
-            .then((response) => setJokesArr([response.jokes]))
+            .then((response) => setJokesArr(response.jokes))
             .catch(err => console.log(err))
    }
 
+ //fetch jokes array and add to state
    function moreJokes(){
     console.log("moreJokes was called")
     fetch("https://v2.jokeapi.dev/joke/Any?amount=10")
          .then(response => response.json())
-         .then((response) => setJokesArr(prevJokes => [...prevJokes, response.jokes]))
+         .then((response) => setJokesArr(prevJokes => [...prevJokes].concat(response.jokes))
+         )
          .catch(err => console.log(err))
    }
 
-   const jokeList = jokesArr.map((joke) => 
-   <Jokecard 
-       key={joke.id} 
-       setup={joke.setup} 
-       delivery={joke.delivery} 
-       joke={joke.joke}
-   />)
 
     return (
         // clean up values list when finished, remove any unused values
@@ -63,7 +57,6 @@ function ContextProvider(props) {
                 jokesArr,
                 tenJokes, 
                 moreJokes,
-                jokeList
         }}>
            {props.children}
        </Context.Provider>
