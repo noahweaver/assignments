@@ -5,6 +5,7 @@ import Layout from './Layout'
 import Home from './Home'
 import Library from "./Library"
 import Types from "./Types"
+import './Styles.css'
 
 function App() {
 
