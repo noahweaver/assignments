@@ -10,7 +10,7 @@ function Nav() {
 
     return (
         <>
-        <nav className="navbar navbar-expand-sm navbar-dark py-4 nav-bg-color-forestgreen">
+        <nav className="navbar navbar-expand-sm navbar-dark py-4 bg-color-forestgreen">
             {/* navbar-expand-sm: navbar turns vertical at 575px */}
             <div className="container-fluid">
                 <span className="navbar-brand">
