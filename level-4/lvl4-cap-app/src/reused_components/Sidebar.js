@@ -1,5 +1,7 @@
 import React from 'react'
 
+//bootstrap template used: file:///Users/noahweaver/Downloads/sidebar-nav-collapse/sidebar-nav-collapse.html
+
 function SideNav() {
     
     return (
