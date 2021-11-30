@@ -2,40 +2,25 @@ import React, {useContext} from 'react'
 import {Context} from './Context'
 import Jokecard from './Jokecard'
 
+//button style: https://getbootstrap.com/docs/5.1/components/buttons/
+
 
 function Home(props) {
 
     const {newJoke, currentJoke} = useContext(Context)
-    
-    // const randomJoke = currentJoke
-    
-    const randomJoke = currentJoke = joke => 
-        {
-        return (
-            <Jokecard 
-                setup={joke.setup} 
-                delivery={joke.delivery} 
-                joke={joke.joke}
-            />
-        )
-    }
-    
-        
-
-    
 
     return (
         <>
             <ul>
-                {randomJoke}
-                {/* {({currentJoke}) => {<Jokecard 
-                   setup={currentJoke.setup} 
-                   delivery={currentJoke.delivery} 
-                   joke={currentJoke.joke} 
-                />}} */}
+                <Jokecard 
+                    setup={currentJoke.setup} 
+                    delivery={currentJoke.delivery} 
+                    joke={currentJoke.joke}
+                />
             </ul>
-            <button 
-                className="" 
+            <button
+                type="button"
+                className="btn btn-outline-dark btn-sm col-3 mx-auto" 
                 onClick={newJoke}>
                     Let's try a different one
             </button>
