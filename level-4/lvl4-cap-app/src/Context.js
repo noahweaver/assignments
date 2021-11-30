@@ -26,7 +26,7 @@ function ContextProvider(props) {
             .then((response) => {setJoke(response)})
             .catch(err => console.log(err))
    }
-  
+
    //fetch 10 jokes
    function tenJokes(){
        console.log("tenJokes was called")

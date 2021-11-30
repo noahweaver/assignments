@@ -13,7 +13,7 @@ function Library(props) {
     const {moreJokes, jokesArr} = useContext(Context)
    
     //map to render jokesArr to jokelibrary
-    const jokeList = jokesArr.map((joke) => 
+    const jokeList = jokesArr.map(joke => 
         <Jokecard 
             key={joke.id} 
             setup={joke.setup} 
