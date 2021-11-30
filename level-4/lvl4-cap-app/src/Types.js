@@ -8,8 +8,9 @@ function Types() {
         <>
             <Nav />
             <div className="section-content">
-                <div className="row">
+                <div className="">
                     <Sidebar />
+                    {/* copy styling from jokelibrary */}
                 <div className="col-lg-9"> 
                     <h1 >Jokes by type</h1>
                     <ul>
