@@ -1,13 +1,16 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+
+
+
 function Nav() {
 
     //make sure id="navbarScroll works"
     //bootstrap link: https://getbootstrap.com/docs/5.1/components/navbar/
 
     return (
-        
-        <nav className="navbar navbar-expand-sm navbar-dark bg-danger py-4">
+        <>
+        <nav className="navbar navbar-expand-sm navbar-dark py-4 nav-bg-color-forestgreen">
             {/* navbar-expand-sm: navbar turns vertical at 575px */}
             <div className="container-fluid">
                 <span className="navbar-brand">
@@ -37,7 +40,7 @@ function Nav() {
                 </div>
             </div>
         </nav>
-
+        </>
     )
     
 }
