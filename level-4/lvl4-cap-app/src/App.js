@@ -1,17 +1,23 @@
 import React from 'react'
-import {Routes, Route} from 'react-router-dom'
 import { ContextProvider } from './Context'
+import {Routes, Route} from 'react-router-dom'
+import Layout from './Layout'
 import Home from './Home'
 import Library from "./Library"
 import Types from "./Types"
 
 function App() {
+
     return (
         <div>
             <ContextProvider>
                 <Routes>
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/jokelibrary" element={<Library />} />
+                    {/* redirect '/' to '/home' */}
+                    {/* conditionally render home and joke library */}
+                    <Route path="/" element={<Layout />} >
+                        <Route path="home" element={<Home />} />
+                        <Route path="jokelibrary" element={<Library />} />
+                    </Route>
                     <Route path="/joketypes" element={<Types />} />
                 </Routes>
             </ContextProvider>
