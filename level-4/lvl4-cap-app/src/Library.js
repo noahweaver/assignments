@@ -1,23 +1,28 @@
 import React, {useContext} from 'react'
 import {useNavigate} from 'react-router-dom'
-import Nav from './reused_components/Nav'
-import Footer from './reused_components/Footer'
-import Jokecard from './Jokecard'
 import {Context} from './Context'
+import Jokecard from './Jokecard'
 
 
 function Library(props) {
 
-    const navigate = useNavigate()
-    const {jokesArr, moreJokes} = useContext(Context)
-        
-    //map jokes in state array and render Jokecard component
-   
+    //if I navigate directly to jokelibrary it doesn't put ten jokes in array, thus wont map wont work, thus doesn't render
+    //need useEffect to run even if jokelibrary opens first
 
+    const navigate = useNavigate()
+    const {moreJokes, jokesArr} = useContext(Context)
+   
+    //map to render jokesArr to jokelibrary
+    const jokeList = jokesArr.map((joke) => 
+        <Jokecard 
+            key={joke.id} 
+            setup={joke.setup} 
+            delivery={joke.delivery} 
+            joke={joke.joke}
+        />)
 
     return (
         <>
-            <Nav />
             <div>
                 <h1>Joke Library</h1>
                 <button
@@ -29,10 +34,11 @@ function Library(props) {
                 </button>
             </div>
             <div>
-                
+                <ul>
+                    {jokeList}
+                </ul>
                 <button onClick={moreJokes}>Load More Jokes</button>
             </div>
-            <Footer />
         </>
     )
 }
