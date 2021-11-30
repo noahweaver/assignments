@@ -1,24 +1,33 @@
 import React, {useContext} from 'react'
 import {Context} from './Context'
-import Nav from './reused_components/Nav'
-import Footer from './reused_components/Footer'
 import Jokecard from './Jokecard'
-import {Outlet} from 'react-router-dom'
 
 
 function Home(props) {
 
-    const {newJoke} = useContext(Context)
+    const {newJoke, currentJoke} = useContext(Context)
+
+    //render single joke for homepage
+   const randomJoke = currentJoke => 
+        <Jokecard 
+                setup={currentJoke.setup} 
+                delivery={currentJoke.delivery} 
+                joke={currentJoke.joke}
+        />
 
     //styling
 
     return (
         <>
-            <Nav />
-            <Outlet />
-            <Jokecard/>
-            <button className="" onClick={newJoke}>Let's try a different one</button>
-            <Footer />
+            <ul>
+                {randomJoke}
+            </ul>
+            <button 
+                className="" 
+                onClick={newJoke}>
+                    Let's try a different one
+            </button>
+
         </>
     )
 }
