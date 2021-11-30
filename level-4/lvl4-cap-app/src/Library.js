@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Context} from './Context'
 import Jokecard from './Jokecard'
@@ -10,7 +10,17 @@ function Library(props) {
     //need useEffect to run even if jokelibrary opens first
 
     const navigate = useNavigate()
-    const {moreJokes, jokesArr} = useContext(Context)
+    const {moreJokes, jokesArr, tenJokes} = useContext(Context)
+
+    // useEffect(() => {
+    //     alert("WARNING: Proceed with caution. There are many dark and potentially offensive jokes used in this app. No offense is meant, but if you are easily offended you might not want to proceed.")
+    // }, [])
+
+   //DidMount jokes for jokelibrary page
+//    useEffect(() => {
+//         tenJokes()
+//     }, [])
+
    
     //map to render jokesArr to jokelibrary
     const jokeList = jokesArr.map(joke => 
