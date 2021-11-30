@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import Jokecard from './Jokecard'
 import axios from 'axios'
 const Context = React.createContext()
 
@@ -8,15 +7,23 @@ function ContextProvider(props) {
    const [currentJoke, setJoke] = useState({})
    const [jokesArr, setJokesArr] = useState()
 
+
+   //enable warning when complete
+   //convert to modal?
+//    useEffect(() => {
+//         alert("WARNING: Proceed with caution. There are many dark and potentially offensive jokes used in this app. No offense is meant, but if you are easily offended you might not want to proceed.")
+//    }, [])
+   
    //DidMount joke for home page
    useEffect(() => {
         newJoke()
    }, [])
 
-   //DidMount jokes for jokelibrary page
    useEffect(() => {
         tenJokes()
    }, [])
+
+   
 
    //fetch random joke
    function newJoke() {
@@ -37,6 +44,7 @@ function ContextProvider(props) {
    }
 
  //fetch jokes array and add to state
+ //need to fix repeating jokes bug
    function moreJokes(){
     console.log("moreJokes was called")
     fetch("https://v2.jokeapi.dev/joke/Any?amount=10")
