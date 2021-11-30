@@ -10,14 +10,15 @@ function App() {
         <div>
             <ContextProvider>
                 <Routes>
-                    <Route path="/home" element={<Home />}>
-                        <Route path="jokelibrary" element={<Library />} />
-                    </Route>
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/jokelibrary" element={<Library />} />
                     <Route path="/joketypes" element={<Types />} />
                 </Routes>
             </ContextProvider>
         </div>
     )
 }
+
+//add error page
 
 export default App

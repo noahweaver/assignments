@@ -20,7 +20,7 @@ function Nav() {
                         <NavLink className="nav-link active" aria-current="page" to="/home">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                        <NavLink className="nav-link" to="jokelibrary">Joke Library</NavLink>
+                        <NavLink className="nav-link" to="/jokelibrary">Joke Library</NavLink>
                         </li>
                     </ul>
                 </div>

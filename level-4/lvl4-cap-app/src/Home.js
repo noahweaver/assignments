@@ -15,7 +15,6 @@ function Home(props) {
     return (
         <>
             <Nav />
-            <h1>Home Page</h1>
             <Outlet />
             <Jokecard/>
             <button className="" onClick={newJoke}>Let's try a different one</button>
