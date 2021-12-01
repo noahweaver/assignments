@@ -10,9 +10,10 @@ function Home(props) {
     const {newJoke, currentJoke} = useContext(Context)
 
     return (
-        <div className="">
+        <div className="container h-75 d-flex flex-column align-items-center justify-content-center mb-3">
+            <p className="display-4 m-0 p-2 text-center">Try this one!</p>
             <div className="">
-                <ul className="mx-auto w-75">
+                <ul className="w-75 p-0 m-auto">
                     <Jokecard 
                         setup={currentJoke.setup} 
                         delivery={currentJoke.delivery} 
@@ -22,9 +23,9 @@ function Home(props) {
             </div>
             <button
                 type="button"
-                className="btn btn-outline-dark btn-sm col-3 mx-auto" 
+                className="btn btn-outline-dark btn-sm col-3 m-3" 
                 onClick={newJoke}>
-                    Let's try a different one
+                    Give me another
             </button>
         </div>
     )

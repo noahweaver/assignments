@@ -7,7 +7,7 @@ function Jokecard(props) {
     return (
         //loading boxes?
         // conditially render style based on which page is active
-        <li className="card bg-color-forestgreen text-white text-center">
+        <li className="card bg-color-watermelon text-center g-5 text-white">
             <div className="card-body">
                 {/* vertical align text */}
             <h3 className="card-title">{props.setup}</h3>

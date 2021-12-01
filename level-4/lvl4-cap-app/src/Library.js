@@ -42,18 +42,19 @@ function Library(props) {
                     onClick={() => {
                         navigate("/joketypes")
                     }}
-                    className="btn btn-outline-dark btn-sm col-1 mx-auto"
+                    className="btn btn-outline-dark btn-sm mx-auto"
                     >Find Joke By Type
                 </button>
             </div>
-            <div className="">
-               <div className="card-group mx-auto">
-                    <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 p-5 g-4">
+            <div className="mx-auto">
+               <div className="">
+                    <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 pad-5 g-4">
+                    {/* <ul className="row row-cols-1 row-cols-md-2 mx-auto"> */}
                         {jokeList}
                     </ul>
                 </div>  
                 <button 
-                    className="btn btn-outline-dark btn-sm col-3 mx-auto" 
+                    className="btn btn-outline-dark btn-sm col-2 load-button" 
                     onClick={moreJokes}
                     >Load More Jokes
                 </button> 
