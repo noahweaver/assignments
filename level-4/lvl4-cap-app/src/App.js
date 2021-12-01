@@ -21,7 +21,13 @@ function App() {
                         <Route path="home" element={<Home />} />
                         <Route path="jokelibrary" element={<Library />} />
                     </Route>
-                    <Route path="/joketypes" element={<Types />} />
+                    <Route path="/joketypes" element={<Types />}>
+                        <Route index element={<Types />} />
+                        <Route path="category" element={<Types />} />
+                        <Route path=":category" element={<Types />} />
+                        <Route path="flag" element={<Types />} />
+                        <Route path=":flag" element={<Types />} />
+                    </Route>
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </ContextProvider>
