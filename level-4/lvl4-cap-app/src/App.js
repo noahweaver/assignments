@@ -9,8 +9,10 @@ import './Styles.css'
 
 function App() {
 
+    // going from /joketypes to jokelibrary  directs to joketype/jokelibrary instead of /jokelibrary
+
     return (
-        <div>
+        <>
             <ContextProvider>
                 <Routes>
                     {/* redirect '/' to '/home' */}
@@ -22,7 +24,7 @@ function App() {
                     <Route path="/joketypes" element={<Types />} />
                 </Routes>
             </ContextProvider>
-        </div>
+        </>
     )
 }
 
