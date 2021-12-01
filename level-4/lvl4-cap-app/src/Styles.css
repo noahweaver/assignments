@@ -45,3 +45,6 @@ html, body{
 .load-button{
 	margin: 0 0 5% 43%;
 }
+.pointer{
+    cursor: pointer;
+}
