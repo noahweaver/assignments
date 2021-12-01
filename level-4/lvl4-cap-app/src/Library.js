@@ -44,20 +44,19 @@ function Library(props) {
                 <div className="">
                 <h1>Joke Library</h1>
                 <button
+                // only top 1/4 of button works
                     onClick={() => {
                         navigate("/joketypes")
                     }}
-                    className="btn btn-outline-dark btn-sm mx-auto"
+                    className="btn btn-outline-dark btn-sm "
                     >Find Joke By Type
                 </button>
             </div>
                <div className="">
                     <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 pad-5 g-4">
-                    {/* <ul className="row row-cols-1 row-cols-md-2 mx-auto"> */}
                         {jokeList}
                     </ul>
                 </div>  
-                {/* load more button is centered but using margins instead of alignment and justify */}
                 <button 
                     className="btn btn-outline-dark btn-sm col-2 m-auto" 
                     onClick={moreJokes}
