@@ -35,6 +35,7 @@ function ContextProvider(props) {
    }
 
    //fetch 10 jokes
+   //need to change to by ID
    function tenJokes(){
        console.log("tenJokes was called")
        fetch("https://v2.jokeapi.dev/joke/Any?amount=10")
