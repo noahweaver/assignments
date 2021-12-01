@@ -36,7 +36,7 @@ function Library(props) {
 
     return (
         <>
-            <div>
+            <div className="mt-6rem">
                 <h1>Joke Library</h1>
                 <button
                     onClick={() => {
