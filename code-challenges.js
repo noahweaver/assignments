@@ -109,24 +109,67 @@
 // Round any given number to the closest 0.5 step
 //Round up if number is as close to previous and next 0.5 steps.
 
-function solution(n){
-  // .round to the nearest whole number,
-  //doubled>rounded>halfed  
-    let rounded= Math.round( n * 2 ) / 2;
-    console.log(n)
+// function solution(n){
+//   // .round to the nearest whole number,
+//   //doubled>rounded>halfed  
+//     let rounded= Math.round( n * 2 ) / 2;
+//     console.log(n)
     
-    return rounded
-    }
-console.log(solution(4.2))
-// = 4
-console.log(solution(4.3))
-//  = 4.5
-console.log(solution(4.6))
-//  = 4.5
-console.log(solution(4.8))
-//  = 5
-console.log(solution(4.75)) 
-// == 5
+//     return rounded
+//     }
+// console.log(solution(4.2))
+// // = 4
+// console.log(solution(4.3))
+// //  = 4.5
+// console.log(solution(4.6))
+// //  = 4.5
+// console.log(solution(4.8))
+// //  = 5
+// console.log(solution(4.75)) 
+// // == 5
 
 
-const arr = (2.3 + "").split(".")
+// const arr = (2.3 + "").split(".")
+
+
+//12/1/21
+// /// [[0,0,0][0,0,0][0,0,0]]
+// var array1 = [ ]
+
+// for(var i = 0; i < 3; i++){
+//   let array2 = []
+//     for(var j = 0; j < 3; j++){
+//       array2.push(0);
+//     }
+//         array1.push(array2)
+// }
+
+// console.log(array1)
+
+
+// /// [[0,0,0][1,1,1][2,2,2]]
+// var array1 = [ ]
+
+// for(var i = 0; i < 3; i++){
+//   let array2 = []
+//     for(var j = 0; j < 3; j++){
+//       array2.push(i);
+//     }
+//         array1.push(array2)
+// }
+
+// console.log(array1)
+
+
+// /// [[0,1,2][0,1,2][0,1,2]]
+// var array1 = [ ]
+
+// for(var i = 0; i < 3; i++){
+//   let array2 = []
+//     for(var j = 0; j < 3; j++){
+//       array2.push(j);
+//     }
+//         array1.push(array2)
+// }
+
+// console.log(array1)
