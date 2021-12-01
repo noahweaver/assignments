@@ -3,6 +3,9 @@ import {useNavigate} from 'react-router-dom'
 import {Context} from './Context'
 import Jokecard from './Jokecard'
 
+//button style: https://getbootstrap.com/docs/5.1/components/buttons/
+//card styling: https://getbootstrap.com/docs/5.1/components/card/
+
 
 function Library(props) {
 
@@ -39,16 +42,23 @@ function Library(props) {
                     onClick={() => {
                         navigate("/joketypes")
                     }}
-                    className="btn btn-light"
+                    className="btn btn-outline-dark btn-sm col-1 mx-auto"
                     >Find Joke By Type
                 </button>
             </div>
-            <div>
-                <ul>
-                    {jokeList}
-                </ul>
-                <button onClick={moreJokes}>Load More Jokes</button>
+            <div className="">
+               <div className="card-group mx-auto">
+                    <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 p-5 g-4">
+                        {jokeList}
+                    </ul>
+                </div>  
+                <button 
+                    className="btn btn-outline-dark btn-sm col-3 mx-auto" 
+                    onClick={moreJokes}
+                    >Load More Jokes
+                </button> 
             </div>
+            
         </>
     )
 }

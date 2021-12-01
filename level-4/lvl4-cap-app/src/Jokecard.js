@@ -2,19 +2,14 @@ import React from 'react'
 
 //card styling: https://getbootstrap.com/docs/5.1/components/card/
 
-function Jokecard(props) {
-
-    const homeCardStyle = {
-        "width": "75%"
-    }
-    const libraryCardStyle = {
-        "width": "25%"
-    }
+function Jokecard(props) { 
 
     return (
+        //loading boxes?
         // conditially render style based on which page is active
-        <li className="card" style={homeCardStyle}>
+        <li className="card bg-color-forestgreen text-white text-center">
             <div className="card-body">
+                {/* vertical align text */}
             <h3 className="card-title">{props.setup}</h3>
             <h3 className="card-title">{props.joke}</h3>
             <p className="card-text">{props.delivery}</p>
