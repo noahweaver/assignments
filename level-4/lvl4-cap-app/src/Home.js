@@ -10,6 +10,7 @@ function Home(props) {
     const {newJoke, currentJoke} = useContext(Context)
 
     return (
+        // see about making everythingn in this div bigger
         <div className="container h-75 d-flex flex-column align-items-center justify-content-center mb-3">
             <p className="display-4 m-0 p-2 text-center">Try this one!</p>
             <div className="">

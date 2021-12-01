@@ -13,8 +13,9 @@ html, body{
 .h-70{
 	height: 70%!important;
 }
-.mt-6rem{
+.my-6rem{
     margin-top: 6rem!important;
+    margin-bottom: 6rem!important;
 }
 /* color scheme: https://www.canva.com/learn/website-color-schemes/ #4 "clean and highlighted */
 .bg-color-sky {

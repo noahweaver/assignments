@@ -34,9 +34,14 @@ function Library(props) {
             joke={joke.joke}
         />)
 
+        //these need to fetch by ID and not random jokes
+
     return (
+        //
         <>
-            <div className="mt-6rem">
+            
+            <div className="container mx-auto my-6rem d-flex flex-wrap">
+                <div className="">
                 <h1>Joke Library</h1>
                 <button
                     onClick={() => {
@@ -46,15 +51,15 @@ function Library(props) {
                     >Find Joke By Type
                 </button>
             </div>
-            <div className="mx-auto">
                <div className="">
                     <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 pad-5 g-4">
                     {/* <ul className="row row-cols-1 row-cols-md-2 mx-auto"> */}
                         {jokeList}
                     </ul>
                 </div>  
+                {/* load more button is centered but using margins instead of alignment and justify */}
                 <button 
-                    className="btn btn-outline-dark btn-sm col-2 load-button" 
+                    className="btn btn-outline-dark btn-sm col-2 m-auto" 
                     onClick={moreJokes}
                     >Load More Jokes
                 </button> 
