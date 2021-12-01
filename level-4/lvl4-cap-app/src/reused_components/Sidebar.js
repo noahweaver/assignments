@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 //bootstrap template used: file:///Users/noahweaver/Downloads/sidebar-nav-collapse/sidebar-nav-collapse.html
 
-function SideNav() {
+function Sidebar() {
     
+    const [jokeForm, setJokeForm] = useState({
+        xmas: false,
+        dark: false,
+    })
+
+
     return (
         <div className="col-lg-2"> 
             <nav className="sidebar card py-4 px-3">
@@ -14,12 +20,28 @@ function SideNav() {
                         <a className="nav-link" href="#">type 1</a>
                     </li>
                     <li className="nav-item has-submenu">
-                        {/* change <a> to link or navlink */}
-                        <a className="nav-link" href="#">submenu links</a>
+                        <a 
+                            className="nav-link" 
+                            to={"category"}
+                            >Category
+                        </a>
                         <ul className="submenu collapse">
-                            <li><a className="nav-link" href="#">submenu item 1</a></li>
-                            <li><a className="nav-link" href="#">submenu item 2</a></li>
-                            <li><a className="nav-link" href="#">submenu item 3</a></li>
+                            <li>
+                                <input 
+                                    name="xmas"
+                                    type="checkbox" 
+                                    value={jokeForm.xmas}
+                                    onChange={(() => setJokeForm(jokeForm.xmas === true ? false : true))}
+                                    // isChecked={jokeForm.xmas = true}
+                                /> Christmas
+                                
+                                <input 
+                                    name="dark"
+                                    type="checkbox" 
+                                    value={jokeForm.dark}
+                                    onChange={() => setJokeForm(jokeForm.dark === true ? false : true)}
+                                /> Dark
+                            </li>
                         </ul>
                     </li>
                     <li className="nav-item">
@@ -33,4 +55,4 @@ function SideNav() {
     )
 }
 
-export default SideNav
+export default Sidebar
