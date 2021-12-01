@@ -1,20 +1,43 @@
-.bg-color-forestgreen   {
-    background-color: rgb(24,98,24);
+html, body{
+	/* neutral */
+	background-color: #EFEFEF;
 }
-/* .h-100{
-	height: 100%;
-} */
-/* .sidebar li .submenu{ 
-	list-style: none; 
-	margin: 0; 
-	padding: 0; 
-	padding-left: 1rem; 
-	padding-right: 1rem;
+#root{
+	height: 100vh;
+	width: 100vw;
+	position: relative;
 }
-.sidebar .nav-link {
-    font-weight: 500;
-    color: var(--bs-dark);
+.pad-5{
+	padding: 5rem!important;
 }
-.sidebar .nav-link:hover {
-    color: var(--bs-primary);
-} */
+.h-70{
+	height: 70%!important;
+}
+/* color scheme: https://www.canva.com/learn/website-color-schemes/ #4 "clean and highlighted */
+.bg-color-sky {
+    background-color: #CAEBF2;
+}
+.bg-color-carbon {
+    background-color: #A9A9A9;
+}
+.bg-color-watermelon {
+    background-color: #FF3B3F;
+}
+.bg-color-neutral {
+    background-color: #EFEFEF;
+}
+.txt-color-sky {
+    color: #CAEBF2;
+}
+.txt-color-carbon {
+    color: #A9A9A9;
+}
+.txt-color-watermelon {
+    color: #FF3B3F;
+}
+.txt-color-neutral {
+    color: #EFEFEF;
+}
+.load-button{
+	margin: 0 0 5% 43%;
+}
