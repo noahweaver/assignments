@@ -16,8 +16,6 @@ function App() {
         <>
             <ContextProvider>
                 <Routes>
-                    {/* redirect '/' to '/home' */}
-                    
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Home />} />
                         <Route path="home" element={<Home />} />
