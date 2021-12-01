@@ -26,6 +26,7 @@ function Library(props) {
 
    
     //map to render jokesArr to jokelibrary
+    //need to filter out duplicates
     const jokeList = jokesArr.map(joke => 
         <Jokecard 
             key={joke.id} 
