@@ -26,7 +26,8 @@ function Types(props) {
         religious: false,
         sexist: false,
     })
-    const [filteredJokesArr, setFilteredJokes] = useState()
+    const [filteredJokesArr, setFilteredJokes] = useState([])
+    //filteredIncrement state
 
     //checkboxes handlechanger
     function handleChange(event){
@@ -34,31 +35,31 @@ function Types(props) {
         const {name, value, checked} = event.target
         setJokeForm(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
     }
-    //submit form
+
+    //filteredIncrement function
+
+    //onSubmit form function
+        //will need to change fetch based on filters
     function handleSubmit(event){
         event.preventDefault()
         console.log("handleSubmit")
+        
         fetch("https://v2.jokeapi.dev/joke/Any?idRange=0-9&amount=10")
             .then(response => response.json())
             .then((response) => setFilteredJokes(response.jokes))
-            // .then(increment())
+            // .then(filteredIncrement())
             .catch(err => console.log(err))
         //fetch data based on state booleans
             //then push to state array
     }
 
     //map to render jokes
-    const filteredJokeList = filteredJokeFunction
-    function filteredJokeFunction (){
-        if (filteredJokesArr.length > 0) {
-            filteredJokesArr.map(joke => 
+    const filteredJokeList = filteredJokesArr.length > 0 ? filteredJokesArr.map(joke => 
                     <Jokecard key={joke.id} 
                         setup={joke.setup} 
                         delivery={joke.delivery} 
                         joke={joke.joke}
-                    />) 
-        }
-    } 
+                    />) : null
 
     return (
         <>
