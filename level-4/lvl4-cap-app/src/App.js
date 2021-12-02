@@ -1,5 +1,4 @@
 import React from 'react'
-import { ContextProvider } from './Context'
 import {Routes, Route} from 'react-router-dom'
 import Layout from './Layout'
 import Home from './Home'
@@ -10,11 +9,8 @@ import './Styles.css'
 
 function App() {
 
-    // going from /joketypes to jokelibrary  directs to joketype/jokelibrary instead of /jokelibrary
-
     return (
         <>
-            <ContextProvider>
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Home />} />
@@ -30,11 +26,8 @@ function App() {
                     </Route>
                     <Route path="*" element={<NotFound />} />
                 </Routes>
-            </ContextProvider>
         </>
     )
 }
-
-//add error page
 
 export default App
