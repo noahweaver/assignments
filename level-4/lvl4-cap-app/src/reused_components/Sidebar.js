@@ -118,6 +118,7 @@ function Sidebar(props) {
                 </ul>
                 <button
                     className="btn btn-outline-dark btn-sm m-3"
+                    // props.handleSubmit won't run as "onSubmit", only "onClick"
                     onClick={props.handleSubmit}
                     >Get Jokes
                 </button>
