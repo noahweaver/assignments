@@ -6,12 +6,15 @@ import Footer from './reused_components/Footer'
 import Sidebar from './reused_components/Sidebar'
 import Jokecard from './Jokecard'
 
+//api docs: https://jokeapi.dev/
 
 function Types(props) {
-    //probably going to pull jokesArr from context
     const {} = useContext(Context)
     // let params = useParams()
 
+    //separate between categories and flags
+        //can this be an array instead of object?
+        //change props and sidenav as needed
     const [jokeForm, setJokeForm] = useState({
         xmas: false,
         dark: false,
@@ -26,8 +29,18 @@ function Types(props) {
         religious: false,
         sexist: false,
     })
+    //state for true values
+        //categories and flags need to be separate
+        //make a string before setting state for ease of use in fetch
+        //if I can't make joke form an array, I'll need to make state an array so that it can iterate through, pull out anything true (map, filter, or splice?), then convert to string with join
     const [filteredJokesArr, setFilteredJokes] = useState([])
-    //filteredIncrement state
+    const [categoriesArr, setCategories] = useState([])
+    const [flagsArr, setFlags] = useState([])
+    // const [filteredRequestCount, setFilteredRequestCount] = useState({
+    //     count1: 0,
+    //     count2: 9
+    // })
+   
 
     //checkboxes handlechanger
     function handleChange(event){
@@ -40,6 +53,10 @@ function Types(props) {
 
     //onSubmit form function
         //will need to change fetch based on filters
+        //if state boolean = true then add to state string
+            //concat or push?
+            //join?
+        //concat flag and category state string into fetch req
     function handleSubmit(event){
         event.preventDefault()
         console.log("handleSubmit")
@@ -50,7 +67,7 @@ function Types(props) {
             // .then(filteredIncrement())
             .catch(err => console.log(err))
         //fetch data based on state booleans
-            //then push to state array
+            //then push to filteredJokesArr
     }
 
     //map to render jokes
