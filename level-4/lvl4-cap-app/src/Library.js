@@ -57,10 +57,9 @@ function Library(props) {
         <>
             
             <div className="container mx-auto my-6rem d-flex flex-wrap">
-                <div className="">
-                <h1>Joke Library</h1>
+                <div id="library-heading"className="">
+                <p className="display-6">Joke Library</p>
                 <button
-                // only top 1/4 of button works
                     onClick={() => {
                         navigate("/joketypes")
                     }}
@@ -69,7 +68,7 @@ function Library(props) {
                 </button>
             </div>
                <div className="">
-                    <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 pad-5 g-4">
+                    <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 my-5 g-4">
                         {jokeList}
                     </ul>
                 </div>  
