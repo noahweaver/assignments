@@ -1,34 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 //bootstrap template used: file:///Users/noahweaver/Downloads/sidebar-nav-collapse/sidebar-nav-collapse.html
 
 function Sidebar(props) {
     
-    // const [jokeForm, setJokeForm] = useState({
-    //     xmas: false,
-    //     dark: false,
-    //     misc: false,
-    //     programming: false,
-    //     pun: false,
-    //     spooky: false,
-    //     explicit: false,
-    //     nsfw: false,
-    //     political: false,
-    //     racist: false,
-    //     religious: false,
-    //     sexist: false,
-    // })
-    // const [filteredJokes, setFilteredJokes] = useState()
-
-    function handleChange(event){
-        console.log("checkboxChange")
-        const {name, value, checked} = event.target
-        props.setJokeForm(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
-    }
-    //fetch data based on state booleans
-        //then push to state array
-        //should this live here or in <Types />
-
     return (
         <div className=""> 
             <nav className="sidebar card py-4 px-3">
@@ -47,42 +22,42 @@ function Sidebar(props) {
                                     name="xmas"
                                     type="checkbox" 
                                     checked={props.jokeForm.xmas}
-                                    onChange={handleChange}
+                                    onChange={props.handleChange}
                                 /> Christmas
                                 <br></br>
                                 <input 
                                     name="dark"
                                     type="checkbox" 
                                     checked={props.jokeForm.dark}
-                                    onChange={handleChange}
+                                    onChange={props.handleChange}
                                 /> Dark
                                 <br></br>
                                 <input 
                                     name="misc"
                                     type="checkbox" 
                                     checked={props.jokeForm.misc}
-                                    onChange={handleChange}
+                                    onChange={props.handleChange}
                                 /> Misc
                                 <br></br>
                                 <input 
                                     name="programming"
                                     type="checkbox" 
                                     checked={props.jokeForm.programming}
-                                    onChange={handleChange}
+                                    onChange={props.handleChange}
                                 /> Programming
                                 <br></br>
                                 <input 
                                     name="pun"
                                     type="checkbox" 
                                     checked={props.jokeForm.pun}
-                                    onChange={handleChange}
+                                    onChange={props.handleChange}
                                 /> Pun
                                 <br></br>
                                 <input 
                                     name="spooky"
                                     type="checkbox" 
                                     checked={props.jokeForm.spooky}
-                                    onChange={handleChange}
+                                    onChange={props.handleChange}
                                 /> Spooky
                                 <br></br>
                             </li>
@@ -100,42 +75,42 @@ function Sidebar(props) {
                             name="explicit"
                             type="checkbox" 
                             checked={props.jokeForm.explicit}
-                            onChange={handleChange}
+                            onChange={props.handleChange}
                         /> Explicit
                         <br></br>
                         <input 
                             name="nsfw"
                             type="checkbox" 
                             checked={props.jokeForm.nsfw}
-                            onChange={handleChange}
+                            onChange={props.handleChange}
                         /> NSFW
                         <br></br>
                         <input 
                             name="political"
                             type="checkbox" 
                             checked={props.jokeForm.political}
-                            onChange={handleChange}
+                            onChange={props.handleChange}
                         /> Political
                         <br></br>
                         <input 
                             name="racist"
                             type="checkbox" 
                             checked={props.jokeForm.racist}
-                            onChange={handleChange}
+                            onChange={props.handleChange}
                         /> Racist
                         <br></br>
                         <input 
                             name="religious"
                             type="checkbox" 
                             checked={props.jokeForm.religious}
-                            onChange={handleChange}
+                            onChange={props.handleChange}
                         /> Religious
                         <br></br>
                         <input 
                             name="sexist"
                             type="checkbox" 
                             checked={props.jokeForm.sexist}
-                            onChange={handleChange}
+                            onChange={props.handleChange}
                         /> Sexist
                         <br></br>
                         </ul>
@@ -143,6 +118,7 @@ function Sidebar(props) {
                 </ul>
                 <button
                     className="btn btn-outline-dark btn-sm m-3"
+                    onClick={props.handleSubmit}
                     >Get Jokes
                 </button>
                 </form>
