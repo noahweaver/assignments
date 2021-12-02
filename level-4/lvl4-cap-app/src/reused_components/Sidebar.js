@@ -9,11 +9,17 @@ function Sidebar() {
         dark: false,
     })
 
+    function handleChange(event){
+        console.log("checkboxChange")
+        const {name, value, checked} = event.target
+        setJokeForm(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
+    }
 
     return (
         <div className="col-lg-2"> 
             <nav className="sidebar card py-4 px-3">
-                <span className="">Side Nav Title</span>
+                <span className="">Joke Filters</span>
+                <form>
                 <ul className="nav flex-column" id="nav-accordian">
                     <li className="nav-item">
                         {/* change <a> to link or navlink */}
@@ -30,16 +36,15 @@ function Sidebar() {
                                 <input 
                                     name="xmas"
                                     type="checkbox" 
-                                    value={jokeForm.xmas}
-                                    onChange={(() => setJokeForm(jokeForm.xmas === true ? false : true))}
-                                    // isChecked={jokeForm.xmas = true}
+                                    checked={jokeForm.xmas}
+                                    onChange={handleChange}
                                 /> Christmas
                                 
                                 <input 
                                     name="dark"
                                     type="checkbox" 
-                                    value={jokeForm.dark}
-                                    onChange={() => setJokeForm(jokeForm.dark === true ? false : true)}
+                                    checked={jokeForm.dark}
+                                    onChange={handleChange}
                                 /> Dark
                             </li>
                         </ul>
@@ -49,6 +54,7 @@ function Sidebar() {
                         <a className="nav-link" href="#">type 1</a>
                     </li>
                 </ul>
+                </form>
             </nav> 
         </div>
         
