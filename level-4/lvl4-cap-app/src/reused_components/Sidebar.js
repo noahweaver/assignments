@@ -26,15 +26,11 @@ function Sidebar() {
     }
 
     return (
-        <div className="col-lg-2"> 
+        <div className=""> 
             <nav className="sidebar card py-4 px-3">
                 <span className="">Joke Filters</span>
                 <form>
                 <ul className="nav flex-column" id="nav-accordian">
-                    <li className="nav-item">
-                        {/* change <a> to link or navlink */}
-                        <a className="nav-link" href="#">type 1</a>
-                    </li>
                     <li className="nav-item has-submenu">
                         <a 
                             className="nav-link" 
@@ -49,37 +45,42 @@ function Sidebar() {
                                     checked={jokeForm.xmas}
                                     onChange={handleChange}
                                 /> Christmas
-                                
+                                <br></br>
                                 <input 
                                     name="dark"
                                     type="checkbox" 
                                     checked={jokeForm.dark}
                                     onChange={handleChange}
                                 /> Dark
+                                <br></br>
                                 <input 
                                     name="misc"
                                     type="checkbox" 
                                     checked={jokeForm.misc}
                                     onChange={handleChange}
                                 /> Misc
+                                <br></br>
                                 <input 
                                     name="programming"
                                     type="checkbox" 
                                     checked={jokeForm.programming}
                                     onChange={handleChange}
                                 /> Programming
+                                <br></br>
                                 <input 
                                     name="pun"
                                     type="checkbox" 
                                     checked={jokeForm.pun}
                                     onChange={handleChange}
                                 /> Pun
+                                <br></br>
                                 <input 
                                     name="spooky"
                                     type="checkbox" 
                                     checked={jokeForm.spooky}
                                     onChange={handleChange}
                                 /> Spooky
+                                <br></br>
                             </li>
                         </ul>
                     </li>
@@ -97,39 +98,49 @@ function Sidebar() {
                             checked={jokeForm.explicit}
                             onChange={handleChange}
                         /> Explicit
+                        <br></br>
                         <input 
                             name="nsfw"
                             type="checkbox" 
                             checked={jokeForm.nsfw}
                             onChange={handleChange}
                         /> NSFW
+                        <br></br>
                         <input 
                             name="political"
                             type="checkbox" 
                             checked={jokeForm.political}
                             onChange={handleChange}
                         /> Political
+                        <br></br>
                         <input 
                             name="racist"
                             type="checkbox" 
                             checked={jokeForm.racist}
                             onChange={handleChange}
                         /> Racist
+                        <br></br>
                         <input 
                             name="religious"
                             type="checkbox" 
                             checked={jokeForm.religious}
                             onChange={handleChange}
                         /> Religious
+                        <br></br>
                         <input 
                             name="sexist"
                             type="checkbox" 
                             checked={jokeForm.sexist}
                             onChange={handleChange}
                         /> Sexist
+                        <br></br>
                         </ul>
                     </li>
                 </ul>
+                <button
+                    className="btn btn-outline-dark btn-sm m-3"
+                    >Get Jokes
+                </button>
                 </form>
             </nav> 
         </div>

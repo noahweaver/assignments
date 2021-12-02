@@ -20,11 +20,11 @@ function Types(props) {
         <>
             <Nav />
             <div className="section-content">
-                <div className="">
+                <div className="d-flex">
                     <Sidebar />
                     {/* copy styling from jokelibrary */}
                 <div className="col-lg-9"> 
-                    <h1 >Jokes by type</h1>
+                    <p className="display-6 m-5">Jokes by type</p>
                     <ul>
                         {/* function doing rendering from above */}
                         jokecards will render here
