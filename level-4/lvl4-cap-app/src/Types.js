@@ -26,20 +26,59 @@ function Types(props) {
         religious: false,
         sexist: false,
     })
-    const [filteredJokes, setFilteredJokes] = useState()
+    const [filteredJokesArr, setFilteredJokes] = useState()
+
+    //checkboxes handlechanger
+    function handleChange(event){
+        console.log("checkboxChange")
+        const {name, value, checked} = event.target
+        setJokeForm(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
+    }
+    //submit form
+    function handleSubmit(event){
+        event.preventDefault()
+        console.log("handleSubmit")
+        fetch("https://v2.jokeapi.dev/joke/Any?idRange=0-9&amount=10")
+            .then(response => response.json())
+            .then((response) => setFilteredJokes(response.jokes))
+            // .then(increment())
+            .catch(err => console.log(err))
+        //fetch data based on state booleans
+            //then push to state array
+    }
+
+    //map to render jokes
+    const filteredJokeList = filteredJokeFunction
+    function filteredJokeFunction (){
+        if (filteredJokesArr.length > 0) {
+            filteredJokesArr.map(joke => 
+                    <Jokecard key={joke.id} 
+                        setup={joke.setup} 
+                        delivery={joke.delivery} 
+                        joke={joke.joke}
+                    />) 
+        }
+    } 
 
     return (
         <>
             <Nav />
             <div className="section-content">
                 <div className="d-flex">
-                    <Sidebar jokeForm={jokeForm} setJokeForm={setJokeForm}/>
+                    <Sidebar 
+                        jokeForm={jokeForm} 
+                        setJokeForm={setJokeForm} 
+                        handleChange={handleChange}
+                        handleSubmit={handleSubmit}
+                    />
                     {/* copy styling from jokelibrary */}
                 <div className="col-lg-9"> 
                     <p className="display-6 m-5">Jokes by type</p>
                     <ul>
-                        {/* function doing rendering from above */}
-                        jokecards will render here
+                        <p>jokecards will render here</p>
+                        <br></br>
+                        {filteredJokeList}
+                        
                     </ul>                
                 </div>
                 </div>
