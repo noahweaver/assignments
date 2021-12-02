@@ -33,7 +33,7 @@ function Nav() {
                         <li className="nav-item">
                             <NavLink 
                                 className="nav-link" 
-                                to="jokelibrary">
+                                to="/jokelibrary">
                                     Joke Library
                             </NavLink>
                         </li>
