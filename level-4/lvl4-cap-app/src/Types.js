@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 // import {useParams} from 'react-router-dom'
 import {Context} from './Context'
 import Nav from './reused_components/Nav'
@@ -12,16 +12,28 @@ function Types(props) {
     const {} = useContext(Context)
     // let params = useParams()
 
-    //function to render joke cards
-        //will need filter and/or map
-        //pass props
+    const [jokeForm, setJokeForm] = useState({
+        xmas: false,
+        dark: false,
+        misc: false,
+        programming: false,
+        pun: false,
+        spooky: false,
+        explicit: false,
+        nsfw: false,
+        political: false,
+        racist: false,
+        religious: false,
+        sexist: false,
+    })
+    const [filteredJokes, setFilteredJokes] = useState()
 
     return (
         <>
             <Nav />
             <div className="section-content">
                 <div className="d-flex">
-                    <Sidebar />
+                    <Sidebar jokeForm={jokeForm} setJokeForm={setJokeForm}/>
                     {/* copy styling from jokelibrary */}
                 <div className="col-lg-9"> 
                     <p className="display-6 m-5">Jokes by type</p>

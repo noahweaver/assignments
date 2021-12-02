@@ -2,28 +2,32 @@ import React, {useState} from 'react'
 
 //bootstrap template used: file:///Users/noahweaver/Downloads/sidebar-nav-collapse/sidebar-nav-collapse.html
 
-function Sidebar() {
+function Sidebar(props) {
     
-    const [jokeForm, setJokeForm] = useState({
-        xmas: false,
-        dark: false,
-        misc: false,
-        programming: false,
-        pun: false,
-        spooky: false,
-        explicit: false,
-        nsfw: false,
-        political: false,
-        racist: false,
-        religious: false,
-        sexist: false,
-    })
+    // const [jokeForm, setJokeForm] = useState({
+    //     xmas: false,
+    //     dark: false,
+    //     misc: false,
+    //     programming: false,
+    //     pun: false,
+    //     spooky: false,
+    //     explicit: false,
+    //     nsfw: false,
+    //     political: false,
+    //     racist: false,
+    //     religious: false,
+    //     sexist: false,
+    // })
+    // const [filteredJokes, setFilteredJokes] = useState()
 
     function handleChange(event){
         console.log("checkboxChange")
         const {name, value, checked} = event.target
-        setJokeForm(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
+        props.setJokeForm(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
     }
+    //fetch data based on state booleans
+        //then push to state array
+        //should this live here or in <Types />
 
     return (
         <div className=""> 
@@ -42,42 +46,42 @@ function Sidebar() {
                                 <input 
                                     name="xmas"
                                     type="checkbox" 
-                                    checked={jokeForm.xmas}
+                                    checked={props.jokeForm.xmas}
                                     onChange={handleChange}
                                 /> Christmas
                                 <br></br>
                                 <input 
                                     name="dark"
                                     type="checkbox" 
-                                    checked={jokeForm.dark}
+                                    checked={props.jokeForm.dark}
                                     onChange={handleChange}
                                 /> Dark
                                 <br></br>
                                 <input 
                                     name="misc"
                                     type="checkbox" 
-                                    checked={jokeForm.misc}
+                                    checked={props.jokeForm.misc}
                                     onChange={handleChange}
                                 /> Misc
                                 <br></br>
                                 <input 
                                     name="programming"
                                     type="checkbox" 
-                                    checked={jokeForm.programming}
+                                    checked={props.jokeForm.programming}
                                     onChange={handleChange}
                                 /> Programming
                                 <br></br>
                                 <input 
                                     name="pun"
                                     type="checkbox" 
-                                    checked={jokeForm.pun}
+                                    checked={props.jokeForm.pun}
                                     onChange={handleChange}
                                 /> Pun
                                 <br></br>
                                 <input 
                                     name="spooky"
                                     type="checkbox" 
-                                    checked={jokeForm.spooky}
+                                    checked={props.jokeForm.spooky}
                                     onChange={handleChange}
                                 /> Spooky
                                 <br></br>
@@ -95,42 +99,42 @@ function Sidebar() {
                         <input 
                             name="explicit"
                             type="checkbox" 
-                            checked={jokeForm.explicit}
+                            checked={props.jokeForm.explicit}
                             onChange={handleChange}
                         /> Explicit
                         <br></br>
                         <input 
                             name="nsfw"
                             type="checkbox" 
-                            checked={jokeForm.nsfw}
+                            checked={props.jokeForm.nsfw}
                             onChange={handleChange}
                         /> NSFW
                         <br></br>
                         <input 
                             name="political"
                             type="checkbox" 
-                            checked={jokeForm.political}
+                            checked={props.jokeForm.political}
                             onChange={handleChange}
                         /> Political
                         <br></br>
                         <input 
                             name="racist"
                             type="checkbox" 
-                            checked={jokeForm.racist}
+                            checked={props.jokeForm.racist}
                             onChange={handleChange}
                         /> Racist
                         <br></br>
                         <input 
                             name="religious"
                             type="checkbox" 
-                            checked={jokeForm.religious}
+                            checked={props.jokeForm.religious}
                             onChange={handleChange}
                         /> Religious
                         <br></br>
                         <input 
                             name="sexist"
                             type="checkbox" 
-                            checked={jokeForm.sexist}
+                            checked={props.jokeForm.sexist}
                             onChange={handleChange}
                         /> Sexist
                         <br></br>
