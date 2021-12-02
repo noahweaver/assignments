@@ -27,6 +27,7 @@ function Library(props) {
         />) : null
 
     return (
+        //not responsive ->heading and button go under the warning
         <>
             <div className="container mx-auto my-6rem d-flex flex-wrap">
                 <div id="library-heading"className="">
