@@ -2,11 +2,19 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 const Context = React.createContext()
 
+//api docs: https://jokeapi.dev/
+
 function ContextProvider(props) {
 
    const [currentJoke, setJoke] = useState({})
    const [jokesArr, setJokesArr] = useState()
+   const [jokeRequestCount, setRequestCount] = useState({
+        count1: 0,
+        count2: 9
+   })
 
+   const count1 = jokeRequestCount.count1
+   const count2 = jokeRequestCount.count2
 
    //enable warning when complete
    //convert to modal?
@@ -33,63 +41,38 @@ function ContextProvider(props) {
             .then((response) => {setJoke(response)})
             .catch(err => console.log(err))
    }
-
-   //fetch 10 jokes
-   //need to change to by ID
-//    function tenJokes(){
-//        console.log("tenJokes was called")
-//        fetch("https://v2.jokeapi.dev/joke/Any?amount=10")
-//             .then(response => response.json())
-//             .then((response) => setJokesArr(response.jokes))
-//             .catch(err => console.log(err))
-//    }
-
+//first 10 jokes for library
    function tenJokes(){
        console.log("tenJokes was called")
-       
-       
        fetch("https://v2.jokeapi.dev/joke/Any?idRange=0-9&amount=10")
             .then(response => response.json())
             .then((response) => setJokesArr(response.jokes))
+            .then(increment())
             .catch(err => console.log(err))
    }
 
-   //these aren't incrementing properly, they should work once they do
-     let num1 = 10
-     let num2 = 19
-
-     function increment(){
-              console.log("increment", num1, num2)
-              
-          }
-
-     function moreJokes(){
+   //add to state count for fetching 10 jokes
+   function increment(count1, count2){
+        console.log("increment was called")
+        setRequestCount(prevCount => {
+             return{
+          count1: prevCount.count1 + 10,
+          count2: prevCount.count2 + 10
+             }
+     })
+          console.log("count1", count1, "count2", count2)
+   }
+   //Load more jokes button in <Library />
+   function moreJokes(){
           console.log("moreJokes was called")
-          console.log(num1, num2)
-          
-          num1 = num1 + 10
-          num2 = num2 + 10
-
-          fetch(`https://v2.jokeapi.dev/joke/Any?idRange=${num1}-${num2}&amount=10`)
+          console.log("count1", count1, "count2", count2)
+          fetch(`https://v2.jokeapi.dev/joke/Any?idRange=${count1}-${count2}&amount=10`)
+               .then(increment())
                .then(response => response.json())
-               .then((response) => setJokesArr(prevJokes => [...prevJokes].concat(response.jokes))
-               )
+               .then((response) => setJokesArr(prevJokes => [...prevJokes].concat(response.jokes)))
                .catch(err => console.log(err))
    } 
-   
-// //fetch jokes array and add to state
-//  //need to fix repeating jokes bug
-//    function moreJokes(){
-//     console.log("moreJokes was called")
-//     fetch("https://v2.jokeapi.dev/joke/Any?amount=10")
-//          .then(response => response.json())
-//          .then((response) => setJokesArr(prevJokes => [...prevJokes].concat(response.jokes))
-//          )
-//          .catch(err => console.log(err))
-//    }
   
-
-
     return (
         // clean up values list when finished, remove any unused values
        <Context.Provider 

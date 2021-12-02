@@ -26,7 +26,6 @@ function Library(props) {
 
    
     //map to render jokesArr to jokelibrary
-    
     const jokeList = jokesArr.map(joke => 
         <Jokecard 
             key={joke.id} 
@@ -35,25 +34,8 @@ function Library(props) {
             joke={joke.joke}
         />)
 
-        //these need to fetch by ID and not random jokes
-        // let num1 = 0
-        // let num2 = 9
-
-        // function increment(a, b){
-        //     console.log("increment", num1, num2)
-        //     return (
-        //         num1 = num1 + 10,
-        //         num2 = num2 + 10
-        //         )
-        // }
-        // function jokesIncrement(){
-        //     increment(num1, num2)
-        //     moreJokes(num1, num2)
-        // }
 
     return (
-        //
-        
         <>
             
             <div className="container mx-auto my-6rem d-flex flex-wrap">
@@ -75,7 +57,6 @@ function Library(props) {
                 <button 
                     className="btn btn-outline-dark btn-sm col-2 m-auto" 
                     onClick={moreJokes}
-                    // onClick={() => increment(num1, num2)}
                     >Load More Jokes
                 </button> 
             </div>
