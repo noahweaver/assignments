@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios'
 const Context = React.createContext()
 
 //api docs: https://jokeapi.dev/
@@ -28,10 +27,10 @@ function ContextProvider(props) {
    }, [])
 
    useEffect(() => {
-        tenJokes()
+        console.log("useEffect: tenJokes was run")
+          tenJokes()
+        
    }, [])
-
-   
 
    //fetch random joke
    function newJoke() {
@@ -50,7 +49,6 @@ function ContextProvider(props) {
             .then(increment())
             .catch(err => console.log(err))
    }
-
    //add to state count for fetching 10 jokes
    function increment(count1, count2){
         console.log("increment was called")
@@ -60,7 +58,6 @@ function ContextProvider(props) {
           count2: prevCount.count2 + 10
              }
      })
-          console.log("count1", count1, "count2", count2)
    }
    //Load more jokes button in <Library />
    function moreJokes(){

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Context} from './Context'
 import Jokecard from './Jokecard'
@@ -8,36 +8,26 @@ import Jokecard from './Jokecard'
 
 
 function Library(props) {
-
-    //if I navigate directly to jokelibrary it doesn't put ten jokes in array, thus wont map wont work, thus doesn't render
-    //need useEffect to run even if jokelibrary opens first
+    console.log("jokelibrary was rendered")
 
     const navigate = useNavigate()
     const {moreJokes, jokesArr, tenJokes} = useContext(Context)
-
+    
     // useEffect(() => {
     //     alert("WARNING: Proceed with caution. There are many dark and potentially offensive jokes used in this app. No offense is meant, but if you are easily offended you might not want to proceed.")
     // }, [])
-
-   //DidMount jokes for jokelibrary page
-//    useEffect(() => {
-//         tenJokes()
-//     }, [])
-
    
     //map to render jokesArr to jokelibrary
-    const jokeList = jokesArr.map(joke => 
+    const jokeList = jokesArr ? jokesArr.map(joke => 
         <Jokecard 
             key={joke.id} 
             setup={joke.setup} 
             delivery={joke.delivery} 
             joke={joke.joke}
-        />)
-
+        />) : null
 
     return (
         <>
-            
             <div className="container mx-auto my-6rem d-flex flex-wrap">
                 <div id="library-heading"className="">
                 <p className="display-6">Joke Library</p>
@@ -60,7 +50,6 @@ function Library(props) {
                     >Load More Jokes
                 </button> 
             </div>
-            
         </>
     )
 }
