@@ -12,43 +12,48 @@ function Types(props) {
     const {} = useContext(Context)
     // let params = useParams()
 
-    //separate between categories and flags
-        //can this be an array instead of object?
-        //change props and sidenav as needed
-    const [jokeForm, setJokeForm] = useState({
+    const [categories, setFormCategories] = useState({
         xmas: false,
         dark: false,
         misc: false,
         programming: false,
         pun: false,
-        spooky: false,
+        spooky: false
+    })
+    const [flags, setFormFlags] = useState({
         explicit: false,
         nsfw: false,
         political: false,
         racist: false,
         religious: false,
-        sexist: false,
+        sexist: false
     })
+
     //state for true values
         //categories and flags need to be separate
         //make a string before setting state for ease of use in fetch
         //if I can't make joke form an array, I'll need to make state an array so that it can iterate through, pull out anything true (map, filter, or splice?), then convert to string with join
     const [filteredJokesArr, setFilteredJokes] = useState([])
-    const [categoriesArr, setCategories] = useState([])
-    const [flagsArr, setFlags] = useState([])
+    // const [categoriesArr, setCategoriesArr] = useState([])
+    // const [flagsArr, setFlagsArr] = useState([])
     // const [filteredRequestCount, setFilteredRequestCount] = useState({
     //     count1: 0,
     //     count2: 9
     // })
-   
 
-    //checkboxes handlechanger
-    function handleChange(event){
-        console.log("checkboxChange")
+    //checkboxes handlechangers
+    function handleChangeCategories(event){
+        console.log("checkboxChange: categories")
         const {name, value, checked} = event.target
-        setJokeForm(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
+        setFormCategories(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
+    }
+    function handleChangeFlags(event){
+        console.log("checkboxChange: flags")
+        const {name, value, checked} = event.target
+        setFormFlags(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
     }
 
+    
     //filteredIncrement function
 
     //onSubmit form function
@@ -69,8 +74,15 @@ function Types(props) {
         //fetch data based on state booleans
             //then push to filteredJokesArr
     }
-
-    //map to render jokes
+    //clear filters
+    function clearFilters(event){
+        event.preventDefault()
+        console.log("clearFilters cleared filters")
+        const {value, name, checked} = event.target
+        setFormFlags(({[name]: event.target.type === "checkbox" ? checked : value}))
+    }
+    
+        //map to render jokes
     const filteredJokeList = filteredJokesArr.length > 0 ? filteredJokesArr.map(joke => 
                     <Jokecard key={joke.id} 
                         setup={joke.setup} 
@@ -84,10 +96,15 @@ function Types(props) {
             <div className="section-content">
                 <div className="d-flex">
                     <Sidebar 
-                        jokeForm={jokeForm} 
-                        setJokeForm={setJokeForm} 
-                        handleChange={handleChange}
+                        categories={categories} 
+                        setFormCategories={setFormCategories} 
+                        flags={flags} 
+                        setFormFlags={setFormFlags} 
+                        handleChangeCategories={handleChangeCategories}
+                        handleChangeFlags={handleChangeFlags}
                         handleSubmit={handleSubmit}
+                        clearFilters={clearFilters}
+                        
                     />
                     {/* copy styling from jokelibrary */}
                 <div className="col-lg-9"> 
@@ -95,9 +112,12 @@ function Types(props) {
                     <ul>
                         <p>jokecards will render here</p>
                         <br></br>
-                        {filteredJokeList}
-                        
-                    </ul>                
+                        {filteredJokeList}    
+                    </ul>  
+                    <button className="btn btn-outline-dark btn-sm m-3"
+                    onClick={handleSubmit}
+                    >Load More Jokes
+                    </button>              
                 </div>
                 </div>
             </div>

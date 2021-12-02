@@ -9,6 +9,10 @@ function Sidebar(props) {
             <nav className="sidebar card py-4 px-3">
                 <span className="">Joke Filters</span>
                 <form>
+                    <button className="btn btn-outline-dark btn-sm m-3"
+                        onClick={props.clearFilters}
+                    >Clear Filters
+                    </button>
                 <ul className="nav flex-column" id="nav-accordian">
                     <li className="nav-item has-submenu">
                         <a 
@@ -21,43 +25,43 @@ function Sidebar(props) {
                                 <input 
                                     name="xmas"
                                     type="checkbox" 
-                                    checked={props.jokeForm.xmas}
-                                    onChange={props.handleChange}
+                                    checked={props.categories.xmas}
+                                    onChange={props.handleChangeCategories}
                                 /> Christmas
                                 <br></br>
                                 <input 
                                     name="dark"
                                     type="checkbox" 
-                                    checked={props.jokeForm.dark}
-                                    onChange={props.handleChange}
+                                    checked={props.categories.dark}
+                                    onChange={props.handleChangeCategories}
                                 /> Dark
                                 <br></br>
                                 <input 
                                     name="misc"
                                     type="checkbox" 
-                                    checked={props.jokeForm.misc}
-                                    onChange={props.handleChange}
+                                    checked={props.categories.misc}
+                                    onChange={props.handleChangeCategories}
                                 /> Misc
                                 <br></br>
                                 <input 
                                     name="programming"
                                     type="checkbox" 
-                                    checked={props.jokeForm.programming}
-                                    onChange={props.handleChange}
+                                    checked={props.categories.programming}
+                                    onChange={props.handleChangeCategories}
                                 /> Programming
                                 <br></br>
                                 <input 
                                     name="pun"
                                     type="checkbox" 
-                                    checked={props.jokeForm.pun}
-                                    onChange={props.handleChange}
+                                    checked={props.categories.pun}
+                                    onChange={props.handleChangeCategories}
                                 /> Pun
                                 <br></br>
                                 <input 
                                     name="spooky"
                                     type="checkbox" 
-                                    checked={props.jokeForm.spooky}
-                                    onChange={props.handleChange}
+                                    checked={props.categories.spooky}
+                                    onChange={props.handleChangeCategories}
                                 /> Spooky
                                 <br></br>
                             </li>
@@ -74,43 +78,43 @@ function Sidebar(props) {
                         <input 
                             name="explicit"
                             type="checkbox" 
-                            checked={props.jokeForm.explicit}
-                            onChange={props.handleChange}
+                            checked={props.flags.explicit}
+                            onChange={props.handleChangeFlags}
                         /> Explicit
                         <br></br>
                         <input 
                             name="nsfw"
                             type="checkbox" 
-                            checked={props.jokeForm.nsfw}
-                            onChange={props.handleChange}
+                            checked={props.flags.nsfw}
+                            onChange={props.handleChangeFlags}
                         /> NSFW
                         <br></br>
                         <input 
                             name="political"
                             type="checkbox" 
-                            checked={props.jokeForm.political}
-                            onChange={props.handleChange}
+                            checked={props.flags.political}
+                            onChange={props.handleChangeFlags}
                         /> Political
                         <br></br>
                         <input 
                             name="racist"
                             type="checkbox" 
-                            checked={props.jokeForm.racist}
-                            onChange={props.handleChange}
+                            checked={props.flags.racist}
+                            onChange={props.handleChangeFlags}
                         /> Racist
                         <br></br>
                         <input 
                             name="religious"
                             type="checkbox" 
-                            checked={props.jokeForm.religious}
-                            onChange={props.handleChange}
+                            checked={props.flags.religious}
+                            onChange={props.handleChangeFlags}
                         /> Religious
                         <br></br>
                         <input 
                             name="sexist"
                             type="checkbox" 
-                            checked={props.jokeForm.sexist}
-                            onChange={props.handleChange}
+                            checked={props.flags.sexist}
+                            onChange={props.handleChangeFlags}
                         /> Sexist
                         <br></br>
                         </ul>
