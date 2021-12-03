@@ -2,13 +2,15 @@ import React from 'react'
 
 //bootstrap template used: file:///Users/noahweaver/Downloads/sidebar-nav-collapse/sidebar-nav-collapse.html
 
+
+
 function Sidebar(props) {
     
     return (
         <div className=""> 
             <nav className="sidebar card py-4 px-3">
                 <span className="">Joke Filters</span>
-                <form>
+                <form name="jokeForm">
                     <button className="btn btn-outline-dark btn-sm m-3"
                         onClick={props.clearFilters}
                     >Clear Filters

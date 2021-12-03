@@ -29,10 +29,6 @@ function Types(props) {
         sexist: false
     })
 
-    //state for true values
-        //categories and flags need to be separate
-        //make a string before setting state for ease of use in fetch
-        //if I can't make joke form an array, I'll need to make state an array so that it can iterate through, pull out anything true (map, filter, or splice?), then convert to string with join
     const [filteredJokesArr, setFilteredJokes] = useState([])
     // const [categoriesArr, setCategoriesArr] = useState([])
     // const [flagsArr, setFlagsArr] = useState([])
@@ -55,13 +51,16 @@ function Types(props) {
 
     
     //filteredIncrement function
+        //can copy from context
 
     //onSubmit form function
         //will need to change fetch based on filters
-        //if state boolean = true then add to state string
-            //concat or push?
-            //join?
+        //if state boolean = true then add to array
+            //convert to string
+                //concat or push?
+                //join?
         //concat flag and category state string into fetch req
+
     function handleSubmit(event){
         event.preventDefault()
         console.log("handleSubmit")
@@ -74,13 +73,34 @@ function Types(props) {
         //fetch data based on state booleans
             //then push to filteredJokesArr
     }
-    //clear filters
+    //clear checkboxes
     function clearFilters(event){
         event.preventDefault()
         console.log("clearFilters cleared filters")
-        const {value, name, checked} = event.target
-        setFormFlags(({[name]: event.target.type === "checkbox" ? checked : value}))
-    }
+        let inputs = document.getElementsByTagName("input")
+        for (let i = 0; i < inputs.length; i++){
+            if (inputs[i].type == "checkbox"){
+                inputs[i].checked = false
+            }
+        }
+        //update state to all be false
+        setFormCategories({
+            xmas: false,
+            dark: false,
+            misc: false,
+            programming: false,
+            pun: false,
+            spooky: false
+        })
+        setFormFlags({
+            explicit: false,
+            nsfw: false,
+            political: false,
+            racist: false,
+            religious: false,
+            sexist: false
+        })
+}   
     
         //map to render jokes
     const filteredJokeList = filteredJokesArr.length > 0 ? filteredJokesArr.map(joke => 
@@ -104,7 +124,6 @@ function Types(props) {
                         handleChangeFlags={handleChangeFlags}
                         handleSubmit={handleSubmit}
                         clearFilters={clearFilters}
-                        
                     />
                     {/* copy styling from jokelibrary */}
                 <div className="col-lg-9"> 
