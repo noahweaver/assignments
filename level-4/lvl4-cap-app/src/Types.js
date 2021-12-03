@@ -44,7 +44,7 @@ function Types(props) {
         const {name, value, checked} = event.target
         setFormFlags(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
     }
-    
+    //update categoriesInput state based on filters
     function anyOrCategories() {
         console.log("anyOrCategories was called")
         let categoryInputs = document.getElementsByClassName("category")
@@ -60,11 +60,11 @@ function Types(props) {
                 return categoriesInputs
             } else {
                 setCategoriesInputs(selectedCategories.join(","))
-                
+                console.log("changed state")
             }
-            console.log("changed state")
+            console.log("changed selectedCategories state")
     }
-    
+    //update blacklistFlags state based on filters
     function blacklist (){
         let flagInputs = document.getElementsByClassName("flag")
             const selectedFlags = []
@@ -80,11 +80,9 @@ function Types(props) {
             } else {
                 selectedFlags.join(",")
                 setBlacklistFlags(`blacklistFlags=${selectedFlags}&`)
-                
-            }
-            console.log("changed state")
-            // console.log("blacklist inputs", flagInputs, "flagInput")
-}
+                console.log("changed blacklistFlags state")
+            }        
+    }
     function handleSubmit(event){
         event.preventDefault()
         console.log("handleSubmit")
@@ -100,18 +98,8 @@ function Types(props) {
 
     //clear checkboxes
     function clearFilters(event){
-        //needs to reset states to defaults
         event.preventDefault()
-        console.log("clearFilters cleared filters")
-        //changing state resets checkboxes, so don't need loop
-        // let inputs = document.getElementsByTagName("input")
-        // for (let i = 0; i < inputs.length; i++){
-        //     if (inputs[i].type == "checkbox"){
-        //         inputs[i].checked = false
-        //     }
-        // }
-
-        //update state to all be false
+        console.log("clearFilters cleared filters and reset state")
         setFormCategories({
             christmas: false,
             dark: false,
@@ -128,6 +116,9 @@ function Types(props) {
             religious: false,
             sexist: false
         })
+        setBlacklistFlags("")
+        setCategoriesInputs("any")
+        setFilteredJokes([])
 }   
     
         //map to render jokes
