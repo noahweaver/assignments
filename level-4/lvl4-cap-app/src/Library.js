@@ -11,7 +11,7 @@ function Library(props) {
     console.log("jokelibrary was rendered")
 
     const navigate = useNavigate()
-    const {moreJokes, jokesArr, tenJokes} = useContext(Context)
+    const {moreJokes, jokesArr} = useContext(Context)
     
     // useEffect(() => {
     //     alert("WARNING: Proceed with caution. There are many dark and potentially offensive jokes used in this app. No offense is meant, but if you are easily offended you might not want to proceed.")

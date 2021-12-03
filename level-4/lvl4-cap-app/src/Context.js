@@ -17,9 +17,9 @@ function ContextProvider(props) {
 
    //enable warning when complete
    //convert to modal?
-//    useEffect(() => {
-//         alert("WARNING: Proceed with caution. There are many dark and potentially offensive jokes used in this app. No offense is meant, but if you are easily offended you might not want to proceed.")
-//    }, [])
+   useEffect(() => {
+        alert("WARNING: Proceed with caution. There are many dark and potentially offensive jokes used in this app. No offense is meant, but if you are easily offended you might not want to proceed.")
+   }, [])
    
    //DidMount joke for home page
    useEffect(() => {
