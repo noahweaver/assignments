@@ -93,7 +93,15 @@ function Types(props) {
                 .then(response => response.json())
                 .then((response) => setFilteredJokes(response.jokes))
                 .catch(err => console.log(err))
-
+    }
+    function loadMore(event){
+        event.preventDefault()
+        console.log("loadMore")
+        fetch(`https://v2.jokeapi.dev/joke/${categoriesInputs}?${blacklistFlags}amount=10`)
+                .then(console.log("fetch"))
+                .then(response => response.json())
+                .then((response) => setFilteredJokes(prevJokes => [...prevJokes].concat(response.jokes)))
+                .catch(err => console.log(err))
     }
 
     //clear checkboxes
@@ -153,7 +161,7 @@ function Types(props) {
                         {filteredJokeList}    
                     </ul>  
                     <button className="btn btn-outline-dark btn-sm m-3"
-                    onClick={handleSubmit}
+                    onClick={loadMore}
                     >Load More Jokes
                     </button>              
                 </div>
