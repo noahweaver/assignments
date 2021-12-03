@@ -25,43 +25,49 @@ function Sidebar(props) {
                         <ul className="submenu collapse">
                             <li>
                                 <input 
-                                    name="xmas"
-                                    type="checkbox" 
-                                    checked={props.categories.xmas}
+                                    name="christmas"
+                                    type="checkbox"
+                                    className="category" 
+                                    checked={props.categories.christmas}
                                     onChange={props.handleChangeCategories}
                                 /> Christmas
                                 <br></br>
                                 <input 
                                     name="dark"
-                                    type="checkbox" 
+                                    type="checkbox"
+                                    className="category" 
                                     checked={props.categories.dark}
                                     onChange={props.handleChangeCategories}
                                 /> Dark
                                 <br></br>
                                 <input 
                                     name="misc"
-                                    type="checkbox" 
+                                    type="checkbox"
+                                    className="category" 
                                     checked={props.categories.misc}
                                     onChange={props.handleChangeCategories}
                                 /> Misc
                                 <br></br>
                                 <input 
                                     name="programming"
-                                    type="checkbox" 
+                                    type="checkbox"
+                                    className="category" 
                                     checked={props.categories.programming}
                                     onChange={props.handleChangeCategories}
                                 /> Programming
                                 <br></br>
                                 <input 
                                     name="pun"
-                                    type="checkbox" 
+                                    type="checkbox"
+                                    className="category" 
                                     checked={props.categories.pun}
                                     onChange={props.handleChangeCategories}
                                 /> Pun
                                 <br></br>
                                 <input 
                                     name="spooky"
-                                    type="checkbox" 
+                                    type="checkbox"
+                                    className="category" 
                                     checked={props.categories.spooky}
                                     onChange={props.handleChangeCategories}
                                 /> Spooky
@@ -74,47 +80,53 @@ function Sidebar(props) {
                         <a 
                             className="nav-link" 
                             to={"flag"}
-                            >Flag
+                            >Don't Show Me
                         </a>
                         <ul className="submenu collapse">
                         <input 
                             name="explicit"
-                            type="checkbox" 
+                            type="checkbox"
+                            className="flag" 
                             checked={props.flags.explicit}
                             onChange={props.handleChangeFlags}
                         /> Explicit
                         <br></br>
                         <input 
                             name="nsfw"
-                            type="checkbox" 
+                            type="checkbox"
+                            className="flag" 
                             checked={props.flags.nsfw}
                             onChange={props.handleChangeFlags}
                         /> NSFW
                         <br></br>
                         <input 
                             name="political"
-                            type="checkbox" 
+                            type="checkbox"
+                            className="flag" 
                             checked={props.flags.political}
                             onChange={props.handleChangeFlags}
                         /> Political
                         <br></br>
                         <input 
                             name="racist"
-                            type="checkbox" 
+                            type="checkbox"
+                            className="flag" 
                             checked={props.flags.racist}
                             onChange={props.handleChangeFlags}
                         /> Racist
                         <br></br>
                         <input 
                             name="religious"
-                            type="checkbox" 
+                            type="checkbox"
+                            className="flag" 
                             checked={props.flags.religious}
                             onChange={props.handleChangeFlags}
                         /> Religious
                         <br></br>
                         <input 
                             name="sexist"
-                            type="checkbox" 
+                            type="checkbox"
+                            className="flag" 
                             checked={props.flags.sexist}
                             onChange={props.handleChangeFlags}
                         /> Sexist

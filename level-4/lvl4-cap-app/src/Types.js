@@ -13,7 +13,7 @@ function Types(props) {
     // let params = useParams()
 
     const [categories, setFormCategories] = useState({
-        xmas: false,
+        christmas: false,
         dark: false,
         misc: false,
         programming: false,
@@ -28,14 +28,10 @@ function Types(props) {
         religious: false,
         sexist: false
     })
-
+    const [blacklistFlags, setBlacklistFlags] = useState ("")
+    const [categoriesInputs, setCategoriesInputs] = useState("any")
     const [filteredJokesArr, setFilteredJokes] = useState([])
-    // const [categoriesArr, setCategoriesArr] = useState([])
-    // const [flagsArr, setFlagsArr] = useState([])
-    // const [filteredRequestCount, setFilteredRequestCount] = useState({
-    //     count1: 0,
-    //     count2: 9
-    // })
+
 
     //checkboxes handlechangers
     function handleChangeCategories(event){
@@ -48,44 +44,76 @@ function Types(props) {
         const {name, value, checked} = event.target
         setFormFlags(prevState => ({...prevState, [name]: event.target.type === "checkbox" ? checked : value}))
     }
-
     
-    //filteredIncrement function
-        //can copy from context
-
-    //onSubmit form function
-        //will need to change fetch based on filters
-        //if state boolean = true then add to array
-            //convert to string
-                //concat or push?
-                //join?
-        //concat flag and category state string into fetch req
-
+    function anyOrCategories() {
+        console.log("anyOrCategories was called")
+        let categoryInputs = document.getElementsByClassName("category")
+            const selectedCategories = []
+            for (let i = 0; i < categoryInputs.length; i++){
+                console.log("category input for loop")
+                if (categoryInputs[i].checked === true){
+                    selectedCategories.push(categoryInputs[i].name)
+                }
+                console.log("selectedCategories", selectedCategories)
+            }
+            if(selectedCategories.length === 0){
+                return categoriesInputs
+            } else {
+                setCategoriesInputs(selectedCategories.join(","))
+                
+            }
+            console.log("changed state")
+    }
+    
+    function blacklist (){
+        let flagInputs = document.getElementsByClassName("flag")
+            const selectedFlags = []
+            for (let i = 0; i < flagInputs.length; i++){
+                console.log("flag input for loop")
+                if (flagInputs[i].checked === true){
+                    selectedFlags.push(flagInputs[i].name)
+                }
+                console.log("selectedFlags", selectedFlags)
+            }
+            if(selectedFlags.length === 0){
+                return blacklistFlags
+            } else {
+                selectedFlags.join(",")
+                setBlacklistFlags(`blacklistFlags=${selectedFlags}&`)
+                
+            }
+            console.log("changed state")
+            // console.log("blacklist inputs", flagInputs, "flagInput")
+}
     function handleSubmit(event){
         event.preventDefault()
         console.log("handleSubmit")
-        
-        fetch("https://v2.jokeapi.dev/joke/Any?idRange=0-9&amount=10")
-            .then(response => response.json())
-            .then((response) => setFilteredJokes(response.jokes))
-            // .then(filteredIncrement())
-            .catch(err => console.log(err))
-        //fetch data based on state booleans
-            //then push to filteredJokesArr
+        blacklist()
+        anyOrCategories()
+        fetch(`https://v2.jokeapi.dev/joke/${categoriesInputs}?${blacklistFlags}amount=10`)
+                .then(console.log("fetch"))
+                .then(response => response.json())
+                .then((response) => setFilteredJokes(response.jokes))
+                .catch(err => console.log(err))
+
     }
+
     //clear checkboxes
     function clearFilters(event){
+        //needs to reset states to defaults
         event.preventDefault()
         console.log("clearFilters cleared filters")
-        let inputs = document.getElementsByTagName("input")
-        for (let i = 0; i < inputs.length; i++){
-            if (inputs[i].type == "checkbox"){
-                inputs[i].checked = false
-            }
-        }
+        //changing state resets checkboxes, so don't need loop
+        // let inputs = document.getElementsByTagName("input")
+        // for (let i = 0; i < inputs.length; i++){
+        //     if (inputs[i].type == "checkbox"){
+        //         inputs[i].checked = false
+        //     }
+        // }
+
         //update state to all be false
         setFormCategories({
-            xmas: false,
+            christmas: false,
             dark: false,
             misc: false,
             programming: false,
