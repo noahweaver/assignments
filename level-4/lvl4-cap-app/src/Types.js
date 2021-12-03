@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 // import {useParams} from 'react-router-dom'
 import {Context} from './Context'
 import Nav from './reused_components/Nav'
@@ -32,6 +32,11 @@ function Types(props) {
     const [categoriesInputs, setCategoriesInputs] = useState("any")
     const [filteredJokesArr, setFilteredJokes] = useState([])
 
+    useEffect(() => {
+        console.log("useEffect")
+        blacklist()
+        anyOrCategories()
+    })
 
     //checkboxes handlechangers
     function handleChangeCategories(event){
@@ -47,22 +52,22 @@ function Types(props) {
     //update categoriesInput state based on filters
     function anyOrCategories() {
         console.log("anyOrCategories was called")
-        let categoryInputs = document.getElementsByClassName("category")
+
             const selectedCategories = []
-            for (let i = 0; i < categoryInputs.length; i++){
+            //over object
+            for (let key in categories){ //define key to loop over the oject, 
                 console.log("category input for loop")
-                if (categoryInputs[i].checked === true){
-                    selectedCategories.push(categoryInputs[i].name)
+                if (categories[key] === true){ //figure out how to reference value 
+                    selectedCategories.push(key)
                 }
                 console.log("selectedCategories", selectedCategories)
             }
             if(selectedCategories.length === 0){
-                return categoriesInputs
+                setCategoriesInputs("any")
             } else {
                 setCategoriesInputs(selectedCategories.join(","))
-                console.log("changed state")
+                console.log("changed categories state")
             }
-            console.log("changed selectedCategories state")
     }
     //update blacklistFlags state based on filters
     function blacklist (){
@@ -76,7 +81,7 @@ function Types(props) {
                 console.log("selectedFlags", selectedFlags)
             }
             if(selectedFlags.length === 0){
-                return blacklistFlags
+                setBlacklistFlags("")
             } else {
                 selectedFlags.join(",")
                 setBlacklistFlags(`blacklistFlags=${selectedFlags}&`)
@@ -86,8 +91,8 @@ function Types(props) {
     function handleSubmit(event){
         event.preventDefault()
         console.log("handleSubmit")
-        blacklist()
-        anyOrCategories()
+        // blacklist()
+        // anyOrCategories()
         fetch(`https://v2.jokeapi.dev/joke/${categoriesInputs}?${blacklistFlags}amount=10`)
                 .then(console.log("fetch"))
                 .then(response => response.json())
@@ -153,17 +158,16 @@ function Types(props) {
                         clearFilters={clearFilters}
                     />
                     {/* copy styling from jokelibrary */}
-                <div className="col-lg-9"> 
+                <div className="container mx-auto d-flex flex-wrap col-lg-9"> 
                     <p className="display-6 m-5">Jokes by type</p>
                     <ul>
-                        <p>jokecards will render here</p>
-                        <br></br>
                         {filteredJokeList}    
-                    </ul>  
-                    <button className="btn btn-outline-dark btn-sm m-3"
+                    </ul> 
+                    {filteredJokesArr.length > 0 ? <button className="btn btn-outline-dark btn-sm m-3"
                     onClick={loadMore}
                     >Load More Jokes
-                    </button>              
+                    </button> : null} 
+                                 
                 </div>
                 </div>
             </div>
