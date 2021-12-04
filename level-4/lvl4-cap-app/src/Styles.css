@@ -51,3 +51,9 @@ html, body{
 .pointer{
     cursor: pointer;
 }
+.git-icon{
+    color:#A9A9A9
+}
+.git-icon:hover{
+    color: #6c6c6c
+}
