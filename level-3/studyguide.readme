@@ -1,0 +1,38 @@
+ReactDOM and JSX
+What is the virtual DOM?
+What is JSX?
+Use JSX to return a div with an h1 element and some text inside of it
+Given this block of code, tell me why this will give you an error and fix it: (if they want to they can run the code to troubleshoot)
+function Notification(props) {
+	return (
+		<h1>Hello, user!</h1>
+		<p>You currently have {props.number} unread messages</p>
+	)
+}
+e. Explain how changes are made in React using the virtual DOM
+Props
+What are props
+In what direction can props be passed?
+Do we mutate props?
+What does this warning below mean and would you fix it?
+Warning: Each child in a list should have a unique "key" prop
+State
+What is state?
+Create a component that receives the state object as a prop
+What do we call when we want to change state?
+What arguments does setState take?
+What does the setState callback function return?
+Components and React Forms
+When should you use a class component?
+What is the value of an input field in React?
+In regards to components, how does data flow through a react app?
+What’s the difference between a controlled and an uncontrolled component?
+Lifecycle methods
+When does the render method fire?
+Name any 3 lifecycle methods
+When does componentDidMount() get called—before or after the initial render()?
+Which lifecycle method is necessary to have?
+What happens during the lifecycle of a react component?
+What things should be called in the componentDidMount lifecycle method?
+Write code to pull data from an API [give API link], and the lifecycle method you would use it in
+Meme Generator and Name Badge are good assignments to review
