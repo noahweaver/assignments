@@ -29,8 +29,8 @@ function Library(props) {
     return (
         //not responsive ->heading and button go under the warning
         <>
-            <div className="container mx-auto my-6rem d-flex flex-wrap">
-                <div id="library-heading"className="">
+            <div className="container mx-auto my-5 d-flex flex-wrap">
+                <div className="">
                 <p className="display-6">Joke Library</p>
                 <button
                     onClick={() => {
