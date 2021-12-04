@@ -160,10 +160,10 @@ function Types(props) {
                     {/* copy styling from jokelibrary */}
                 <div className="container mx-auto d-flex flex-wrap col-lg-9"> 
                     <p className="display-6 m-5">Jokes by type</p>
-                    <ul>
+                    <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                         {filteredJokeList}    
                     </ul> 
-                    {filteredJokesArr.length > 0 ? <button className="btn btn-outline-dark btn-sm m-3"
+                    {filteredJokesArr.length > 0 ? <button className="btn btn-outline-dark btn-sm mx-auto"
                     onClick={loadMore}
                     >Load More Jokes
                     </button> : null} 
