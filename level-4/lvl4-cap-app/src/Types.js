@@ -142,10 +142,12 @@ function Types(props) {
                         joke={joke.joke}
                     />) : null
 
+    const typesClasses = filteredJokesArr.length === 0 ? "section-content h-75" : "section-content"
+
     return (
         <>
             <Nav />
-            <div className="section-content">
+            <div  className={typesClasses}>
                 <div className="d-flex">
                     <Sidebar 
                         categories={categories} 
@@ -158,7 +160,7 @@ function Types(props) {
                         clearFilters={clearFilters}
                     />
                     {/* copy styling from jokelibrary */}
-                <div className="container mx-auto d-flex flex-wrap col-lg-9"> 
+                <div className="container mx-auto d-flex flex-wrap col-lg-9 pb-5"> 
                     <p className="display-6 m-5">Jokes by type</p>
                     <ul className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                         {filteredJokeList}    

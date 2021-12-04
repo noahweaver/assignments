@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer className="footer position-absolute mt-auto w-100 py-5 bg-dark text-white-50">
+        <footer className="footer position-absolute mt-auto w-100 py-3 bg-dark text-white-50">
             <div className="container text-center d-flex flex-column">
                 <p>JokesApp</p>
                 <a href="https://github.com/noahweaver/assignments">

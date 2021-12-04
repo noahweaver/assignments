@@ -16,6 +16,15 @@ html, body{
 .h-70{
 	height: 70%!important;
 }
+.h-65{
+	height: 65%!important;
+}
+.vh-65{
+    height: 65vh;
+}
+.vh-100{
+    height: 100vh;
+}
 .my-6rem{
     margin-top: 6rem!important;
     margin-bottom: 6rem!important;
