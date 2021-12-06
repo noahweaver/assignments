@@ -1,3 +1,5 @@
+
+
 function sum(a, b){
     return a + b
 }
@@ -7,13 +9,14 @@ function subtact(a, b){
 function multiply(a, b){
     return a * b
 }
+let factor = 2
+function setFactor(newFactor){
+    factor = newFactor
+}
 
-export const sum = sum
-export const subtact = subtact
-export const multiply = multiply
-//or
-// module.exports = {
-//     sum: sum,
-//     subtact: subtact,
-//     multiply: multiply
-// }
+module.exports = {
+    sum,
+    subtact,
+    multiply,
+    setFactor
+}
