@@ -223,3 +223,31 @@
   
 //   return arr
 // }
+//or this
+
+// function dirReduc(arr){
+//   // cancel out norths and souths
+//   // cancel out easts and wests
+//   const opposite = {
+//     SOUTH: "NORTH",
+//     NORTH: "SOUTH",
+//     WEST: "EAST",
+//     EAST: "WEST"
+//   } 
+  
+//   let noChanges = false
+  
+//   while(!noChanges){
+//     console.log(arr)
+//     noChanges = true
+//     for(let i = 0; i < arr.length; i++){
+//       if(arr[i] === opposite[arr[i]]){
+//           arr.splice(i, 2)
+//           noChanges = false
+//       }
+//     }
+//   }
+  
+//   return arr
+// }
+
