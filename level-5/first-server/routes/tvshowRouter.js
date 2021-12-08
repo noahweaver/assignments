@@ -40,6 +40,23 @@ tvshowRouter.get("/:tvshowId", (req, res) => {
     res.send(foundShow)
 })
 
+tvshowRouter.delete("/:tvshowId", (req, res) => {
+    const tvshowId = req.params.tvshowId
+    const tvshowIndex = tvshows.findIndex(show => show._id === tvshowId)
+    tvshows.splice(tvshowIndex, 1)
+    res.send(`The tvshow was successfully deleted`)
+})
+
+//update
+tvshowRouter.put("/:tvshowId", (req, res) => {
+    const updatedObject = req.body
+    const tvshowId = req.params.tvshowId
+    const tvshowIndex = tvshows.findIndex(tvshow => tvshow._id === tvshowId)
+    const updatedTvshow = Object.assign(tvshows[tvshowIndex], updatedObject)
+    res.send(updatedTvshow)
+})
+
+
 
 
 module.exports = tvshowRouter
