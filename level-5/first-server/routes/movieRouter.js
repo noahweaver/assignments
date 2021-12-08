@@ -4,10 +4,10 @@ const uuid = require("uuid").v4
 
 //fake data
 const movies = [
-    {title: "Die Hard", genre:"Action", _id: uuid() },
-    {title: "The Notebook", genre:"Romance", _id: uuid() },
-    {title: "Instant Family", genre:"Feel Good", _id: uuid() },
-    {title: "Paw Patrol", genre:"Kids", _id: uuid() },
+    {title: "Die Hard", genre:"action", _id: uuid() },
+    {title: "The Notebook", genre:"romance", _id: uuid() },
+    {title: "Instant Family", genre:"feel-good", _id: uuid() },
+    {title: "Paw Patrol", genre:"kids", _id: uuid() },
     {title: "star wars", genre:"sci-fi", _id: uuid() }
 ]
 
@@ -39,6 +39,11 @@ movieRouter.get("/:movieId", (req, res) => {
     res.send(foundMovie)
    
 })
-
+//get by genre
+movieRouter.get("/search/genre", (req, res) => {
+    const genre = req.query.genre
+    const filteredMovies = movies.filter(movie => movie.genre === genre)
+    res.send(filteredMovies)
+})
 
 module.exports = movieRouter
