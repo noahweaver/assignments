@@ -1,3 +1,11 @@
+//code challenges
+
+//problem solving process
+  //1. fully understand the problem
+  //2. plan a solution (pseudo code)
+  //3. carry out plan
+  //4. review/test
+
 // 11/3/2021
 // function findLongestWord(str) {
 //     const split =  str.split(" ")
@@ -251,3 +259,20 @@
 //   return arr
 // }
 
+//12/8/2021
+//check whether the two input strings are anagrams
+const anagrams = (str1, str2) => {
+  
+  //.sort default sorts to alphabetical order
+  const string1 = str1.split("").sort().join("")
+  const string2 = str2.split("").sort().join("")
+  console.log(string1, string2)
+  
+  if (string1 === string2){
+    return true
+  } else {
+    return false
+  }
+  
+}
+console.log(anagrams("abc", "cab"))
