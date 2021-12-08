@@ -12,21 +12,12 @@ app.use(express.json())  //looks for a reqest body and turns it into 'req.body'
     //located in tvshowRouter and movieRouter
 
 
-app.use("/bond", (req, res, next) => {
-    req.body = {title: "spectre"}
-    next()
-})
-app.use("/bond", (req, res, next) => {
-    req.body = {...req.body, genre: "action"}
-    next()
-})
-app.get("/bond", (req, res, next) => {
-    res.send(req.body)
-})
+
     
 //Routes
 app.use("/movies", require("./routes/movieRouter.js"))
 app.use("/tvshows", require("./routes/tvshowRouter.js"))
+app.use("/bond", require("./routes/characterRouter.js"))
         //1. Endpoint (mount, path)
         //2. Callback Function (request, response) => {}
 
