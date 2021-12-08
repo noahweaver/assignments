@@ -1,8 +1,10 @@
 const express = require("express")
 const app = express() //server variable
+const morgan = require("morgan")
 
 //Middleware
 app.use(express.json())
+app.use(morgan('dev'))
 
 //fake data
     //bountyRouter
