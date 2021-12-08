@@ -1,12 +1,13 @@
 //First Express Server
 const express = require("express")
 const app = express () //This is the server variable
+const morgan = require("morgan")
 
 //Middleware 
     //1. path (optional: if no path listed, the middleware will fire on every request)
     //2. function
 app.use(express.json())  //looks for a reqest body and turns it into 'req.body'
-
+app.use(morgan('dev')) //logs requests to the console
 
 //Fake Data
     //located in tvshowRouter and movieRouter
