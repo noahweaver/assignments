@@ -6,7 +6,8 @@ function BountyForm(props) {
         firstName: props.firstName || "",
         lastName: props.lastName || "",
         type: props.type || "",
-        bounty: props.bounty
+        bounty: props.bounty || 0,
+        imgUrl: props.imgUrl || ""
     }
     const [inputs, setInputs] = useState(initInputs)
 
@@ -16,7 +17,8 @@ function BountyForm(props) {
     }
     function handleSubmit(e){
         e.preventDefault()
-
+        props.submit(inputs, props._id)
+        setInputs(initInputs)
     }
 
     return (
@@ -50,6 +52,13 @@ function BountyForm(props) {
                 value={inputs.type} 
                 onChange={handleChange} 
                 placeholder="Jedi or Sith"
+            />
+            <input 
+                type='text' 
+                name='imgUrl' 
+                value={inputs.imgUrl} 
+                onChange={handleChange} 
+                placeholder="Image URL"
             />
             <button>{props.btnText}</button>
         </form>

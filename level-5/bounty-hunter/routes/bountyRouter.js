@@ -10,7 +10,8 @@ const bounties = [
         living: true,
         bounty: 100000,
         type: "jedi",
-        _id: uuid()
+        _id: uuid(),
+        imgUrl: "https://img.bricklink.com/ItemImage/MN/0/sw0551.png"
     },
     {
         firstName: "Darth",
@@ -18,7 +19,8 @@ const bounties = [
         living: true,
         bounty: 10000000,
         type: "sith",
-        _id: uuid()
+        _id: uuid(),
+        imgUrl: "https://img.brickowl.com/files/image_cache/larger/lego-darth-vader-minifigure-893398-28.jpg"
     },
     {
         firstName: "Yo",
@@ -26,7 +28,8 @@ const bounties = [
         living: true,
         bounty: 0,
         type: "jedi",
-        _id: uuid()
+        _id: uuid(),
+        imgUrl: "https://m.media-amazon.com/images/I/61dENJFFD6L._AC_SX425_.jpg"
     }
 ]
 
@@ -39,7 +42,7 @@ bountyRouter.route("/")
         const newBounty = req.body
         newBounty._id = uuid()
         bounties.push(newBounty)
-        res.send(`successfully added ${newBounty.firstName} ${newBounty.lastName} to the database`)
+        res.send(newBounty)
     })
 
 bountyRouter.route("/:bountyId")
