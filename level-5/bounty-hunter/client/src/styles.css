@@ -1,0 +1,12 @@
+body, html{
+    background-color: wheat;
+}
+#root{
+    background-color: wheat;
+}
+.bg-wheat{
+    background-color: wheat;
+}
+.h-100p{
+    height: 100px;
+}

@@ -16,7 +16,7 @@ function Bounty(props) {
                     <Card.Img variant="top" src={imgUrl} />
                     <Card.Body>
                         <Card.Title>{firstName} {lastName}</Card.Title>
-                        <Card.Subtitle>{bounty}</Card.Subtitle>
+                        <Card.Subtitle>$ {bounty}</Card.Subtitle>
                         <Card.Text>{type}</Card.Text>
                         <Button 
                             variant="primary"
@@ -24,6 +24,7 @@ function Bounty(props) {
                             >Delete
                         </Button>
                         <Button
+                            className="m-3"
                             variant="primary"
                             onClick={() => setEdit(prevIsEdit => !prevIsEdit)}
                             >{props.btnText}
@@ -33,23 +34,25 @@ function Bounty(props) {
               </>
     
                 :
-                <>
+                <Card>
+                <Card.Body>
                     <BountyForm
                         firstName={firstName}
                         lastName={lastName}
                         _id={_id}
                         bounty={bounty}
+                        imgUrl={imgUrl}
                         btnText="Submit Edit"
                         submit={props.editBounty}
+                        className=""
                     /> 
-                    <button
+                    <Button
                         onClick={() => setEdit(prevIsEdit => !prevIsEdit)}
                     >Close
-                    </button>
-                </>
-    
+                    </Button>
+                </Card.Body>
+                </Card>
             }
-            
         </div>
     )
 }

@@ -9,7 +9,7 @@ const bounties = [
         lastName: "Skywalker",
         living: true,
         bounty: 100000,
-        type: "jedi",
+        type: "Jedi",
         _id: uuid(),
         imgUrl: "https://img.bricklink.com/ItemImage/MN/0/sw0551.png"
     },
@@ -18,16 +18,16 @@ const bounties = [
         lastName: "Vader",
         living: true,
         bounty: 10000000,
-        type: "sith",
+        type: "Sith",
         _id: uuid(),
         imgUrl: "https://img.brickowl.com/files/image_cache/larger/lego-darth-vader-minifigure-893398-28.jpg"
     },
     {
-        firstName: "Yo",
-        lastName: "da",
+        firstName: "Yoda",
+        lastName: "",
         living: true,
         bounty: 0,
-        type: "jedi",
+        type: "Jedi",
         _id: uuid(),
         imgUrl: "https://m.media-amazon.com/images/I/61dENJFFD6L._AC_SX425_.jpg"
     }
