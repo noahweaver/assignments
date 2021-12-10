@@ -26,7 +26,7 @@ inventoryRouter.route('/')
         })
     })
     
-//"/:itemId" routes
+//("/:itemId") routes
 inventoryRouter.route('/:itemId')
     //get one
     .get((req, res, next) => {
