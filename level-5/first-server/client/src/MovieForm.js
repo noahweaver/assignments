@@ -23,13 +23,6 @@ function MovieForm(props) {
                 onChange={handleChange} 
                 placeholder="title" 
             />
-            {/* <input 
-                type='text' 
-                name="genre" 
-                value={inputs.genre} 
-                onChange={handleChange} 
-                placeholder="genre" 
-            /> */}
             <select 
                     // onChange={handleFilter} 
                     onChange={handleChange}
