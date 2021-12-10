@@ -35,29 +35,26 @@ function App() {
             .then(res => {
                 setBounties(prevBounties => prevBounties.map(bounty => bounty._id !== bountyId ? bounty : res.data))
             })
+            .catch(err => console.log(err))
     }
     
     return (
         <div>
             {/* Initial entry form (top of screen) */}
-            <div className="bg-wheat">
                 <BountyForm 
                     btnText="Post Bounty"
                     submit={addBounty}
                     className="container bg-danger p-3 mx-auto my-3 rounded-2 d-flex flex-row justify-content-between align-items-center"
                 />
-            </div>
-            <div className="container-fluid d-flex flex-row justify-content-md-evenly " >
-                {bounties.map(bounty => 
-                <div className="bg-wheat">
+            <div className="container-fluid d-flex flex-row flex-wrap justify-content-md-evenly gap-3 w-75 py-5">
+                {bounties.map(bounty =>              
                 <Bounty 
                     {...bounty}
-                    key={bounty.firstName}
+                    key={bounty._id}
                     btnText="edit"
                     deleteBounty={deleteBounty}
                     editBounty={editBounty}
                 />
-                </div>
                 )}
             </div>
         </div>

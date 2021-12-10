@@ -5,34 +5,33 @@ import Button from 'react-bootstrap/Button'
 
 function Bounty(props) {
 
-    const {firstName, lastName, _id, bounty, imgUrl, type} = props
+    const {firstName, lastName, _id, bounty, imgUrl, type, editBounty, deleteBounty, btnText} = props
     const [isEditing, setEdit] = useState(false)
 
     return (
         <div>
             { !isEditing ?
                 <>
-                    <Card className="bg-danger text-light" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={imgUrl} />
+                    <Card className="bg-danger text-light" style={{ width: '18rem'}}>
+                    <Card.Img style={{height: '400px', width: '286px'}}variant="top" src={imgUrl} />
                     <Card.Body>
                         <Card.Title>{firstName} {lastName}</Card.Title>
                         <Card.Subtitle>$ {bounty}</Card.Subtitle>
                         <Card.Text>{type}</Card.Text>
                         <Button 
                             variant="primary"
-                            onClick={() => props.deleteBounty(_id)}
+                            onClick={() => deleteBounty(_id)}
                             >Delete
                         </Button>
                         <Button
                             className="m-3"
                             variant="primary"
                             onClick={() => setEdit(prevIsEdit => !prevIsEdit)}
-                            >{props.btnText}
+                            >{btnText}
                         </Button>
                     </Card.Body>
                 </Card>
-              </>
-    
+              </>   
                 :
                 <Card>
                 <Card.Body>
@@ -43,8 +42,7 @@ function Bounty(props) {
                         bounty={bounty}
                         imgUrl={imgUrl}
                         btnText="Submit Edit"
-                        submit={props.editBounty}
-                        
+                        submit={editBounty}
                         className=""
                     /> 
                     {/* setEdit={() => setEdit(prevIsEdit => !prevIsEdit)} prop for changing state from form */}

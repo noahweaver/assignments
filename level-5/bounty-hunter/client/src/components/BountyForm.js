@@ -17,8 +17,8 @@ function BountyForm(props) {
         const {name, value} = e.target
         setInputs(prevInputs => ({...prevInputs, [name]: value}))
     }
-    function handleSubmit(e){
-        e.preventDefault()
+    function handleSubmit(event){
+        event.preventDefault()
         props.submit(inputs, props._id)
         setInputs(initInputs)
         // props.setEdit()
