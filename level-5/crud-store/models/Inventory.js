@@ -2,11 +2,11 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 //Blueprint
-const inventorySchema = new Schema({
+const itemSchema = new Schema({
     title: {
         type: String,
         required: true
     }
 })
 
-module.exports = mongoose.model("Inventory", inventorySchema)
+module.exports = mongoose.model("Inventory", itemSchema)
