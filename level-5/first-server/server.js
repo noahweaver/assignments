@@ -36,7 +36,6 @@ app.use((err, req, res, next) => {
     return res.send({err: err.message})
 })
 
-
 //tell the server to always listen
     //1: port  2. Callback Function
 app.listen(9000, () => {
