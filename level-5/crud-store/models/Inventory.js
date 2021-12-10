@@ -7,6 +7,10 @@ const itemSchema = new Schema({
         type: String,
         required: true
     },
+    brand: {
+        type: String,
+        required: true
+    },
     price: {
         type: Number,
         required: true
@@ -19,12 +23,12 @@ const itemSchema = new Schema({
     },
     size: {
         type: String,
-        enum: ['micro preemie', 'preemie', 'NB', '0-3 mos', '3-6 mos', '6-9 mos', '9-12 mos', '12 mos', '12-18 mos', '18 mos', '18-24 mos', '24 mos', '2T', '3T', '4T', '5T', 'YXS', 'YS', 'YM', 'YL', 'YXL', 'XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL']
+        // enum: ['micro preemie', 'preemie', 'NB', '0-3 mos', '3-6 mos', '6-9 mos', '9-12 mos', '12 mos', '12-18 mos', '18 mos', '18-24 mos', '24 mos', '2T', '3T', '4T', '5T', 'YXS', 'YS', 'YM', 'YL', 'YXL', 'XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', 'one size fits all', 'one size fits most']
     },
     measurements: {
         type: String
     }
-    
+    //how to say optional but IF using this it must be one of the enum listed
 
 })
 
