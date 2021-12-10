@@ -3,15 +3,6 @@ const movieRouter = express.Router()
 const Movie = require('../models/movie')
 // const uuid = require("uuid").v4 
 
-//Fake Data
-// const movies = [
-//     {title: "Die Hard", genre:"action", _id: uuid() },
-//     {title: "The Notebook", genre:"romance", _id: uuid() },
-//     {title: "Instant Family", genre:"feel-good", _id: uuid() },
-//     {title: "Paw Patrol", genre:"kids", _id: uuid() },
-//     {title: "star wars", genre:"sci-fi", _id: uuid() }
-// ]
-
 //Routes
 movieRouter.route("/")
     .get((req, res, next) => {
