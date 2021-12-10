@@ -21,10 +21,13 @@ function BountyForm(props) {
         event.preventDefault()
         props.submit(inputs, props._id)
         setInputs(initInputs)
+        if(props._id){
+            props.toggleEdit(prevEdit => !prevEdit)
+        }
     }
 
     return (
-        <Form className={props.className} onSubmit={handleSubmit}>
+        <Form  className={props.className} onSubmit={handleSubmit}>
                 <Form.Group controlId="firstName">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control 

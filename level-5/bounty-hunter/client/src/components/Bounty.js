@@ -58,6 +58,7 @@ function Bounty(props) {
                         imgUrl={imgUrl}
                         btnText="Submit Edit"
                         submit={props.editBounty}
+                        toggleEdit={setEdit}
                     /> 
                     <Button
                         onClick={() => setEdit(prevIsEdit => !prevIsEdit)}
