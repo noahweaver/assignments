@@ -44,8 +44,10 @@ function Bounty(props) {
                         imgUrl={imgUrl}
                         btnText="Submit Edit"
                         submit={props.editBounty}
+                        
                         className=""
                     /> 
+                    {/* setEdit={() => setEdit(prevIsEdit => !prevIsEdit)} prop for changing state from form */}
                     <Button
                         onClick={() => setEdit(prevIsEdit => !prevIsEdit)}
                     >Close

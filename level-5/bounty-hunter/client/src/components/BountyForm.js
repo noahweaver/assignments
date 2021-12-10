@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -22,6 +21,7 @@ function BountyForm(props) {
         e.preventDefault()
         props.submit(inputs, props._id)
         setInputs(initInputs)
+        // props.setEdit()
     }
 
     return (
