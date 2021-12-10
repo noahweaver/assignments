@@ -23,13 +23,24 @@ function MovieForm(props) {
                 onChange={handleChange} 
                 placeholder="title" 
             />
-            <input 
+            {/* <input 
                 type='text' 
                 name="genre" 
                 value={inputs.genre} 
                 onChange={handleChange} 
                 placeholder="genre" 
-            />
+            /> */}
+            <select 
+                    // onChange={handleFilter} 
+                    onChange={handleChange}
+                    className="filter-form"
+                    name="genre"
+                    >
+                    <option>Select</option>
+                    <option value="action">Action</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="horror">Horror</option>
+                </select>
             <button>{props.btnText}</button>
         </form>
     )

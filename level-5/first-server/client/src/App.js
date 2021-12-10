@@ -7,6 +7,13 @@ import MovieForm from './MovieForm'
 function App() {
 
     const [movies, setMovies] = useState([])
+    // const [errorStatus, setErrorStatus] = useState({})
+        //implement error in a modal
+            //save error in state with properties
+            //create error component(modal)
+            //render with close button that changes error state to false
+            //needs isError boolean
+            //render if true
 
     useEffect(() => {
         getMovies()
@@ -15,7 +22,7 @@ function App() {
     function getMovies(){
         axios.get("/movies")
             .then(res => setMovies(res.data))
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response.data.err))
     }
 
     function addMovie(newMovie){
@@ -39,6 +46,16 @@ function App() {
             })
             .catch(err => console.log(err))
     }
+    function handleFilter(e){
+        if(e.target.value === "all"){
+            getMovies()
+        }else{
+           axios.get(`/movies/search/genre?genre=${e.target.value}`)
+            .then(res => setMovies(res.data))
+            .catch(err => console.log(err)) 
+        }
+        
+    }
 
     return (
         <div>
@@ -47,6 +64,18 @@ function App() {
                     submit={addMovie}
                     btnText="Add Movie"
                     />
+
+                <h4>Filter by Genre</h4>
+                <select 
+                    onChange={handleFilter} 
+                    className="filter-form"
+                    >
+                    <option value="all">All Movies</option>
+                    <option value="action">Action</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="horror">Horror</option>
+                </select>
+
                 {movies.map(movie => 
                     <Movie 
                         {...movie} 
