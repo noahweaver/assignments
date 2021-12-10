@@ -10,9 +10,6 @@ const mongoose = require("mongoose")
 app.use(express.json())  //looks for a reqest body and turns it into 'req.body'
 app.use(morgan('dev')) //logs requests to the console
 
-//Fake Data
-    //located in tvshowRouter and movieRouter
-
 //Connect to DB
 mongoose.connect('mongodb://localhost:27017/firstserverdb', 
     () => console.log("Connected to the Database")
