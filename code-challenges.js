@@ -261,18 +261,35 @@
 
 //12/8/2021
 //check whether the two input strings are anagrams
-const anagrams = (str1, str2) => {
+// const anagrams = (str1, str2) => {
   
-  //.sort default sorts to alphabetical order
-  const string1 = str1.split("").sort().join("")
-  const string2 = str2.split("").sort().join("")
-  console.log(string1, string2)
+//   //.sort default sorts to alphabetical order
+//   const string1 = str1.split("").sort().join("")
+//   const string2 = str2.split("").sort().join("")
+//   console.log(string1, string2)
   
-  if (string1 === string2){
-    return true
-  } else {
-    return false
-  }
+//   if (string1 === string2){
+//     return true
+//   } else {
+//     return false
+//   }
   
-}
-console.log(anagrams("abc", "cab"))
+// }
+// console.log(anagrams("abc", "cab"))
+
+//12/13/2021
+// Given two integer arrays where the second array is a shuffled duplicate of the first array with one element missing, find the missing element.
+
+// Please note, there may be duplicates in the arrays, so checking if a numerical value exists in one and not the other is not a valid solution.
+
+//second array alwasy longer
+// function findMissing(arr1, arr2){
+//   arr1.sort()
+//   arr2.sort()
+
+//   for(let i = 0; i < arr1.length; i++){
+//     if(arr1[i] !== arr2[i]){
+//       return arr1[i]
+//     }
+//   }
+// }
